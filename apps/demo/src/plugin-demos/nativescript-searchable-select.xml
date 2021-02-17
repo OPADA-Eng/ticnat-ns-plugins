@@ -1,0 +1,16 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:SD="@ticnat/nativescript-searchable-select" navigatingTo="navigatingTo" class="page">
+  <Page.actionBar>
+    <ActionBar title="nativescript-searchable-select" icon="" class="action-bar">
+    </ActionBar>
+  </Page.actionBar>
+  <StackLayout class="p-20">
+    <ScrollView class="h-full">
+      <StackLayout>
+        <!-- <Button text="Test nativescript-searchable-select" tap="{{ testIt }}" class="btn btn-primary"/> -->
+        <SD:SearchableSelect selectedIndex="2" itemSelected="{{ onItemSelected }}" hint="اختر رقماً" searchHint="ابحث" searchHeaderText="ابحث في العناصر التالية" isSearchable="true" items="{{ items }}" />
+
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
+</Page>
