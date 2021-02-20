@@ -3,8 +3,8 @@ import { TNSFontIcon, fonticon } from 'nativescript-fonticon';
 let resources = Application.getResources();
 TNSFontIcon.debug = false;
 TNSFontIcon.paths = {
-    'fa': 'font-awesome.css',
-    'ion': 'ionicons.css'
+	fa: 'font-awesome.css',
+	ion: 'ionicons.css',
 };
 TNSFontIcon.loadCss();
 resources['fonticon'] = fonticon;
