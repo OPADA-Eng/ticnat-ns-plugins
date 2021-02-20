@@ -82,3 +82,15 @@ FilterSelect.disabled {
 FilterSelect.disabled {
 	background-color: #ccc;
 }
+.modal-dialog-container {
+	border-radius: 25;
+	padding: 15;
+}
+.modal-dialog-box {
+	width: 300;
+	height: 400;
+	background-color: #fff;
+}
+FilterSelect {
+	text-align: center;
+}
