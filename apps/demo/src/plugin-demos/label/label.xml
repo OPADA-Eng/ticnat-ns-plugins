@@ -1,0 +1,22 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:SS="@ticnat/nativescript-searchable-select" loaded="pageLoaded" class="page">
+  <ScrollView>
+    <StackLayout class="p-20">
+      <Label class="h2" text="label" textWrap="true" />
+      <StackLayout class="hr-light m-10" />
+      <SS:SearchableSelect render="label" selected="{{ selected }}" items="{{ countries }}" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+      <Label class="h2" text="dropdown render" textWrap="true" />
+      <StackLayout class="hr-light m-10" />
+      <SS:SearchableSelect class="drop-down" col="0" render="drop" items="{{ countries }}" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+      <Label class="h2" text="disabled" textWrap="true" />
+      <StackLayout class="hr-light m-10" />
+      <SS:SearchableSelect class="drop-down disabled" col="0" disabled="true" render="drop" items="{{ countries }}" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+      <Label class="h2" text="refresh function" textWrap="true" />
+      <StackLayout class="hr-light m-10" />
+      <SS:SearchableSelect id="refreshLabel" class="drop-down" col="0" render="label" items="{{ countries }}" hint="{{ hint }}" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+      <Label class="h2" text="icon select" textWrap="true" />
+      <StackLayout class="hr-light m-10" />
+      <SS:SearchableSelect class="drop-down" col="0" render="label" items="{{ countries }}" hint="{{'fa-list-ul' | fonticon}}" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+    </StackLayout>
+  </ScrollView>
+</Page>

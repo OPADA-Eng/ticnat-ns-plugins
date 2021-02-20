@@ -4,9 +4,10 @@
 	"license": "SEE LICENSE IN <your-license-filename>",
 	"repository": "<fill-your-repository-here>",
 	"dependencies": {
-		"nativescript-theme-core": "file:../../node_modules/nativescript-theme-core",
 		"@nativescript/core": "file:../../node_modules/@nativescript/core",
-		"@ticnat/nativescript-searchable-select": "file:../../packages/nativescript-searchable-select"
+		"@ticnat/nativescript-searchable-select": "file:../../packages/nativescript-searchable-select",
+		"nativescript-fonticon": "^2.0.2",
+		"nativescript-theme-core": "file:../../node_modules/nativescript-theme-core"
 	},
 	"devDependencies": {
 		"@nativescript/android": "7.0.1",
