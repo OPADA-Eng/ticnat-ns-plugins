@@ -28,6 +28,9 @@
 		},
 		"nativescript-woosim-printer": {
 			"tags": []
+		},
+		"nativescript-intermec-printer": {
+			"tags": []
 		}
 	},
 	"workspaceLayout": {

@@ -73,7 +73,7 @@
 					"builder": "@nrwl/workspace:run-commands",
 					"outputs": ["dist/packages"],
 					"options": {
-						"commands": ["nx run nativescript-searchable-select:build.all", "nx run nativescript-woosim-printer:build.all"],
+						"commands": ["nx run nativescript-searchable-select:build.all", "nx run nativescript-woosim-printer:build.all", "nx run nativescript-intermec-printer:build.all"],
 						"parallel": false
 					}
 				},
@@ -168,6 +168,49 @@
 					"outputs": ["dist/packages"],
 					"options": {
 						"commands": ["nx g @nativescript/plugin-tools:focus-packages nativescript-woosim-printer"],
+						"parallel": false
+					}
+				}
+			}
+		},
+		"nativescript-intermec-printer": {
+			"root": "packages/nativescript-intermec-printer",
+			"sourceRoot": "packages/nativescript-intermec-printer",
+			"projectType": "library",
+			"schematics": {},
+			"architect": {
+				"build": {
+					"builder": "@nrwl/node:package",
+					"options": {
+						"outputPath": "dist/packages/nativescript-intermec-printer",
+						"tsConfig": "packages/nativescript-intermec-printer/tsconfig.json",
+						"packageJson": "packages/nativescript-intermec-printer/package.json",
+						"main": "packages/nativescript-intermec-printer/index.ts",
+						"assets": [
+							"packages/nativescript-intermec-printer/*.md",
+							"packages/nativescript-intermec-printer/index.d.ts",
+							"LICENSE",
+							{
+								"glob": "**/*",
+								"input": "packages/nativescript-intermec-printer/platforms/",
+								"output": "./platforms/"
+							}
+						]
+					}
+				},
+				"build.all": {
+					"builder": "@nrwl/workspace:run-commands",
+					"outputs": ["dist/packages"],
+					"options": {
+						"commands": ["nx run nativescript-intermec-printer:build", "node tools/scripts/build-finish.ts nativescript-intermec-printer"],
+						"parallel": false
+					}
+				},
+				"focus": {
+					"builder": "@nrwl/workspace:run-commands",
+					"outputs": ["dist/packages"],
+					"options": {
+						"commands": ["nx g @nativescript/plugin-tools:focus-packages nativescript-intermec-printer"],
 						"parallel": false
 					}
 				}

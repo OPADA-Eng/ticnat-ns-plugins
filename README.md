@@ -5,6 +5,7 @@ npm run setup
 npm start
 ```
 
+- @ticnat/nativescript-intermec-printer
 - @ticnat/nativescript-searchable-select
 - @ticnat/nativescript-woosim-printer
 

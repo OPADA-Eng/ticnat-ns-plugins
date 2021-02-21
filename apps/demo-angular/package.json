@@ -16,7 +16,8 @@
 		"rxjs": "file:../../node_modules/rxjs",
 		"zone.js": "file:../../node_modules/zone.js",
 		"@ticnat/nativescript-searchable-select": "file:../../dist/packages/nativescript-searchable-select",
-		"@ticnat/nativescript-woosim-printer": "file:../../dist/packages/nativescript-woosim-printer"
+		"@ticnat/nativescript-woosim-printer": "file:../../dist/packages/nativescript-woosim-printer",
+		"@ticnat/nativescript-intermec-printer": "file:../../dist/packages/nativescript-intermec-printer"
 	},
 	"devDependencies": {
 		"@angular/compiler-cli": "file:../../node_modules/@angular/compiler-cli",

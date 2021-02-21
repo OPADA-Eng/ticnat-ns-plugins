@@ -1,6 +1,6 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
   <Page.actionBar>
-    <ActionBar title="nativescript-woosim-printer" icon="" class="action-bar">
+    <ActionBar title="nativescript-intermec-printer" icon="" class="action-bar">
     </ActionBar>
   </Page.actionBar>
   <StackLayout class="p-20">
@@ -19,10 +19,9 @@
           <Label text="{{ printerState }}" textWrap="true" />
 
           <Label text="This Content Will be printed with screenshot button" textWrap="true" />
-          <StackLayout id="printArea" backgroundColor="#ffffff">
+          <StackLayout backgroundColor="#ffffff">
             <Label text="Hello world ... :)" textWrap="true" />
             <Label text="This Screenshot is shit" textWrap="true" />
-            <Label text="هذه سكرين شوت اوف شيت" textWrap="true" />
           </StackLayout>
           <Button text="Print Screen" tap="{{ printImg }}" />
         </StackLayout>
@@ -36,8 +35,6 @@
         <StackLayout id="screenShots">
 
         </StackLayout>
-
-
       </StackLayout>
     </ScrollView>
   </StackLayout>

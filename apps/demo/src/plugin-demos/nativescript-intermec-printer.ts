@@ -1,25 +1,22 @@
-import { EventData, Page, View, ImageSource, Image, knownFolders } from '@nativescript/core';
-import { DemoSharedWoosimPrinter } from '@demo/shared';
-import { WoosimPrinter } from '@ticnat/nativescript-woosim-printer';
+import { EventData, ImageSource, Page, View, Image, knownFolders } from '@nativescript/core';
+import { DemoSharedIntermecPrinter } from '@demo/shared';
+import { IntermecPrinter } from '@ticnat/nativescript-intermec-printer';
 
 export function navigatingTo(args: EventData) {
 	const page = <Page>args.object;
-	page.bindingContext = new WoosimPrinterDemoModel(page);
+	page.bindingContext = new IntermecPrinterDemoModel(page);
 }
 
-export class WoosimPrinterDemoModel extends DemoSharedWoosimPrinter {
-	public printer: WoosimPrinter;
-	private _printerAddress = '00:15:0E:E8:A0:D2';
+export class IntermecPrinterDemoModel extends DemoSharedIntermecPrinter {
+	public printer: IntermecPrinter;
+	private _printerAddress = '88:6B:0F:E5:24:16';
 	public textToPrint = 'قهوة موكا      2                                  7.5';
 	public printerState = '';
 	public connectVisible = true;
 	public disconnectVisible = false;
 	constructor(public page) {
 		super();
-		this.printer = new WoosimPrinter();
-		// console.dir(this.printer);
-		// console.dir(this.printer.ptrConn.getState());
-		console.log(this.printer.isConnected());
+		this.printer = new IntermecPrinter();
 	}
 	public get printerAddress() {
 		return this._printerAddress;
@@ -48,8 +45,8 @@ export class WoosimPrinterDemoModel extends DemoSharedWoosimPrinter {
 		bmp.compress(android.graphics.Bitmap.CompressFormat.PNG, 1, stream);
 		let compressedBmp = null;
 		let byteArray = stream.toByteArray();
-		console.log('byteArray: ', byteArray.length);
 		compressedBmp = android.graphics.BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length, options);
+		console.log('byteArray: ', byteArray.length);
 		if (compressedBmp != null) {
 			console.log('bitmap after compress size', compressedBmp.getByteCount() / 1000000, ' MB');
 			return compressedBmp;
@@ -66,11 +63,9 @@ export class WoosimPrinterDemoModel extends DemoSharedWoosimPrinter {
 					let b = view.android.getDrawingCache();
 					var returnedBitmap = null;
 					if (b != null) {
-						// console.log(b);
 						returnedBitmap = android.graphics.Bitmap.createBitmap(b);
 						returnedBitmap = this.decreaseBmpSize(returnedBitmap);
 					} else {
-						// console.log("Graping scroll view ")
 						let scrollView = this.page.getViewById('printArea');
 						let hieght = scrollView.android.getChildAt(0).getHeight();
 						let width = scrollView.android.getChildAt(0).getWidth();
@@ -149,7 +144,7 @@ export class WoosimPrinterDemoModel extends DemoSharedWoosimPrinter {
 	connect() {
 		try {
 			this.printer.connect(this.printerAddress);
-			this.set('printerState', this.printer.ptrConn.getState());
+			// this.set('printerState', this.printer.ptrConn.getState());
 			this.set('connectVisible', false);
 			this.set('disconnectVisible', true);
 		} catch (e) {
@@ -173,7 +168,7 @@ export class WoosimPrinterDemoModel extends DemoSharedWoosimPrinter {
 				`
           Sales Receipt
 
-MERCHANT NAME                   woosim coffee
+MERCHANT NAME                   intermec coffee
 MASTER                          Gil-dong Hong
 ADDRESS                         #501, Daerung Techno
                                 town 3rd 448,Gasan-dong 

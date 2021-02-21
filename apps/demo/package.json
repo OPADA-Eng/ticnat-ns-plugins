@@ -8,7 +8,8 @@
 		"@ticnat/nativescript-searchable-select": "file:../../packages/nativescript-searchable-select",
 		"nativescript-fonticon": "^2.0.2",
 		"nativescript-theme-core": "file:../../node_modules/nativescript-theme-core",
-		"@ticnat/nativescript-woosim-printer": "file:../../packages/nativescript-woosim-printer"
+		"@ticnat/nativescript-woosim-printer": "file:../../packages/nativescript-woosim-printer",
+		"@ticnat/nativescript-intermec-printer": "file:../../packages/nativescript-intermec-printer"
 	},
 	"devDependencies": {
 		"@nativescript/android": "7.0.1",

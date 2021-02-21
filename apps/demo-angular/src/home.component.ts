@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 	demos = [
 		{
+			name: 'nativescript-intermec-printer',
+		},
+		{
 			name: 'nativescript-searchable-select',
 		},
 		{

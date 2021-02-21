@@ -77,6 +77,13 @@ module.exports = {
 					description: '@ticnat/nativescript-woosim-printer: Build',
 				},
 			},
+			// @ticnat/nativescript-intermec-printer
+			'nativescript-intermec-printer': {
+				build: {
+					script: 'nx run nativescript-intermec-printer:build.all',
+					description: '@ticnat/nativescript-intermec-printer: Build',
+				},
+			},
 			'build-all': {
 				script: 'nx run all:build',
 				description: 'Build all packages',
@@ -94,6 +101,10 @@ module.exports = {
 			'nativescript-woosim-printer': {
 				script: 'nx run nativescript-woosim-printer:focus',
 				description: 'Focus on @ticnat/nativescript-woosim-printer',
+			},
+			'nativescript-intermec-printer': {
+				script: 'nx run nativescript-intermec-printer:focus',
+				description: 'Focus on @ticnat/nativescript-intermec-printer',
 			},
 			reset: {
 				script: 'nx run all:focus',
