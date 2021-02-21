@@ -6,6 +6,7 @@ npm start
 ```
 
 - @ticnat/nativescript-searchable-select
+- @ticnat/nativescript-woosim-printer
 
 # How to use?
 

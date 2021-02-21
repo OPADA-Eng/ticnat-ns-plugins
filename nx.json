@@ -25,6 +25,9 @@
 		},
 		"nativescript-searchable-select": {
 			"tags": []
+		},
+		"nativescript-woosim-printer": {
+			"tags": []
 		}
 	},
 	"workspaceLayout": {

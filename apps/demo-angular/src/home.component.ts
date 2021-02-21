@@ -9,5 +9,8 @@ export class HomeComponent {
 		{
 			name: 'nativescript-searchable-select',
 		},
+		{
+			name: 'nativescript-woosim-printer',
+		},
 	];
 }

@@ -15,7 +15,8 @@
 		"reflect-metadata": "file:../../node_modules/reflect-metadata",
 		"rxjs": "file:../../node_modules/rxjs",
 		"zone.js": "file:../../node_modules/zone.js",
-		"@ticnat/nativescript-searchable-select": "file:../../dist/packages/nativescript-searchable-select"
+		"@ticnat/nativescript-searchable-select": "file:../../dist/packages/nativescript-searchable-select",
+		"@ticnat/nativescript-woosim-printer": "file:../../dist/packages/nativescript-woosim-printer"
 	},
 	"devDependencies": {
 		"@angular/compiler-cli": "file:../../node_modules/@angular/compiler-cli",

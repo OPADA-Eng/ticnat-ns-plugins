@@ -70,6 +70,13 @@ module.exports = {
 					description: '@ticnat/nativescript-searchable-select: Build',
 				},
 			},
+			// @ticnat/nativescript-woosim-printer
+			'nativescript-woosim-printer': {
+				build: {
+					script: 'nx run nativescript-woosim-printer:build.all',
+					description: '@ticnat/nativescript-woosim-printer: Build',
+				},
+			},
 			'build-all': {
 				script: 'nx run all:build',
 				description: 'Build all packages',
@@ -83,6 +90,10 @@ module.exports = {
 			'nativescript-searchable-select': {
 				script: 'nx run nativescript-searchable-select:focus',
 				description: 'Focus on @ticnat/nativescript-searchable-select',
+			},
+			'nativescript-woosim-printer': {
+				script: 'nx run nativescript-woosim-printer:focus',
+				description: 'Focus on @ticnat/nativescript-woosim-printer',
 			},
 			reset: {
 				script: 'nx run all:focus',

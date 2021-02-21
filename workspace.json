@@ -73,7 +73,7 @@
 					"builder": "@nrwl/workspace:run-commands",
 					"outputs": ["dist/packages"],
 					"options": {
-						"commands": ["nx run nativescript-searchable-select:build.all"],
+						"commands": ["nx run nativescript-searchable-select:build.all", "nx run nativescript-woosim-printer:build.all"],
 						"parallel": false
 					}
 				},
@@ -125,6 +125,49 @@
 					"outputs": ["dist/packages"],
 					"options": {
 						"commands": ["nx g @nativescript/plugin-tools:focus-packages nativescript-searchable-select"],
+						"parallel": false
+					}
+				}
+			}
+		},
+		"nativescript-woosim-printer": {
+			"root": "packages/nativescript-woosim-printer",
+			"sourceRoot": "packages/nativescript-woosim-printer",
+			"projectType": "library",
+			"schematics": {},
+			"architect": {
+				"build": {
+					"builder": "@nrwl/node:package",
+					"options": {
+						"outputPath": "dist/packages/nativescript-woosim-printer",
+						"tsConfig": "packages/nativescript-woosim-printer/tsconfig.json",
+						"packageJson": "packages/nativescript-woosim-printer/package.json",
+						"main": "packages/nativescript-woosim-printer/index.ts",
+						"assets": [
+							"packages/nativescript-woosim-printer/*.md",
+							"packages/nativescript-woosim-printer/index.d.ts",
+							"LICENSE",
+							{
+								"glob": "**/*",
+								"input": "packages/nativescript-woosim-printer/platforms/",
+								"output": "./platforms/"
+							}
+						]
+					}
+				},
+				"build.all": {
+					"builder": "@nrwl/workspace:run-commands",
+					"outputs": ["dist/packages"],
+					"options": {
+						"commands": ["nx run nativescript-woosim-printer:build", "node tools/scripts/build-finish.ts nativescript-woosim-printer"],
+						"parallel": false
+					}
+				},
+				"focus": {
+					"builder": "@nrwl/workspace:run-commands",
+					"outputs": ["dist/packages"],
+					"options": {
+						"commands": ["nx g @nativescript/plugin-tools:focus-packages nativescript-woosim-printer"],
 						"parallel": false
 					}
 				}
