@@ -11,7 +11,7 @@
 		"config": "nx g @nativescript/plugin-tools:config",
 		"publish-packages": "nx g @nativescript/plugin-tools:publish"
 	},
-	"private": true,
+	"private": false,
 	"devDependencies": {
 		"@angular/animations": "~10.1.0",
 		"@angular/common": "~10.1.0",
