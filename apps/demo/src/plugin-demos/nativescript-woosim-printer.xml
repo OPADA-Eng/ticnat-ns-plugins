@@ -1,14 +1,43 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
-    <Page.actionBar>
-        <ActionBar title="nativescript-woosim-printer" icon="" class="action-bar">
-        </ActionBar>
-    </Page.actionBar>
-    <StackLayout class="p-20">
-        <ScrollView class="h-full">
-          <StackLayout>
-            <Button text="Test nativescript-woosim-printer" tap="{{ testIt }}" class="btn btn-primary"/>
+  <Page.actionBar>
+    <ActionBar title="nativescript-woosim-printer" icon="" class="action-bar">
+    </ActionBar>
+  </Page.actionBar>
+  <StackLayout class="p-20">
+    <ScrollView class="h-full">
+      <StackLayout>
+        <GridLayout rows="auto" columns="*,auto">
+          <TextField col="0" hint="Add Printer Address Here" text="{{ printerAddress }}" />
+          <Button col="1" text="Connect" visibility="{{ connectVisible ? 'visible' : 'collapse' }}" tap="{{ connect }}" />
+          <Button col="1" text="Disconnect" visibility="{{ disconnectVisible ? 'visible' : 'collapse' }}" tap="{{ disconnect }}" />
 
+        </GridLayout>
+
+        <StackLayout visibility="{{ disconnectVisible ? 'visible' : 'collapse' }}" marginBottom="10">
+          <Label text="connection state:" textWrap="true" />
+
+          <Label text="{{ printerState }}" textWrap="true" />
+
+          <Label text="This Content Will be printed with screenshot button" textWrap="true" />
+          <StackLayout id="printArea" backgroundColor="#ffffff">
+            <Label text="Hello world ... :)" textWrap="true" />
+            <Label text="This Screenshot is shit" textWrap="true" />
           </StackLayout>
-        </ScrollView>
-    </StackLayout>
+          <Button text="Print Screen" tap="{{ printImg }}" />
+        </StackLayout>
+
+        <StackLayout visibility="{{ disconnectVisible ? 'visible' : 'collapse' }}">
+          <TextField col="0" hint="Add text here to print..." text="{{ textToPrint }}" />
+          <Button text="Print" tap="{{ print }}" />
+        </StackLayout>
+        <Button text="Print Text File" visibility="{{ disconnectVisible ? 'visible' : 'collapse' }}" tap="{{ printTextFile }}" />
+
+        <StackLayout id="screenShots">
+
+        </StackLayout>
+
+
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
 </Page>
