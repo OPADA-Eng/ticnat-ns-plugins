@@ -73,7 +73,7 @@
 					"builder": "@nrwl/workspace:run-commands",
 					"outputs": ["dist/packages"],
 					"options": {
-						"commands": ["nx run nativescript-searchable-select:build.all", "nx run nativescript-woosim-printer:build.all", "nx run nativescript-intermec-printer:build.all"],
+						"commands": ["nx run nativescript-searchable-select:build.all", "nx run nativescript-woosim-printer:build.all", "nx run nativescript-intermec-printer:build.all", "nx run nativescript-image-cache:build.all"],
 						"parallel": false
 					}
 				},
@@ -211,6 +211,49 @@
 					"outputs": ["dist/packages"],
 					"options": {
 						"commands": ["nx g @nativescript/plugin-tools:focus-packages nativescript-intermec-printer"],
+						"parallel": false
+					}
+				}
+			}
+		},
+		"nativescript-image-cache": {
+			"root": "packages/nativescript-image-cache",
+			"sourceRoot": "packages/nativescript-image-cache",
+			"projectType": "library",
+			"schematics": {},
+			"architect": {
+				"build": {
+					"builder": "@nrwl/node:package",
+					"options": {
+						"outputPath": "dist/packages/nativescript-image-cache",
+						"tsConfig": "packages/nativescript-image-cache/tsconfig.json",
+						"packageJson": "packages/nativescript-image-cache/package.json",
+						"main": "packages/nativescript-image-cache/index.ts",
+						"assets": [
+							"packages/nativescript-image-cache/*.md",
+							"packages/nativescript-image-cache/index.d.ts",
+							"LICENSE",
+							{
+								"glob": "**/*",
+								"input": "packages/nativescript-image-cache/platforms/",
+								"output": "./platforms/"
+							}
+						]
+					}
+				},
+				"build.all": {
+					"builder": "@nrwl/workspace:run-commands",
+					"outputs": ["dist/packages"],
+					"options": {
+						"commands": ["nx run nativescript-image-cache:build", "node tools/scripts/build-finish.ts nativescript-image-cache"],
+						"parallel": false
+					}
+				},
+				"focus": {
+					"builder": "@nrwl/workspace:run-commands",
+					"outputs": ["dist/packages"],
+					"options": {
+						"commands": ["nx g @nativescript/plugin-tools:focus-packages nativescript-image-cache"],
 						"parallel": false
 					}
 				}

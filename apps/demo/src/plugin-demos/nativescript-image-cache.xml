@@ -1,0 +1,14 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:IC="@ticnat/nativescript-image-cache" navigatingTo="navigatingTo" class="page">
+  <Page.actionBar>
+    <ActionBar title="nativescript-image-cache" icon="" class="action-bar">
+    </ActionBar>
+  </Page.actionBar>
+  <StackLayout class="p-20">
+    <ScrollView class="h-full">
+      <StackLayout>
+        <IC:ImageCache stretch="aspectFill" height="200" width="100%" src="https://funci.org/wp-content/uploads/2009/02/Coran_cerrado.jpg"></IC:ImageCache>
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
+</Page>

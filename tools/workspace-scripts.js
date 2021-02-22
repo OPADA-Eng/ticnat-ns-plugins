@@ -84,6 +84,13 @@ module.exports = {
 					description: '@ticnat/nativescript-intermec-printer: Build',
 				},
 			},
+			// @ticnat/nativescript-image-cache
+			'nativescript-image-cache': {
+				build: {
+					script: 'nx run nativescript-image-cache:build.all',
+					description: '@ticnat/nativescript-image-cache: Build',
+				},
+			},
 			'build-all': {
 				script: 'nx run all:build',
 				description: 'Build all packages',
@@ -105,6 +112,10 @@ module.exports = {
 			'nativescript-intermec-printer': {
 				script: 'nx run nativescript-intermec-printer:focus',
 				description: 'Focus on @ticnat/nativescript-intermec-printer',
+			},
+			'nativescript-image-cache': {
+				script: 'nx run nativescript-image-cache:focus',
+				description: 'Focus on @ticnat/nativescript-image-cache',
 			},
 			reset: {
 				script: 'nx run all:focus',

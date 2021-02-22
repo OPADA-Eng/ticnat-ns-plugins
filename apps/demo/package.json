@@ -9,7 +9,8 @@
 		"nativescript-fonticon": "^2.0.2",
 		"nativescript-theme-core": "file:../../node_modules/nativescript-theme-core",
 		"@ticnat/nativescript-woosim-printer": "file:../../packages/nativescript-woosim-printer",
-		"@ticnat/nativescript-intermec-printer": "file:../../packages/nativescript-intermec-printer"
+		"@ticnat/nativescript-intermec-printer": "file:../../packages/nativescript-intermec-printer",
+		"@ticnat/nativescript-image-cache": "file:../../packages/nativescript-image-cache"
 	},
 	"devDependencies": {
 		"@nativescript/android": "7.0.1",

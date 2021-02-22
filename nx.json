@@ -31,6 +31,9 @@
 		},
 		"nativescript-intermec-printer": {
 			"tags": []
+		},
+		"nativescript-image-cache": {
+			"tags": []
 		}
 	},
 	"workspaceLayout": {
