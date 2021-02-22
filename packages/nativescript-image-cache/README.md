@@ -10,7 +10,7 @@ Released under the MIT License, anybody can freely include this in any type of p
 
     tns plugin add @ticnat/nativescript-image-cache
 
-\*\* Tested on NativeScript 7.+ on VanillaJS, if any problems while running on previous versions, please place an issue.
+** Tested on NativeScript 7.+ on VanillaJS, if any problems while running on previous versions, please place an issue.**
 
 ## Usage in Vue
 
