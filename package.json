@@ -45,5 +45,9 @@
 		"**/*": [
 			"nx format:write --files"
 		]
+	},
+	"dependencies": {
+		"@ticnat/nativescript-image-cache": "^1.0.1",
+		"@ticnat/nativescript-searchable-select": "^1.0.3"
 	}
 }
