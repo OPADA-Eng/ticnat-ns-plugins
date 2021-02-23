@@ -551,7 +551,7 @@ export class SearchableSelectCommon extends GridLayout {
 		listView.className = 'filter-select-list';
 		containerStack.addChild(stackLayout);
 		this.modalPage.content = containerStack;
-		this.modalPage.backgroundColor = new Color(0.5, 0, 0, 0);
+		// this.modalPage.backgroundColor = new Color(0.5, 0, 0, 0);
 		this.modalPage.on('loaded', (args) => {
 			let page = <StackLayout>args.object;
 			let myFilterSelectSearchbar = <SearchBar>page.getViewById('filter-select-search-bar');
