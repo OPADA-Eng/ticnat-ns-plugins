@@ -122,7 +122,7 @@ see [styles.css](https://github.com/OPADA-Eng/ticnat-ns-plugins/blob/master/apps
 
 ### License
 
-This plugin is build and maintained on this [plugin] (https://github.com/moayadnajd/nativescript-filter-select) and many thank for @moayadnajd
+This plugin is build and maintained on this [plugin](https://github.com/moayadnajd/nativescript-filter-select) and many thank for @moayadnajd
 
 ### For contributing
 
