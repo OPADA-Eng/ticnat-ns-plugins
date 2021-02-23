@@ -60,7 +60,7 @@ FilterSelect.disabled {
 
 .item.filter-select-selected {
 	border-width: 1;
-	border-color: green;
+	background-color: green;
 }
 
 .filter-select-label {
@@ -93,4 +93,8 @@ FilterSelect.disabled {
 }
 FilterSelect {
 	text-align: center;
+}
+.item {
+	height: 40;
+	font-size: 22;
 }

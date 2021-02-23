@@ -51,6 +51,21 @@ A NativeScript plugin to provide an listview widget to select AND filter items.
 </Page>
 ```
 
+or with inner template option:
+
+```XML
+<Page xmlns:SS="@ticnat/nativescript-searchable-select">
+    <SS:SearchableSelect render="label" selected="{{ selected }}" items="{{ countries }}" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}">
+          <SS:SearchableSelect.itemTemplate>
+            <GridLayout class="item" height="50" columns="*,100">
+              <Label col="0" class="text-center" text="{{ name }}" textWrap="true" />
+              <Label col="1" class="text-center" text="{{ code }}" textWrap="true" />
+            </GridLayout>
+          </SS:SearchableSelect.itemTemplate>
+        </SS:SearchableSelect>
+</Page>
+```
+
 ## Angular NativeScript
 
 ### Regiter plugin in Component class

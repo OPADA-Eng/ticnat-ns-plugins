@@ -10,20 +10,86 @@
         <!-- <Button text="Test nativescript-searchable-select" tap="{{ testIt }}" class="btn btn-primary"/> -->
         <!-- <SS:SearchableSelect selectedIndex="2" render="drop" itemSelected="{{ onItemSelected }}" hint="اختر رقماً" searchHint="ابحث" searchHeaderText="ابحث في العناصر التالية" isSearchable="true" items="{{ items }}" /> -->
         <Label class="h2" text="label" textWrap="true" />
-        <StackLayout class="hr-light m-10" />
-        <SS:SearchableSelect render="label" selected="{{ selected }}" items="{{ countries }}" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+        <SS:SearchableSelect render="label" selected="{{ selected }}" items="{{ countries }}" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}">
+          <SS:SearchableSelect.itemTemplate>
+            <GridLayout class="item" height="50" columns="*,100">
+              <Label col="0" class="text-center" text="{{ name }}" textWrap="true" />
+              <Label col="1" class="text-center" text="{{ code }}" textWrap="true" />
+            </GridLayout>
+          </SS:SearchableSelect.itemTemplate>
+        </SS:SearchableSelect>
+        <StackLayout class="hr-dark m-t-20 m-b-20" />
+
         <Label class="h2" text="dropdown render" textWrap="true" />
-        <StackLayout class="hr-light m-10" />
         <SS:SearchableSelect class="drop-down" col="0" render="drop" items="{{ countries }}" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+
+        <StackLayout class="hr-dark m-t-20 m-b-20" />
+
+
         <Label class="h2" text="disabled" textWrap="true" />
-        <StackLayout class="hr-light m-10" />
         <SS:SearchableSelect class="drop-down disabled" col="0" disabled="true" render="drop" items="{{ countries }}" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+
+        <StackLayout class="hr-dark m-t-20 m-b-20" />
+
+
         <Label class="h2" text="refresh function" textWrap="true" />
-        <StackLayout class="hr-light m-10" />
         <SS:SearchableSelect id="refreshLabel" class="drop-down" col="0" render="label" items="{{ countries }}" hint="{{ hint }}" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+
+        <StackLayout class="hr-dark m-t-20 m-b-20" />
+
         <Label class="h2" text="icon select" textWrap="true" />
+        <SS:SearchableSelect class="drop-down" col="0" render="label" items="{{ countries }}" hint="{{'fa-list-ul' | fonticon}}" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}">
+          <SS:SearchableSelect.itemTemplate>
+            <GridLayout class="item" columns="100,*,100">
+              <Image width="90" height="60" stretch="fill" row="0" col="0" id="my-image-1" src="{{ flags(code) }}">
+              </Image>
+              <Label col="1" class="text-center" text="{{ name }}" textWrap="true" />
+              <Label col="2" class="text-center" text="{{ code }}" textWrap="true" />
+            </GridLayout>
+          </SS:SearchableSelect.itemTemplate>
+        </SS:SearchableSelect>
+
         <StackLayout class="hr-light m-10" />
-        <SS:SearchableSelect class="drop-down" col="0" render="label" items="{{ countries }}" hint="{{'fa-list-ul' | fonticon}}" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+        <Label class="h2" text="select default" textWrap="true" />
+        <SS:SearchableSelect close="{{ closeModal }}" items="{{ remote_countries }}" searchHint="Search for an item search hint" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+
+
+        <StackLayout class="hr-light m-10" />
+        <Label class="m-t-20 h2" text="Select with pre selected items" textWrap="true" />
+        <SS:SearchableSelect id="myFilterSelectToClear" xbtn="{{'fa-trash' | fonticon}}" items="{{ countries }}" selected="{{ selected }}" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+
+
+        <StackLayout class="hr-light m-10" />
+        <Label class="m-t-20 h2" text="Select with listview Template" textWrap="true" />
+        <SS:SearchableSelect items="{{ countries }}" item_template="{{ item_template }}" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+
+
+        <StackLayout class="hr-light m-10" />
+        <Label class="m-t-20 h2" text="Select with single option" textWrap="true" />
+        <SS:SearchableSelect multiple="false" items="{{ countries }}" item_template="{{ item_template }}" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+
+        <StackLayout class="hr-light m-10" />
+        <Label class="m-t-20 h2" text="Select with no search bar option" textWrap="true" />
+        <SS:SearchableSelect multiple="false" items="{{ countries }}" allowSearch="false" item_template="{{ item_template }}" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+
+
+        <StackLayout class="hr-light m-10" />
+        <Label class="h2" text="select disabled" textWrap="true" />
+        <SS:SearchableSelect class="disabled" disabled="disabled" items="{{ countries }}" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+
+        <StackLayout class="hr-light m-10" />
+        <Label class="h2" text="Change lables" textWrap="true" />
+        <SS:SearchableSelect items="{{ countries }}" closeText="إغلاق" searchHint="بحث" doneText="تم" clearText="مسح" selectText="إختر" hint="اختر الدوله" modal_title="الدول" search_param="name" primary_key="code" change="{{ onSelect }}" />
+
+
+        <StackLayout class="hr-light m-10" />
+        <Label class="h2" tap="{{ openmodal }}" color="blue" text="open by tap here" textWrap="true" />
+        <SS:SearchableSelect id="myFilterSelect" items="{{ countries }}" search_param="name" primary_key="code" change="{{ onSelect }}" />
+
+        <StackLayout class="hr-light m-10" />
+        <Label class="h2" text="enable auto focus" textWrap="true" />
+        <SS:SearchableSelect items="{{ countries }}" autofocus="true" search_param="name" primary_key="code" change="{{ onSelect }}" />
+
 
       </StackLayout>
     </ScrollView>

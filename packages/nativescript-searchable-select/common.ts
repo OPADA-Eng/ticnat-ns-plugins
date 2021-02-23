@@ -1,4 +1,5 @@
-import { booleanConverter, Button, Color, FlexboxLayout, Frame, GridLayout, GridUnitType, isAndroid, ItemSpec, Label, ListView, Observable, ObservableArray, Page, Property, SearchBar, StackLayout } from '@nativescript/core';
+import { booleanConverter, Button, Color, FlexboxLayout, Frame, GridLayout, GridUnitType, isAndroid, ItemSpec, Label, ListView, Observable, ObservableArray, Page, Property, SearchBar, StackLayout, Template } from '@nativescript/core';
+import { isNullOrUndefined } from '@nativescript/core/utils/types';
 
 export class SearchableSelectCommon extends GridLayout {
 	// public isSearchable: boolean = false;
@@ -15,6 +16,7 @@ export class SearchableSelectCommon extends GridLayout {
 	// constructor() {
 	// 	super();
 	// }
+	public itemTemplate: string | Template;
 	public searchHint = 'Search for item';
 	public searchBar: SearchBar;
 	public autofocus: any = false;
@@ -207,7 +209,7 @@ export class SearchableSelectCommon extends GridLayout {
 
 		if (this.disabled == 'false') this.disabled = false;
 
-		if (this.item_template == null) this.item_template = `<Label text="{{ ${this._search_param} }}" textWrap="true" />`;
+		if (this.item_template == null) this.item_template = `<StackLayout><Label text="{{ ${this._search_param} }}" textWrap="true" /></StackLayout>`;
 
 		if (self.selected_flag)
 			this.selected = this.items.filter((item) => {
@@ -457,7 +459,11 @@ export class SearchableSelectCommon extends GridLayout {
 		listView.bind(listViewBindingOptions, this);
 
 		this.selected_items = this.selected;
-		listView.itemTemplate = this.item_template;
+		// set the template
+
+		// listView.itemTemplate = this.item_template;
+		listView.itemTemplate = isNullOrUndefined(this.itemTemplate) ? this.item_template : this.itemTemplate;
+		console.log(listView.itemTemplate);
 		listView.on(ListView.itemLoadingEvent, (args: any) => {
 			var selected = this.selected_items.filter((item) => {
 				return item[this.primary_key] == this.filterd.getItem(args.index)[this.primary_key];
@@ -624,16 +630,25 @@ export class SearchableSelectCommon extends GridLayout {
 export const itemsProperty = new Property<SearchableSelectCommon, ObservableArray<any>>({ name: 'items', affectsLayout: true, valueChanged: onItemsChanged });
 itemsProperty.register(SearchableSelectCommon);
 
-export const isSearchableProperty = new Property<SearchableSelectCommon, boolean>({ name: 'isSearchable', affectsLayout: true, valueChanged: onItemsChanged, valueConverter: booleanConverter });
-isSearchableProperty.register(SearchableSelectCommon);
+// export const isSearchableProperty = new Property<SearchableSelectCommon, boolean>({ name: 'isSearchable', affectsLayout: true, valueChanged: onItemsChanged, valueConverter: booleanConverter });
+// isSearchableProperty.register(SearchableSelectCommon);
 
 export const hintProperty = new Property<SearchableSelectCommon, string>({ name: 'hint', affectsLayout: true, valueChanged: onItemsChanged });
 hintProperty.register(SearchableSelectCommon);
 
-export const searchHeaderTextProperty = new Property<SearchableSelectCommon, string>({ name: 'searchHeaderText', affectsLayout: true, valueChanged: onItemsChanged });
-searchHeaderTextProperty.register(SearchableSelectCommon);
+// export const searchHeaderTextProperty = new Property<SearchableSelectCommon, string>({ name: 'searchHeaderText', affectsLayout: true, valueChanged: onItemsChanged });
+// searchHeaderTextProperty.register(SearchableSelectCommon);
 
-export const selectedIndexProperty = new Property<SearchableSelectCommon, string>({ name: 'selectedIndex', affectsLayout: true, valueChanged: onItemsChanged });
-selectedIndexProperty.register(SearchableSelectCommon);
+// export const selectedIndexProperty = new Property<SearchableSelectCommon, string>({ name: 'selectedIndex', affectsLayout: true, valueChanged: onItemsChanged });
+// selectedIndexProperty.register(SearchableSelectCommon);
 
 function onItemsChanged(view: any, oldValue, newValue) {}
+
+export const itemTemplateProperty = new Property<SearchableSelectCommon, any>({
+	name: 'itemTemplate',
+	affectsLayout: true,
+	valueChanged: (view: any, oldValue, newValue) => {
+		view.refresh(true);
+	},
+});
+itemTemplateProperty.register(SearchableSelectCommon);

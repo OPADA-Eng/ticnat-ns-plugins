@@ -20,7 +20,7 @@ export class DemoModel extends DemoSharedNativescriptSearchableSelect {
   <Image  width="90" height="60" stretch="fill" row="0"
              col="0"  id="my-image-1"
              src="{{ flags(code) }}">
-             <Image>
+             </Image>
   <Label col="1" class="text-center" text="{{ name }}" textWrap="true" /> 
   <Label col="2" class="text-center" text="{{ code }}" textWrap="true" /> 
   </GridLayout>
