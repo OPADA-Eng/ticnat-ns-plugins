@@ -48,6 +48,6 @@
 	},
 	"dependencies": {
 		"@ticnat/nativescript-image-cache": "^1.0.1",
-		"@ticnat/nativescript-searchable-select": "^1.0.3"
+		"@ticnat/nativescript-searchable-select": "^1.0.5"
 	}
 }

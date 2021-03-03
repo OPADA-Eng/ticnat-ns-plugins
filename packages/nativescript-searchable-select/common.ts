@@ -463,7 +463,6 @@ export class SearchableSelectCommon extends GridLayout {
 
 		// listView.itemTemplate = this.item_template;
 		listView.itemTemplate = isNullOrUndefined(this.itemTemplate) ? this.item_template : this.itemTemplate;
-		console.log(listView.itemTemplate);
 		listView.on(ListView.itemLoadingEvent, (args: any) => {
 			var selected = this.selected_items.filter((item) => {
 				return item[this.primary_key] == this.filterd.getItem(args.index)[this.primary_key];
