@@ -91,6 +91,13 @@ module.exports = {
 					description: '@ticnat/nativescript-image-cache: Build',
 				},
 			},
+			// @ticnat/nativescript-sewoo-printer
+			'nativescript-sewoo-printer': {
+				build: {
+					script: 'nx run nativescript-sewoo-printer:build.all',
+					description: '@ticnat/nativescript-sewoo-printer: Build',
+				},
+			},
 			'build-all': {
 				script: 'nx run all:build',
 				description: 'Build all packages',
@@ -116,6 +123,10 @@ module.exports = {
 			'nativescript-image-cache': {
 				script: 'nx run nativescript-image-cache:focus',
 				description: 'Focus on @ticnat/nativescript-image-cache',
+			},
+			'nativescript-sewoo-printer': {
+				script: 'nx run nativescript-sewoo-printer:focus',
+				description: 'Focus on @ticnat/nativescript-sewoo-printer',
 			},
 			reset: {
 				script: 'nx run all:focus',

@@ -1,14 +1,8 @@
-# @ticnat/\* plugins
-
-```
-npm run setup
-npm start
-```
-
-- [@ticnat/nativescript-image-cache](https://github.com/OPADA-Eng/ticnat-ns-plugins/tree/master/packages/nativescript-image-cache)
-- [@ticnat/nativescript-intermec-printer](https://github.com/OPADA-Eng/ticnat-ns-plugins/tree/master/packages/nativescript-intermec-printer)
-- [@ticnat/nativescript-searchable-select](https://github.com/OPADA-Eng/ticnat-ns-plugins/tree/master/packages/nativescript-searchable-select)
-- [@ticnat/nativescript-woosim-printer](https://github.com/OPADA-Eng/ticnat-ns-plugins/tree/master/packages/nativescript-woosim-printer)
+- @ticnat/nativescript-image-cache
+- @ticnat/nativescript-intermec-printer
+- @ticnat/nativescript-searchable-select
+- @ticnat/nativescript-sewoo-printer
+- @ticnat/nativescript-woosim-printer
 
 # How to use?
 

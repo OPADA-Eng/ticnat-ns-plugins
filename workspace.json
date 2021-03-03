@@ -73,7 +73,7 @@
 					"builder": "@nrwl/workspace:run-commands",
 					"outputs": ["dist/packages"],
 					"options": {
-						"commands": ["nx run nativescript-searchable-select:build.all", "nx run nativescript-woosim-printer:build.all", "nx run nativescript-intermec-printer:build.all", "nx run nativescript-image-cache:build.all"],
+						"commands": ["nx run nativescript-searchable-select:build.all", "nx run nativescript-woosim-printer:build.all", "nx run nativescript-intermec-printer:build.all", "nx run nativescript-image-cache:build.all", "nx run nativescript-sewoo-printer:build.all"],
 						"parallel": false
 					}
 				},
@@ -254,6 +254,49 @@
 					"outputs": ["dist/packages"],
 					"options": {
 						"commands": ["nx g @nativescript/plugin-tools:focus-packages nativescript-image-cache"],
+						"parallel": false
+					}
+				}
+			}
+		},
+		"nativescript-sewoo-printer": {
+			"root": "packages/nativescript-sewoo-printer",
+			"sourceRoot": "packages/nativescript-sewoo-printer",
+			"projectType": "library",
+			"schematics": {},
+			"architect": {
+				"build": {
+					"builder": "@nrwl/node:package",
+					"options": {
+						"outputPath": "dist/packages/nativescript-sewoo-printer",
+						"tsConfig": "packages/nativescript-sewoo-printer/tsconfig.json",
+						"packageJson": "packages/nativescript-sewoo-printer/package.json",
+						"main": "packages/nativescript-sewoo-printer/index.ts",
+						"assets": [
+							"packages/nativescript-sewoo-printer/*.md",
+							"packages/nativescript-sewoo-printer/index.d.ts",
+							"LICENSE",
+							{
+								"glob": "**/*",
+								"input": "packages/nativescript-sewoo-printer/platforms/",
+								"output": "./platforms/"
+							}
+						]
+					}
+				},
+				"build.all": {
+					"builder": "@nrwl/workspace:run-commands",
+					"outputs": ["dist/packages"],
+					"options": {
+						"commands": ["nx run nativescript-sewoo-printer:build", "node tools/scripts/build-finish.ts nativescript-sewoo-printer"],
+						"parallel": false
+					}
+				},
+				"focus": {
+					"builder": "@nrwl/workspace:run-commands",
+					"outputs": ["dist/packages"],
+					"options": {
+						"commands": ["nx g @nativescript/plugin-tools:focus-packages nativescript-sewoo-printer"],
 						"parallel": false
 					}
 				}

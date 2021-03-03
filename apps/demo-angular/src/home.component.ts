@@ -16,6 +16,9 @@ export class HomeComponent {
 			name: 'nativescript-searchable-select',
 		},
 		{
+			name: 'nativescript-sewoo-printer',
+		},
+		{
 			name: 'nativescript-woosim-printer',
 		},
 	];
