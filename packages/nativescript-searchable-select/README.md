@@ -142,3 +142,5 @@ This plugin is built and maintained based on this [plugin](https://github.com/mo
 ### For contributing
 
 just do a pull request with description of your changes or open issue with your ideas
+
+Need velocity on your NativeScript projects? I'm available to build beautiful and performant NativeScript applications for your business requirements. Email me direct: m.opada.albosh@gmail.com to discuss project details.

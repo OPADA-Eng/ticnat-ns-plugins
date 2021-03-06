@@ -157,3 +157,5 @@ var cacheLimitInDays = 7;
 imageCache.setCacheLimit(cacheLimitInDays);
 
 **for android, you need to initialize in the application onlaunch event before clearing the cache**
+
+Need velocity on your NativeScript projects? I'm available to build beautiful and performant NativeScript applications for your business requirements. Email me direct: m.opada.albosh@gmail.com to discuss project details.

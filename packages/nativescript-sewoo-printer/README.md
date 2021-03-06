@@ -57,6 +57,8 @@ for more information see [the demo](https://github.com/OPADA-Eng/nativescript-se
 | print(text: string): void                                                                                                                                       | print normal text                      | text : the text you want to print                                                                                                                                                                                                                                                                                                 |
 | printImg(bitmap: globalAndroid.graphics.Bitmap, setExtraPaddingAfterPrint?: boolean, XResol?: number, YResol?: number, startX?: number, startY?: number): void; | print normal bitmap                    | bitmap: the image to print, setExtraPaddingAfterPrint: set extra padding after print default true, XResol: x resolution,YResol: y resolution startX:number specify the position on the paper to start print from on X axis default "0", startY:number specify the position on the paper to start print from on Y axis default "0" |
 
+Need velocity on your NativeScript projects? I'm available to build beautiful and performant NativeScript applications for your business requirements. Email me direct: m.opada.albosh@gmail.com to discuss project details.
+
 ## License
 
 Apache License Version 2.0, January 2004

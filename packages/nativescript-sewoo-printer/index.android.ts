@@ -52,7 +52,7 @@ export class SewooPrinter extends SewooPrinterCommon {
 		if (this.ptrConn != null && address != '') {
 			if (this.bluetoothAdapter.isEnabled()) {
 				this.ptrConn.connect(address);
-				let rh = new com.sewoo.request.android.RequestHandler();
+				let rh = <java.lang.Runnable>new com.sewoo.request.android.RequestHandler();
 				this.hThread = new java.lang.Thread(rh);
 				this.hThread.start();
 				this.address = address;
