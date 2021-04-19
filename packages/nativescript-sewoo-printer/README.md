@@ -9,7 +9,7 @@ This plugin integrate your nativescript app with `Sewoo LK-P43Ⅱ` printer to pr
 You have to pair your device via bluetooth with the printer before you test the plugin.
 This plugin is now working on `android only`
 
-## Installation
+## Installation NS7 Only
 
 ```
 tns plugin add @ticnat/nativescript-sewoo-printer

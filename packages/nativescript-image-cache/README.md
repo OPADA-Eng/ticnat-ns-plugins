@@ -6,7 +6,7 @@ A minimalistic NativeScript plugin that wraps just the caching functionality of 
 
 Released under the MIT License, anybody can freely include this in any type of program -- However, if in need of support contract, changes, enhancements and/or a commercial license please contact me (m.opada.albosh@gmail.com).
 
-## Installation
+## Installation NS7 Only
 
     tns plugin add @ticnat/nativescript-image-cache
 
