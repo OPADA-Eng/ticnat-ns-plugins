@@ -4,8 +4,7 @@ import { ImageCacheCommon, srcProperty, isLoadingProperty } from './common';
 import { Application, booleanConverter, Property, Utils, View } from '@nativescript/core';
 import { getBoolean, getNumber, setBoolean, setNumber } from '@nativescript/core/application-settings';
 import { Helpers as helpers } from './ios-ts-lib/helpers';
-import { Stretch } from '@nativescript/core/ui/enums';
-
+import { CoreTypes } from '@nativescript/core/core-types/';
 declare class UIImageView {
 	public contentMode: any;
 	public clipsToBounds: any;
@@ -87,7 +86,7 @@ export class ImageCache extends ImageCacheCommon {
 	computeScaleFactor(measureWidth, measureHeight, widthIsFinite, heightIsFinite, nativeWidth, nativeHeight, imageStretch) {
 		let scaleW = 1,
 			scaleH = 1;
-		if ((imageStretch === Stretch.aspectFill || imageStretch === Stretch.aspectFit || imageStretch === Stretch.fill) && (widthIsFinite || heightIsFinite)) {
+		if ((imageStretch === CoreTypes.ImageStretch.aspectFill || imageStretch === CoreTypes.ImageStretch.aspectFit || imageStretch === CoreTypes.ImageStretch.fill) && (widthIsFinite || heightIsFinite)) {
 			scaleW = nativeWidth > 0 ? measureWidth / nativeWidth : 0;
 			scaleH = nativeHeight > 0 ? measureHeight / nativeHeight : 0;
 			if (!widthIsFinite) {
@@ -96,11 +95,11 @@ export class ImageCache extends ImageCacheCommon {
 				scaleH = scaleW;
 			} else {
 				switch (imageStretch) {
-					case Stretch.aspectFit:
+					case CoreTypes.ImageStretch.aspectFit:
 						scaleH = scaleW < scaleH ? scaleW : scaleH;
 						scaleW = scaleH;
 						break;
-					case Stretch.aspectFill:
+					case CoreTypes.ImageStretch.aspectFill:
 						scaleH = scaleW > scaleH ? scaleW : scaleH;
 						scaleW = scaleH;
 						break;
