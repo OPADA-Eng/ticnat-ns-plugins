@@ -9,7 +9,7 @@ This plugin integrate your nativescript app with `honeywell Intermec Pr3` printe
 You have to pair your device via bluetooth with the printer before you test the plugin.
 This plugin is now working on `android only`
 
-## Installation NS7
+## Installation NS7 Only
 
 ```
 tns plugin add @ticnat/nativescript-intermec-printer
