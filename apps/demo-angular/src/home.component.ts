@@ -9,17 +9,5 @@ export class HomeComponent {
 		{
 			name: 'nativescript-image-cache',
 		},
-		{
-			name: 'nativescript-intermec-printer',
-		},
-		{
-			name: 'nativescript-searchable-select',
-		},
-		{
-			name: 'nativescript-sewoo-printer',
-		},
-		{
-			name: 'nativescript-woosim-printer',
-		},
 	];
 }
