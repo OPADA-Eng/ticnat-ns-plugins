@@ -5,18 +5,14 @@
 	"repository": "<fill-your-repository-here>",
 	"dependencies": {
 		"@nativescript/core": "file:../../node_modules/@nativescript/core",
-		"@ticnat/nativescript-searchable-select": "file:../../packages/nativescript-searchable-select",
 		"nativescript-fonticon": "^2.0.2",
 		"nativescript-theme-core": "file:../../node_modules/nativescript-theme-core",
-		"@ticnat/nativescript-woosim-printer": "file:../../packages/nativescript-woosim-printer",
-		"@ticnat/nativescript-intermec-printer": "file:../../packages/nativescript-intermec-printer",
-		"@ticnat/nativescript-image-cache": "file:../../packages/nativescript-image-cache",
-		"@ticnat/nativescript-sewoo-printer": "file:../../packages/nativescript-sewoo-printer"
+		"@ticnat/nativescript-image-cache": "file:../../packages/nativescript-image-cache"
 	},
 	"devDependencies": {
-		"@nativescript/android": "7.0.1",
-		"@nativescript/ios": "7.1.0",
-		"@nativescript/webpack": "~3.0.0",
+		"@nativescript/android": "8.0.0",
+		"@nativescript/ios": "8.0.0",
+		"@nativescript/webpack": "~5.0.0-beta.0",
 		"typescript": "file:../../node_modules/typescript"
 	}
 }
