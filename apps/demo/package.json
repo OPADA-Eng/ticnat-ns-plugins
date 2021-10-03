@@ -5,14 +5,15 @@
 	"repository": "<fill-your-repository-here>",
 	"dependencies": {
 		"@nativescript/core": "file:../../node_modules/@nativescript/core",
+		"@ticnat/nativescript-image-cache": "file:../../packages/nativescript-image-cache",
 		"nativescript-fonticon": "^2.0.2",
-		"nativescript-theme-core": "file:../../node_modules/nativescript-theme-core",
-		"@ticnat/nativescript-image-cache": "file:../../packages/nativescript-image-cache"
+		"nativescript-theme-core": "file:../../node_modules/nativescript-theme-core"
 	},
 	"devDependencies": {
-		"@nativescript/android": "8.0.0",
-		"@nativescript/ios": "8.0.0",
-		"@nativescript/webpack": "~5.0.0-beta.0",
+		"@nativescript/android": "8.1.0",
+		"@nativescript/ios": "8.1.0",
+		"@nativescript/types": "^8.1.1",
+		"@nativescript/webpack": "^5.0.0",
 		"typescript": "file:../../node_modules/typescript"
 	}
 }
