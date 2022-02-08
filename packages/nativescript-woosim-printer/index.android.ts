@@ -83,7 +83,7 @@ export class WoosimPrinter extends WoosimPrinterCommon {
 			return;
 		}
 		// Check that there's actually something to send
-		if (data.length > 0) {
+		if (data?.length > 0) {
 			this.ptrConn.write(data);
 		}
 	}
@@ -99,7 +99,7 @@ export class WoosimPrinter extends WoosimPrinterCommon {
 		file.readText().then((res) => {
 			let text = null;
 			// console.log(typeof res);
-			if (this.not_english_words_in_text(res).length > 0) {
+			if (this.not_english_words_in_text(res)?.length > 0) {
 				let arabic864 = new com.ganesh.intermecarabic.Arabic864();
 				text = arabic864.Convert(new java.lang.String(res), false);
 			} else {
@@ -133,7 +133,7 @@ export class WoosimPrinter extends WoosimPrinterCommon {
 		if (string == null) return;
 		else {
 			try {
-				if (this.not_english_words_in_text(string).length > 0) {
+				if (this.not_english_words_in_text(string)?.length > 0) {
 					let arabic864 = new com.ganesh.intermecarabic.Arabic864();
 					text = arabic864.Convert(new java.lang.String(string), false);
 				} else {

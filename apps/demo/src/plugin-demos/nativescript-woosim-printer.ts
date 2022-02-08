@@ -9,7 +9,7 @@ export function navigatingTo(args: EventData) {
 
 export class WoosimPrinterDemoModel extends DemoSharedWoosimPrinter {
 	public printer: WoosimPrinter;
-	private _printerAddress = '00:15:0E:E8:A0:D2';
+	private _printerAddress = '00:15:0E:E8:D4:64';
 	public textToPrint = 'قهوة موكا      2                                  7.5';
 	public printerState = '';
 	public connectVisible = true;
@@ -48,7 +48,7 @@ export class WoosimPrinterDemoModel extends DemoSharedWoosimPrinter {
 		bmp.compress(android.graphics.Bitmap.CompressFormat.PNG, 1, stream);
 		let compressedBmp = null;
 		let byteArray = stream.toByteArray();
-		console.log('byteArray: ', byteArray.length);
+		console.log('byteArray: ', byteArray?.length);
 		compressedBmp = android.graphics.BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length, options);
 		if (compressedBmp != null) {
 			console.log('bitmap after compress size', compressedBmp.getByteCount() / 1000000, ' MB');
