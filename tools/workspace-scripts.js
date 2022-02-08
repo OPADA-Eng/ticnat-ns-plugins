@@ -63,18 +63,11 @@ module.exports = {
 		// packages
 		// build output is always in dist/packages
 		'@ticnat': {
-			// @ticnat/nativescript-searchable-select
-			'nativescript-searchable-select': {
+			// @ticnat/nativescript-image-cache
+			'nativescript-image-cache': {
 				build: {
-					script: 'nx run nativescript-searchable-select:build.all',
-					description: '@ticnat/nativescript-searchable-select: Build',
-				},
-			},
-			// @ticnat/nativescript-woosim-printer
-			'nativescript-woosim-printer': {
-				build: {
-					script: 'nx run nativescript-woosim-printer:build.all',
-					description: '@ticnat/nativescript-woosim-printer: Build',
+					script: 'nx run nativescript-image-cache:build.all',
+					description: '@ticnat/nativescript-image-cache: Build',
 				},
 			},
 			// @ticnat/nativescript-intermec-printer
@@ -84,11 +77,11 @@ module.exports = {
 					description: '@ticnat/nativescript-intermec-printer: Build',
 				},
 			},
-			// @ticnat/nativescript-image-cache
-			'nativescript-image-cache': {
+			// @ticnat/nativescript-searchable-select
+			'nativescript-searchable-select': {
 				build: {
-					script: 'nx run nativescript-image-cache:build.all',
-					description: '@ticnat/nativescript-image-cache: Build',
+					script: 'nx run nativescript-searchable-select:build.all',
+					description: '@ticnat/nativescript-searchable-select: Build',
 				},
 			},
 			// @ticnat/nativescript-sewoo-printer
@@ -96,6 +89,13 @@ module.exports = {
 				build: {
 					script: 'nx run nativescript-sewoo-printer:build.all',
 					description: '@ticnat/nativescript-sewoo-printer: Build',
+				},
+			},
+			// @ticnat/nativescript-woosim-printer
+			'nativescript-woosim-printer': {
+				build: {
+					script: 'nx run nativescript-woosim-printer:build.all',
+					description: '@ticnat/nativescript-woosim-printer: Build',
 				},
 			},
 			'build-all': {
@@ -108,30 +108,30 @@ module.exports = {
 			description: '_____________  Focus (VS Code supported)  _____________',
 		},
 		focus: {
-			'nativescript-searchable-select': {
-				script: 'nx run nativescript-searchable-select:focus',
-				description: 'Focus on @ticnat/nativescript-searchable-select',
-			},
-			'nativescript-woosim-printer': {
-				script: 'nx run nativescript-woosim-printer:focus',
-				description: 'Focus on @ticnat/nativescript-woosim-printer',
+			'nativescript-image-cache': {
+				script: 'nx run nativescript-image-cache:focus',
+				description: 'Focus on @ticnat/nativescript-image-cache',
 			},
 			'nativescript-intermec-printer': {
 				script: 'nx run nativescript-intermec-printer:focus',
 				description: 'Focus on @ticnat/nativescript-intermec-printer',
 			},
-			'nativescript-image-cache': {
-				script: 'nx run nativescript-image-cache:focus',
-				description: 'Focus on @ticnat/nativescript-image-cache',
+			'nativescript-searchable-select': {
+				script: 'nx run nativescript-searchable-select:focus',
+				description: 'Focus on @ticnat/nativescript-searchable-select',
 			},
 			'nativescript-sewoo-printer': {
 				script: 'nx run nativescript-sewoo-printer:focus',
 				description: 'Focus on @ticnat/nativescript-sewoo-printer',
 			},
+			'nativescript-woosim-printer': {
+				script: 'nx run nativescript-woosim-printer:focus',
+				description: 'Focus on @ticnat/nativescript-woosim-printer',
+			},
 			reset: {
 				script: 'nx run all:focus',
 				description: 'Reset Focus',
-			},
+			}
 		},
 		'.....................': {
 			script: `npx cowsay "That's all for now folks ~"`,

@@ -4,7 +4,7 @@ import { NativescriptSewooPrinterComponent } from './nativescript-sewoo-printer.
 
 @NgModule({
 	imports: [NativeScriptCommonModule, NativeScriptRouterModule.forChild([{ path: '', component: NativescriptSewooPrinterComponent }])],
-	declarations: [NativescriptSewooPrinterComponent],
-	schemas: [NO_ERRORS_SCHEMA],
+  declarations: [NativescriptSewooPrinterComponent],
+  schemas: [ NO_ERRORS_SCHEMA]
 })
 export class NativescriptSewooPrinterModule {}

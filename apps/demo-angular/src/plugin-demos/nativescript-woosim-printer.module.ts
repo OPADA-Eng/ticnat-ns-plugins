@@ -4,7 +4,7 @@ import { NativescriptWoosimPrinterComponent } from './nativescript-woosim-printe
 
 @NgModule({
 	imports: [NativeScriptCommonModule, NativeScriptRouterModule.forChild([{ path: '', component: NativescriptWoosimPrinterComponent }])],
-	declarations: [NativescriptWoosimPrinterComponent],
-	schemas: [NO_ERRORS_SCHEMA],
+  declarations: [NativescriptWoosimPrinterComponent],
+  schemas: [ NO_ERRORS_SCHEMA]
 })
 export class NativescriptWoosimPrinterModule {}

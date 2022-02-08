@@ -4,7 +4,7 @@ import { NativescriptSearchableSelectComponent } from './nativescript-searchable
 
 @NgModule({
 	imports: [NativeScriptCommonModule, NativeScriptRouterModule.forChild([{ path: '', component: NativescriptSearchableSelectComponent }])],
-	declarations: [NativescriptSearchableSelectComponent],
-	schemas: [NO_ERRORS_SCHEMA],
+  declarations: [NativescriptSearchableSelectComponent],
+  schemas: [ NO_ERRORS_SCHEMA]
 })
 export class NativescriptSearchableSelectModule {}

@@ -10,9 +10,6 @@ export class HomeComponent {
 		name: 'nativescript-image-cache'
 	},
 	{
-		name: 'nativescript-intermec-printer'
-	},
-	{
 		name: 'nativescript-searchable-select'
 	},
 	{

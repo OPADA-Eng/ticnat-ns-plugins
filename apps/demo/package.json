@@ -1,23 +1,19 @@
 {
-  "main": "app.js",
+  "main": "./src/app.ts",
   "description": "NativeScript Application",
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
   "dependencies": {
     "@nativescript/core": "file:../../node_modules/@nativescript/core",
     "@ticnat/nativescript-image-cache": "file:../../packages/nativescript-image-cache",
-    "nativescript-fonticon": "^2.0.2",
-    "nativescript-theme-core": "file:../../node_modules/nativescript-theme-core",
-    "@ticnat/nativescript-intermec-printer": "file:../../packages/nativescript-intermec-printer",
     "@ticnat/nativescript-searchable-select": "file:../../packages/nativescript-searchable-select",
     "@ticnat/nativescript-sewoo-printer": "file:../../packages/nativescript-sewoo-printer",
-    "@ticnat/nativescript-woosim-printer": "file:../../packages/nativescript-woosim-printer"
+    "@ticnat/nativescript-woosim-printer": "file:../../packages/nativescript-woosim-printer",
+    "nativescript-fonticon": "^2.0.2",
+    "nativescript-theme-core": "file:../../node_modules/nativescript-theme-core"
   },
   "devDependencies": {
-    "@nativescript/android": "8.1.0",
-    "@nativescript/ios": "8.1.0",
-    "@nativescript/types": "^8.1.1",
-    "@nativescript/webpack": "^5.0.0",
-    "typescript": "file:../../node_modules/typescript"
+    "@nativescript/android": "~8.1.1",
+    "@nativescript/ios": "~8.1.0"
   }
 }

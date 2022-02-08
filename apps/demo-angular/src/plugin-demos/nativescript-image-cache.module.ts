@@ -4,7 +4,7 @@ import { NativescriptImageCacheComponent } from './nativescript-image-cache.comp
 
 @NgModule({
 	imports: [NativeScriptCommonModule, NativeScriptRouterModule.forChild([{ path: '', component: NativescriptImageCacheComponent }])],
-	declarations: [NativescriptImageCacheComponent],
-	schemas: [NO_ERRORS_SCHEMA],
+  declarations: [NativescriptImageCacheComponent],
+  schemas: [ NO_ERRORS_SCHEMA]
 })
 export class NativescriptImageCacheModule {}

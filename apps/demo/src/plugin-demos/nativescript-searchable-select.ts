@@ -1,14 +1,14 @@
-import { DemoSharedNativescriptSearchableSelect } from '@demo/shared';
+import { DemoSharedSearchableSelect } from '@demo/shared';
 import { EventData, Observable, ObservableArray, Page } from '@nativescript/core';
 import { getFile } from '@nativescript/core/http';
-import {} from '@ticnat/nativescript-searchable-select';
+import { } from '@ticnat/nativescript-searchable-select';
 import { countries } from '~/countries';
 export function navigatingTo(args: EventData) {
 	const page = <Page>args.object;
 	page.bindingContext = new DemoModel();
 }
 
-export class DemoModel extends DemoSharedNativescriptSearchableSelect {
+export class DemoModel extends DemoSharedSearchableSelect {
 	public count = 0;
 	private countries: ObservableArray<any> = new ObservableArray<any>([]);
 	public hint = 'please select ';

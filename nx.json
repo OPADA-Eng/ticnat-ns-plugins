@@ -1,46 +1,43 @@
 {
-	"npmScope": "ticnat",
-	"affected": {
-		"defaultBase": "master"
-	},
-	"implicitDependencies": {
-		"workspace.json": "*",
-		"package.json": {
-			"dependencies": "*",
-			"devDependencies": "*"
-		},
-		"tsconfig.base.json": "*",
-		"tslint.json": "*",
-		"nx.json": "*"
-	},
-	"projects": {
-		"demo": {
-			"tags": []
-		},
-		"demo-angular": {
-			"tags": []
-		},
-		"all": {
-			"tags": []
-		},
-		"nativescript-searchable-select": {
-			"tags": []
-		},
-		"nativescript-woosim-printer": {
-			"tags": []
-		},
-		"nativescript-intermec-printer": {
-			"tags": []
-		},
-		"nativescript-image-cache": {
-			"tags": []
-		},
-		"nativescript-sewoo-printer": {
-			"tags": []
-		}
-	},
-	"workspaceLayout": {
-		"appsDir": "apps",
-		"libsDir": "packages"
-	}
+  "npmScope": "ticnat",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "demo": {
+      "tags": []
+    },
+    "demo-angular": {
+      "tags": []
+    },
+    "all": {
+      "tags": []
+    },
+    "nativescript-image-cache": {
+      "tags": []
+    },
+    "nativescript-searchable-select": {
+      "tags": []
+    },
+    "nativescript-sewoo-printer": {
+      "tags": []
+    },
+    "nativescript-woosim-printer": {
+      "tags": []
+    }
+  },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "packages"
+  }
 }

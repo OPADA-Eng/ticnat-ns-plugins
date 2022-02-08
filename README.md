@@ -1,12 +1,11 @@
-- @ticnat/nativescript-image-cache
-- @ticnat/nativescript-intermec-printer
-- @ticnat/nativescript-searchable-select
-- @ticnat/nativescript-sewoo-printer
-- @ticnat/nativescript-woosim-printer
+- [@ticnat/nativescript-image-cache](packages/nativescript-image-cache/README.md)
+- [@ticnat/nativescript-searchable-select](packages/nativescript-searchable-select/README.md)
+- [@ticnat/nativescript-sewoo-printer](packages/nativescript-sewoo-printer/README.md)
+- [@ticnat/nativescript-woosim-printer](packages/nativescript-woosim-printer/README.md)
 
 # How to use?
 
-This workspace manages the suite of plugins listed above.
+This workspace manages the suite of plugins listed above. 
 
 In general, when in doubt with what to do, just `npm start`.
 
@@ -42,7 +41,7 @@ npm start
 - Choose the focus commands for the package you wish to focus on and hit enter.
 - All the demo app's will be updated to isolate that 1 package and for supported IDE's (currently VS Code), the source code will also become isolated in the workspace.
 
-Note: _good to always clean the demo you plan to run after focusing. (You can clean any demo from `npm start` as well)_
+Note: *good to always clean the demo you plan to run after focusing. (You can clean any demo from `npm start` as well)*
 
 ## How to publish packages?
 
