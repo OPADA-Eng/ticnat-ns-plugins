@@ -42,3 +42,5 @@ Thumbs.db
 
 *.tgz
 packages/**/angular/dist
+tools/assets/App_Resources/iOS/build.xcconfig
+tools/assets/App_Resources/Android/src/main/res/values/socket.xml

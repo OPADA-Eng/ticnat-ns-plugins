@@ -19,7 +19,7 @@ export class WoosimPrinterDemoModel extends DemoSharedWoosimPrinter {
 		this.printer = new WoosimPrinter();
 		// console.dir(this.printer);
 		// console.dir(this.printer.ptrConn.getState());
-		console.log(this.printer.isConnected());
+		// console.log(this.printer.isConnected());
 	}
 	public get printerAddress() {
 		return this._printerAddress;

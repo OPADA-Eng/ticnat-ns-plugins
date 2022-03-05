@@ -1,0 +1,6 @@
+framework module DatamaxONeilSDK {
+  umbrella header "DatamaxONeilSDK.h"
+
+  export *
+  module * { export * }
+}

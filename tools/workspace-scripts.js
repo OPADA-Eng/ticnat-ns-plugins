@@ -98,6 +98,27 @@ module.exports = {
 					description: '@ticnat/nativescript-woosim-printer: Build',
 				},
 			},
+			// @ticnat/nativescript-intermec-printer
+			'nativescript-intermec-printer': {
+				build: {
+					script: 'nx run nativescript-intermec-printer:build.all',
+					description: '@ticnat/nativescript-intermec-printer: Build',
+				},
+			},
+			// @ticnat/nativescript-socketmobile
+			'nativescript-socketmobile': {
+				build: {
+					script: 'nx run nativescript-socketmobile:build.all',
+					description: '@ticnat/nativescript-socketmobile: Build',
+				},
+			},
+			// @ticnat/nativescript-t3b-printer
+			'nativescript-t3b-printer': {
+				build: {
+					script: 'nx run nativescript-t3b-printer:build.all',
+					description: '@ticnat/nativescript-t3b-printer: Build',
+				},
+			},
 			'build-all': {
 				script: 'nx run all:build',
 				description: 'Build all packages',
@@ -127,6 +148,18 @@ module.exports = {
 			'nativescript-woosim-printer': {
 				script: 'nx run nativescript-woosim-printer:focus',
 				description: 'Focus on @ticnat/nativescript-woosim-printer',
+			},
+			'nativescript-intermec-printer': {
+				script: 'nx run nativescript-intermec-printer:focus',
+				description: 'Focus on @ticnat/nativescript-intermec-printer',
+			},
+			'nativescript-socketmobile': {
+				script: 'nx run nativescript-socketmobile:focus',
+				description: 'Focus on @ticnat/nativescript-socketmobile',
+			},
+			'nativescript-t3b-printer': {
+				script: 'nx run nativescript-t3b-printer:focus',
+				description: 'Focus on @ticnat/nativescript-t3b-printer',
 			},
 			reset: {
 				script: 'nx run all:focus',

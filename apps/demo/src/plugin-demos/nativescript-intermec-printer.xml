@@ -1,0 +1,26 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+  <Page.actionBar>
+    <ActionBar title="nativescript-intermec-printer" icon="" class="action-bar">
+    </ActionBar>
+  </Page.actionBar>
+  <StackLayout class="p-20">
+    <ScrollView class="h-full">
+      <StackLayout>
+        <Button text="Test nativescript-intermec-printer" tap="{{ search }}" class="btn btn-primary"/>
+        <ActivityIndicator visibility="{{ loading ? 'visible' : 'collapsed' }}" width="100" height="100" busy="{{ loading }}" />
+
+        <ListView items="{{ printers }}" loaded="onLoaded" itemLoading="onItemLoading" itemTap="onItemTap">
+          <ListView.itemTemplate>
+            <StackLayout>
+              <Label text="{{ name }}" class="item-label"/>
+              <Label text="{{ UUID }}" textWrap="true" />
+              <Label text="{{ RSSI }}" textWrap="true" />
+              <Label text="{{ advertismentData.localName }}" textWrap="true" />
+              <Label text="{{ advertismentData.txPowerLevel }}" textWrap="true" />
+            </StackLayout>
+          </ListView.itemTemplate>
+        </ListView>
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
+</Page>

@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "rootDir": "."
+  },
+  "exclude": [
+    "**/*.spec.ts",
+    "angular"
+  ],
+  "include": [
+    "**/*.ts",
+    "references.d.ts",
+    "../nativescript-socketmobile/typings/caputre-android.d.ts"
+  ]
+}

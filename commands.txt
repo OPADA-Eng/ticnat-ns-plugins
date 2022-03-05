@@ -1,0 +1,1 @@
+TNS_TYPESCRIPT_DECLARATIONS_PATH="$(pwd)/app/typings" tns build ios

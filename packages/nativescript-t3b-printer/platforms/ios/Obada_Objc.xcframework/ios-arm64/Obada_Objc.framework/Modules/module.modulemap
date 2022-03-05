@@ -1,0 +1,6 @@
+framework module Obada_Objc {
+  umbrella header "Obada_Objc.h"
+
+  export *
+  module * { export * }
+}

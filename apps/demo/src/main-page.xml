@@ -11,6 +11,9 @@
         <Button text="nativescript-sewoo-printer" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
         <Button text="nativescript-woosim-printer" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
 <Button text="nativescript-google-maps" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
+<Button text="nativescript-intermec-printer" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
+<Button text="nativescript-socketmobile" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
+<Button text="nativescript-t3b-printer" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
       </StackLayout>
     </ScrollView>
   </StackLayout>

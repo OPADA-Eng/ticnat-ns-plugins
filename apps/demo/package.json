@@ -4,13 +4,17 @@
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
   "dependencies": {
+    "@nativescript-community/ble": "^3.1.6",
     "@nativescript/core": "file:../../node_modules/@nativescript/core",
     "@ticnat/nativescript-image-cache": "file:../../packages/nativescript-image-cache",
+    "@ticnat/nativescript-intermec-printer": "file:../../packages/nativescript-intermec-printer",
     "@ticnat/nativescript-searchable-select": "file:../../packages/nativescript-searchable-select",
     "@ticnat/nativescript-sewoo-printer": "file:../../packages/nativescript-sewoo-printer",
     "@ticnat/nativescript-woosim-printer": "file:../../packages/nativescript-woosim-printer",
     "nativescript-fonticon": "^2.0.2",
-    "nativescript-theme-core": "file:../../node_modules/nativescript-theme-core"
+    "nativescript-theme-core": "file:../../node_modules/nativescript-theme-core",
+    "@ticnat/nativescript-socketmobile": "file:../../packages/nativescript-socketmobile",
+    "@ticnat/nativescript-t3b-printer": "file:../../packages/nativescript-t3b-printer"
   },
   "devDependencies": {
     "@nativescript/android": "~8.1.1",

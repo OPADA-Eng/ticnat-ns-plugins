@@ -1,0 +1,6 @@
+framework module WoosimPtri350Framework {
+  umbrella header "WoosimPtri350Framework.h"
+
+  export *
+  module * { export * }
+}

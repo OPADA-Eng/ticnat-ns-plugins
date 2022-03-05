@@ -87,7 +87,10 @@
               "nx run nativescript-image-cache:build.all",
               "nx run nativescript-searchable-select:build.all",
               "nx run nativescript-sewoo-printer:build.all",
-              "nx run nativescript-woosim-printer:build.all"
+              "nx run nativescript-woosim-printer:build.all",
+              "nx run nativescript-intermec-printer:build.all",
+              "nx run nativescript-socketmobile:build.all",
+              "nx run nativescript-t3b-printer:build.all"
             ],
             "parallel": false
           }
@@ -281,6 +284,141 @@
           "options": {
             "commands": [
               "nx g @nativescript/plugin-tools:focus-packages nativescript-woosim-printer"
+            ],
+            "parallel": false
+          }
+        }
+      }
+    },
+    "nativescript-intermec-printer": {
+      "root": "packages/nativescript-intermec-printer",
+      "projectType": "library",
+      "sourceRoot": "packages/nativescript-intermec-printer",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/packages/nativescript-intermec-printer",
+            "tsConfig": "packages/nativescript-intermec-printer/tsconfig.json",
+            "packageJson": "packages/nativescript-intermec-printer/package.json",
+            "main": "packages/nativescript-intermec-printer/index.d.ts",
+            "assets": [
+              "packages/nativescript-intermec-printer/*.md",
+              "packages/nativescript-intermec-printer/index.d.ts",
+              "LICENSE",
+              {
+                "glob": "**/*",
+                "input": "packages/nativescript-intermec-printer/platforms/",
+                "output": "./platforms/"
+              }
+            ]
+          }
+        },
+        "build.all": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx run nativescript-intermec-printer:build",
+              "node tools/scripts/build-finish.ts nativescript-intermec-printer"
+            ],
+            "parallel": false
+          }
+        },
+        "focus": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx g @nativescript/plugin-tools:focus-packages nativescript-intermec-printer"
+            ],
+            "parallel": false
+          }
+        }
+      }
+    },
+    "nativescript-socketmobile": {
+      "root": "packages/nativescript-socketmobile",
+      "projectType": "library",
+      "sourceRoot": "packages/nativescript-socketmobile",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/packages/nativescript-socketmobile",
+            "tsConfig": "packages/nativescript-socketmobile/tsconfig.json",
+            "packageJson": "packages/nativescript-socketmobile/package.json",
+            "main": "packages/nativescript-socketmobile/index.d.ts",
+            "assets": [
+              "packages/nativescript-socketmobile/*.md",
+              "packages/nativescript-socketmobile/index.d.ts",
+              "LICENSE",
+              {
+                "glob": "**/*",
+                "input": "packages/nativescript-socketmobile/platforms/",
+                "output": "./platforms/"
+              }
+            ]
+          }
+        },
+        "build.all": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx run nativescript-socketmobile:build",
+              "node tools/scripts/build-finish.ts nativescript-socketmobile"
+            ],
+            "parallel": false
+          }
+        },
+        "focus": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx g @nativescript/plugin-tools:focus-packages nativescript-socketmobile"
+            ],
+            "parallel": false
+          }
+        }
+      }
+    },
+    "nativescript-t3b-printer": {
+      "root": "packages/nativescript-t3b-printer",
+      "projectType": "library",
+      "sourceRoot": "packages/nativescript-t3b-printer",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/packages/nativescript-t3b-printer",
+            "tsConfig": "packages/nativescript-t3b-printer/tsconfig.json",
+            "packageJson": "packages/nativescript-t3b-printer/package.json",
+            "main": "packages/nativescript-t3b-printer/index.d.ts",
+            "assets": [
+              "packages/nativescript-t3b-printer/*.md",
+              "packages/nativescript-t3b-printer/index.d.ts",
+              "LICENSE",
+              {
+                "glob": "**/*",
+                "input": "packages/nativescript-t3b-printer/platforms/",
+                "output": "./platforms/"
+              }
+            ]
+          }
+        },
+        "build.all": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx run nativescript-t3b-printer:build",
+              "node tools/scripts/build-finish.ts nativescript-t3b-printer"
+            ],
+            "parallel": false
+          }
+        },
+        "focus": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx g @nativescript/plugin-tools:focus-packages nativescript-t3b-printer"
             ],
             "parallel": false
           }
