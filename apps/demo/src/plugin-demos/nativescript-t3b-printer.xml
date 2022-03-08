@@ -1,14 +1,16 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
-    <Page.actionBar>
-        <ActionBar title="nativescript-t3b-printer" icon="" class="action-bar">
-        </ActionBar>
-    </Page.actionBar>
-    <StackLayout class="p-20">
-        <ScrollView class="h-full">
-          <StackLayout>
-            <Button text="Test nativescript-t3b-printer" tap="{{ testIt }}" class="btn btn-primary"/>
+  <Page.actionBar>
+    <ActionBar title="nativescript-t3b-printer" icon="" class="action-bar">
+    </ActionBar>
+  </Page.actionBar>
+  <StackLayout class="p-20">
+    <ScrollView class="h-full">
+      <StackLayout>
+        <Button text="connect to nativescript-t3b-printer" tap="{{ connect }}" class="btn btn-primary"/>
+        <Button text="print" tap="{{ print }}" class="btn btn-primary"/>
+        <Button text="print Img" tap="{{ printImg }}" class="btn btn-primary"/>
 
-          </StackLayout>
-        </ScrollView>
-    </StackLayout>
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
 </Page>

@@ -1,5 +1,7 @@
 import { Application } from '@nativescript/core';
 import { TNSFontIcon, fonticon } from 'nativescript-fonticon';
+import { Socketmobile } from '@ticnat/nativescript-socketmobile';
+
 let resources = Application.getResources();
 TNSFontIcon.debug = false;
 TNSFontIcon.paths = {

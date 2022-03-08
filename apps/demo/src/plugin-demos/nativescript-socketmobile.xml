@@ -6,7 +6,9 @@
   <StackLayout class="p-20">
     <ScrollView class="h-full">
       <StackLayout>
-        <!-- <Button text="Test nativescript-socketmobile" tap="{{ testIt }}" class="btn btn-primary"/> -->
+        <Button text="Test nativescript-socketmobile" tap="{{ initScanner }}" class="btn btn-primary"/>
+        <Label text="Scanned data:" textWrap="true" />
+        <Label text="{{ scannedText }}" textWrap="true" />
 
       </StackLayout>
     </ScrollView>
