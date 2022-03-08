@@ -25,7 +25,20 @@ socket.initScanner();
 
 3. Connect and pair your sockermobile scanner with the iPad through socket mobile companion app
 
-4. All done!
+4. add these to info.plist file
+
+```xml
+<key>UISupportedExternalAccessoryProtocols</key>
+<array>
+    <string>com.socketmobile.chs</string>
+</array>
+<key>NSBluetoothAlwaysUsageDescription</key>
+<string>Using bluetooth to connect the app to the barcode scanner</string>
+<key>NSBluetoothPeripheralUsageDescription</key>
+<string>Using bluetooth to connect the app to the barcode scanner</string>
+```
+
+5. All done!
 
 
 Notice:
