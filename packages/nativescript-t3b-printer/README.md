@@ -1,5 +1,8 @@
 # @ticnat/nativescript-t3b-printer
 
+Supported platforms:
+#iOS 
+
 ```javascript
 ns plugin add @ticnat/nativescript-t3b-printer
 ```
