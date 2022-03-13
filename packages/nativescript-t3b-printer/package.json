@@ -1,35 +1,42 @@
 {
-    "name": "@ticnat/nativescript-t3b-printer",
-    "version": "1.0.0",
-    "description": "Add a plugin description",
-    "main": "index",
-    "typings": "index.d.ts",
-    "nativescript": {
-        "platforms": {
-            "ios": "6.0.0",
-            "android": "6.0.0"
-        }
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/OPADA-Eng/ticnat-ns-plugins.git"
-    },
-    "keywords": [
-        "NativeScript",
-        "JavaScript",
-        "TypeScript",
-        "iOS",
-        "Android"
-    ],
-    "author": {
-        "name": "OPADA-Eng",
-        "email": "m.opada.albosh@gmail.com"
-    },
-    "bugs": {
-        "url": "https://github.com/OPADA-Eng/ticnat-ns-plugins/issues"
-    },
-    "license": "Apache-2.0",
-    "homepage": "https://github.com/OPADA-Eng/ticnat-ns-plugins",
-    "readmeFilename": "README.md",
-    "bootstrapper": "@nativescript/plugin-seed"
+  "name": "@ticnat/nativescript-t3b-printer",
+  "version": "1.0.1",
+  "description": "Add a plugin description",
+  "main": "index",
+  "typings": "index.d.ts",
+  "nativescript": {
+    "platforms": {
+      "ios": "6.0.0",
+      "android": "6.0.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OPADA-Eng/ticnat-ns-plugins.git"
+  },
+  "keywords": [
+    "NativeScript",
+    "JavaScript",
+    "TypeScript",
+    "iOS",
+    "Android",
+    "Birch",
+    "T3B Printer",
+    "T3B",
+    "POS Printer"
+  ],
+  "author": {
+    "name": "OPADA-Eng",
+    "email": "m.opada.albosh@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/OPADA-Eng/ticnat-ns-plugins/issues"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/OPADA-Eng/ticnat-ns-plugins",
+  "readmeFilename": "README.md",
+  "bootstrapper": "@nativescript/plugin-seed",
+  "publishConfig": {
+    "access": "public"
+  }
 }

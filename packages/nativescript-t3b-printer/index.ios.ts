@@ -11,23 +11,26 @@ export class T3bPrinter extends T3bPrinterCommon {
         }
     }
     public connectWifi(ip: string) {
-
-        if (this.printer) {
-            if (!this.printer.connectOK) {
-                this.printer.MConnectWithHostPortCompletion(ip, 9100, (result) => {
-                    console.log(result);
+        return new Promise((resolve, reject) => {
+            if (this.printer) {
+                if (!this.printer.connectOK) {
+                    this.printer.MConnectWithHostPortCompletion(ip, 9100, (result) => {
+                        console.log(result);
+                        this.set('isConnected', true);
+                        resolve(true);
+                    });
+                }
+                else {
+                    console.log("Printer is alread connected");
                     this.set('isConnected', true);
-                });
+                    resolve(true);
+                }
             }
             else {
-                console.log("Printer is alread connected");
-                this.set('isConnected', true);
+                this.printer = MWIFIManager.shareWifiManager();
+                return this.connectWifi(ip);
             }
-        }
-        else {
-            this.printer = MWIFIManager.shareWifiManager();
-            this.connectWifi(ip);
-        }
+        });
     }
     public disconnect() {
         if (this.printer && this.printer.connectOK) {
