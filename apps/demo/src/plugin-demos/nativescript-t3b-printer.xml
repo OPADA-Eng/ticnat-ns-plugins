@@ -6,13 +6,20 @@
   <StackLayout class="p-20">
     <ScrollView class="h-full">
       <StackLayout>
+        <GridLayout rows="auto" columns="auto,*">
+          <Label col="0" text="Printer IP:" textWrap="true" />
+          <TextField col="1" class="text-field" hint="192.168.X.X" text="{{ printerIP }}" />
+        </GridLayout>
         <Button visibility="{{ !isConnected ? 'visible' : 'collapsed' }}" text="connect to t3b-printer" tap="{{ connect }}" class="btn btn-primary"/>
         <Button visibility="{{ isConnected ? 'visible' : 'collapsed' }}" text="disconnect" tap="{{ disconnect }}" class="btn btn-primary bg-danger"/>
         <StackLayout visibility="{{  isConnected ? 'visible' : 'collapsed' }}">
+          <TextField hint="Write some text here" text="{{ text }}" />
+
           <Button text="print" tap="{{ print }}" class="btn btn-primary"/>
-          <Image src="~/images/logo.png" stretch="none" />
+          <Image src="~/images/logo-strok.png" horizontalAlignment="center" stretch="none" />
 
           <Button text="print Img" tap="{{ printImg }}" class="btn btn-primary"/>
+          <Button text="Paper cut" tap="{{ cut }}" class="btn btn-primary"/>
         </StackLayout>
 
       </StackLayout>

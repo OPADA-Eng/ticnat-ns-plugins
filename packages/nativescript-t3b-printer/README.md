@@ -6,7 +6,16 @@ ns plugin add @ticnat/nativescript-t3b-printer
 
 ## Usage
 
-// TODO
+```javascript
+this.printer = new T3bPrinter();
+
+this.printer.connectWifi("192.168.1.240");
+
+this.printer.printTxt("some text");
+```
+
+for full example see demo.
+
 
 ## License
 

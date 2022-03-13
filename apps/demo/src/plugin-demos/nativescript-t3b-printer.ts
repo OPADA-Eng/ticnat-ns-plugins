@@ -11,6 +11,8 @@ export function navigatingTo(args: EventData) {
 export class DemoModel extends Observable {
 	public printer: T3bPrinter;
 	public isConnected: boolean = false;
+	public text: string = 'Hello World!';
+	public printerIP: string = '192.168.1.240';
 
 	constructor() {
 		super();
@@ -18,7 +20,7 @@ export class DemoModel extends Observable {
 	}
 
 	public connect() {
-		this.printer.connectWifi('192.168.1.240');
+		this.printer.connectWifi(this.printerIP);
 		this.set('isConnected', this.printer.isConnected);
 	}
 	public disconnect() {
@@ -26,7 +28,10 @@ export class DemoModel extends Observable {
 		this.set('isConnected', this.printer.isConnected);
 	}
 	public print() {
-		this.printer.printTxt('123');
+		this.printer.printTxt(this.text);
+	}
+	public cut() {
+		this.printer.cut();
 	}
 	printImg() {
 		// this.createBmp()
