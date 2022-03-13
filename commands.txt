@@ -2,3 +2,4 @@ TNS_TYPESCRIPT_DECLARATIONS_PATH="$(pwd)/src/typings" tns build ios
 
 tns run ios --device 24411992ffcce3510a30c188d43ec300da5f8cd6 | grep -v 'TIC\|tcp_\|0x\|Task\|System\|nw_\|new conn\|RTT_\|Cookie\|cookie\|tcp\|HTHangEvent\|<private>\|path:cancel\|Hostname#\|packets\|dns\|DNS\|ipv4\|IPv4\|Conn_Time\|TLS\|Connection\|WeakRef.clear'
 tns run ios --device 00008101-001345491E0A001E  | grep -v 'TIC\|tcp_\|0x\|Task\|System\|nw_\|new conn\|RTT_\|Cookie\|cookie\|tcp\|HTHangEvent\|<private>\|path:cancel\|Hostname#\|packets\|dns\|DNS\|ipv4\|IPv4\|Conn_Time\|TLS\|Connection\|WeakRef.clear'
+ns run ios --emulator | grep -v 'WeakRef.clear'

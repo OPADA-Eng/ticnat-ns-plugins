@@ -24,25 +24,25 @@
 		<data>
 		6OFOvaWJ0Pcs9OlHhbXEm9/5CvY=
 		</data>
-		<key>Headers/MCommand.h</key>
-		<data>
-		yGdL9uiI6LaLsjm87AgmI/ky7vg=
-		</data>
 		<key>Headers/MSDK.h</key>
 		<data>
 		UTZt4w/d553CWw3Skj0/u+bAiv4=
 		</data>
 		<key>Headers/MWIFIManager.h</key>
 		<data>
-		q+tOy9lnZ/12UJR2mMoIi7SQolQ=
+		OXbGU2joCJp2UH7FRNNnM1ANrpg=
 		</data>
 		<key>Headers/Obada_Objc.h</key>
 		<data>
 		VSs/7L+YU3y7nWGNyDN9vCvl1w4=
 		</data>
+		<key>Headers/PosCommand.h</key>
+		<data>
+		yGdL9uiI6LaLsjm87AgmI/ky7vg=
+		</data>
 		<key>Headers/PrinterManager.h</key>
 		<data>
-		sP6I8nR7G0jQFmasSQOlqteVFwo=
+		2Bplbcalbni7VHj66xQYerrNW0g=
 		</data>
 		<key>Headers/TscCommand.h</key>
 		<data>
@@ -98,13 +98,6 @@
 			mohHasJQdJSXNNr560FsurGJAdWo2Fp5/txaEp7UUes=
 			</data>
 		</dict>
-		<key>Headers/MCommand.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			mYrJFqkYl/U8J6up1ORt4ehhd30qayI/V26sgDad7KM=
-			</data>
-		</dict>
 		<key>Headers/MSDK.h</key>
 		<dict>
 			<key>hash2</key>
@@ -116,7 +109,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bDQf5uKk+iHe0FSatW7bcrHGTRnjMzrmlmyR/rniXEY=
+			3l5XqSbDUSI4lj4IKMNZsv2WL9mewE/dOA6nWHH0bks=
 			</data>
 		</dict>
 		<key>Headers/Obada_Objc.h</key>
@@ -126,11 +119,18 @@
 			v1ups/jEvevf1pmCJ40Bn7ndOrgB48hXCIYGx5GchoU=
 			</data>
 		</dict>
+		<key>Headers/PosCommand.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			mYrJFqkYl/U8J6up1ORt4ehhd30qayI/V26sgDad7KM=
+			</data>
+		</dict>
 		<key>Headers/PrinterManager.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			papOBb4NAog7SGiBP8L4WXXHUuDodXXyN3SHxABVFRs=
+			MuSSZKUXbCi2W2Gc/qkyEbse0y6CFpnSTenzYFGyDP0=
 			</data>
 		</dict>
 		<key>Headers/TscCommand.h</key>

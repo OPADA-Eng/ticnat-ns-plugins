@@ -1,10 +1,12 @@
-import { NativescriptT3bPrinterCommon } from './common';
+import { T3bPrinterCommon } from './common';
 
-export declare class NativescriptT3bPrinter extends NativescriptT3bPrinterCommon {
-
+export declare class T3bPrinter extends T3bPrinterCommon {
+    public isConnected: boolean;
     constructor();
     public connectWifi(ip: string): void;
+    public disconnect(): void;
     public printTxt(txt: string): void;
-    public printImg(img: string): void;
+    public printImg(img: ImageSource): void;
+    public cut(): void;
 
 }

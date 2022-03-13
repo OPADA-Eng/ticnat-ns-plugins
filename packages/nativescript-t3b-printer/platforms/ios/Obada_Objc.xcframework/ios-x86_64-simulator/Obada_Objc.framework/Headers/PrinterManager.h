@@ -13,7 +13,7 @@
 #import "ImageTranster.h"
 #import "libMPrinter.h"
 #import "MBLEManager.h"
-#import "MCommand.h"
+#import "PosCommand.h"
 #import "TscCommand.h"
 
 NS_ASSUME_NONNULL_BEGIN

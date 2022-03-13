@@ -6,9 +6,14 @@
   <StackLayout class="p-20">
     <ScrollView class="h-full">
       <StackLayout>
-        <Button text="connect to nativescript-t3b-printer" tap="{{ connect }}" class="btn btn-primary"/>
-        <Button text="print" tap="{{ print }}" class="btn btn-primary"/>
-        <Button text="print Img" tap="{{ printImg }}" class="btn btn-primary"/>
+        <Button visibility="{{ !isConnected ? 'visible' : 'collapsed' }}" text="connect to t3b-printer" tap="{{ connect }}" class="btn btn-primary"/>
+        <Button visibility="{{ isConnected ? 'visible' : 'collapsed' }}" text="disconnect" tap="{{ disconnect }}" class="btn btn-primary bg-danger"/>
+        <StackLayout visibility="{{  isConnected ? 'visible' : 'collapsed' }}">
+          <Button text="print" tap="{{ print }}" class="btn btn-primary"/>
+          <Image src="~/images/logo.png" stretch="none" />
+
+          <Button text="print Img" tap="{{ printImg }}" class="btn btn-primary"/>
+        </StackLayout>
 
       </StackLayout>
     </ScrollView>

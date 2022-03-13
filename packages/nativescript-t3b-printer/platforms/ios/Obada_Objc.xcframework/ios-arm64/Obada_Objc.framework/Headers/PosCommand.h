@@ -392,10 +392,10 @@
 
 +(NSData *) setHorizontalAndVerticalMoveUnitWithX:(int) x andY:(int) y;
 /**
- 选择切纸模式并切纸<br>
- GS V m<br>
- 1D 56 m<br>
- (int) m:0 or 48,全切;1 or 49，半切.<br>
+Select the tear-off mode and cut the paper<br>
+  GS V m<br>
+  1D 56 m<br>
+  (int) m: 0 or 48, full cut; 1 or 49, half cut.<br>
  */
 
 +(NSData *) selectCutPageModelAndCutpage:(int) m;

@@ -1,4 +1,8 @@
 import { Observable } from '@nativescript/core';
 
-export class NativescriptT3bPrinterCommon extends Observable {
+export class T3bPrinterCommon extends Observable {
+    public isConnected: boolean = false;
+    constructor() {
+        super();
+    }
 }
