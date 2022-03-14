@@ -16,8 +16,13 @@ export class T3bPrinter extends T3bPrinterCommon {
                 if (!this.printer.connectOK) {
                     this.printer.MConnectWithHostPortCompletion(ip, 9100, (result) => {
                         console.log(result);
-                        this.set('isConnected', true);
-                        resolve(true);
+                        if (result) {
+                            this.set('isConnected', true);
+                            resolve(true);
+                        }
+                        else {
+                            reject(false);
+                        }
                     });
                 }
                 else {
