@@ -13,7 +13,15 @@
         <Button visibility="{{ !isConnected ? 'visible' : 'collapsed' }}" text="connect to t3b-printer" tap="{{ connect }}" class="btn btn-primary"/>
         <Button visibility="{{ isConnected ? 'visible' : 'collapsed' }}" text="disconnect" tap="{{ disconnect }}" class="btn btn-primary bg-danger"/>
         <StackLayout visibility="{{  isConnected ? 'visible' : 'collapsed' }}">
-          <TextField hint="Write some text here" text="{{ text }}" />
+
+          <GridLayout rows="auto" columns="auto,*">
+            <Label col="0" text="Text to print:" textWrap="true" />
+            <TextField col="1" class="text-field" hint="Write some text here" text="{{ text }}" />
+          </GridLayout>
+          <GridLayout rows="auto" columns="auto,*">
+            <Label col="0" text="Left padding:" textWrap="true" />
+            <TextField col="1" class="text-field" hint="Write some text here" text="{{ padding }}" />
+          </GridLayout>
 
           <Button text="print" tap="{{ print }}" class="btn btn-primary"/>
           <Image src="~/images/logo-strok.png" horizontalAlignment="center" stretch="none" />

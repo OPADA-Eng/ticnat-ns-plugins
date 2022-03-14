@@ -250,9 +250,9 @@
  */
 +(NSData *) setRelativeHorizontalPrintMitionWithnL:(int) nL andnH:(int) nH;
 /**
- 选择对齐方式<br>
- ESC a n<br>
- 1B 61 n<br>
+Choose an alignment<br>
+  ESC a n<br>
+  1B 61 n<br> 
  */
 +(NSData *) selectAlignment:(int) n;
 /**
@@ -375,10 +375,10 @@
 +(NSData *) selectHRICharactersPrintMition:(int) n;
 
 /**
- 设置左边距<br>
- GS L nL nH<br>
- 1D 4C nL nH<br>
- (nL+nH*256)*横向移动单位，代表设置的左边距，单位：inch.<br>
+Set left margin<br>
+  GS L nL nH<br>
+  1D 4C nL nH<br>
+  (nL+nH*256)* horizontal movement unit, representing the set left margin, unit: inch.<br>
  */
 
 +(NSData *) setLeftSpaceWithnL:(int) nL andnH:(int) nH;

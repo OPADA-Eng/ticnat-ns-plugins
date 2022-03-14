@@ -13,6 +13,7 @@ export class DemoModel extends Observable {
 	public isConnected: boolean = false;
 	public text: string = 'Hello World!';
 	public printerIP: string = '192.168.1.240';
+	public padding: number = 0;
 
 	constructor() {
 		super();
@@ -28,7 +29,7 @@ export class DemoModel extends Observable {
 		this.set('isConnected', this.printer.isConnected);
 	}
 	public print() {
-		this.printer.printTxt(this.text);
+		this.printer.printTxt(this.text, this.padding);
 	}
 	public cut() {
 		this.printer.cut();

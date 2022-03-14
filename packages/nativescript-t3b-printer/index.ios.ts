@@ -44,10 +44,14 @@ export class T3bPrinter extends T3bPrinterCommon {
 
         }
     }
-    public printTxt(txt = "asd") {
+    public printTxt(txt = "asd", padding = 0) {
         try {
-            if (this.printer && this.printer.connectOK)
+            if (this.printer && this.printer.connectOK) {
+                this.setLeftPadding(padding);
                 this.printer.MSendMSGWith(txt);
+                // this.setLeftPadding(0);
+
+            }
         } catch (error) {
             console.log(error);
         }
@@ -71,6 +75,11 @@ export class T3bPrinter extends T3bPrinterCommon {
         } catch (error) {
             console.log(error);
         }
+    }
+    public setLeftPadding(x = 0) {
+        let data = MCommand.setLeftSpaceWithnLAndnH(x, 0);
+        // console.log(data);
+        this.printer.MWriteCommandWithData(data);
     }
 
 }
