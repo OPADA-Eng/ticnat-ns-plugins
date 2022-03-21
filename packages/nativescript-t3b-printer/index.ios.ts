@@ -44,25 +44,62 @@ export class T3bPrinter extends T3bPrinterCommon {
 
         }
     }
-    public printTxt(txt = "asd", padding = 0) {
+    public getUniCode(aString: NSString) {
+        let theStringToReturn = null;
+
+
+        let theEncodedString = NSMutableString.alloc().initWithString("");
+
+        for (var theCharIndex = 0; theCharIndex < aString.length; theCharIndex++) {
+            theEncodedString.appendString("%04x" + aString[theCharIndex]);
+        }
+
+        theStringToReturn = NSString.stringWithString(theEncodedString.UTF8String);
+
+        return theStringToReturn;
+    }
+    public printTxt(txt = "asd", padding = 0, codePage = null, font = 0, bold = false) {
         try {
             if (this.printer && this.printer.connectOK) {
-                this.setLeftPadding(padding);
-                this.printer.MSendMSGWith(txt);
-                // this.setLeftPadding(0);
+                let data = MCommand.initializePrinter();
+                let buffer = NSMutableData.alloc().initWithData(data);
+                if (bold) {
+                    data = MCommand.selectOrCancleBoldModel(1);
+                    buffer.appendData(data);
+                    // this.printer.commandBuffer.addObject(data);
+                }
+                data = MCommand.setLeftSpaceWithnLAndnH(padding, 0);
+                buffer.appendData(data);
+                // data = MCommand.selectCharacterSize(12);
+                // buffer.appendData(data);
 
+                data = MCommand.selectFont(font);
+                buffer.appendData(data);
+                if (codePage) {
+                    data = MCommand.selectCharacterCodePage(codePage);
+                    buffer.appendData(data);
+                }
+                let nsTxt = NSString.stringWithUTF8String(txt);
+                // console.log("nsTxt", nsTxt)
+                data = nsTxt.dataUsingEncoding(NSUTF8StringEncoding);
+                buffer.appendData(data);
+                this.printer.MWriteCommandWithData(buffer);
             }
         } catch (error) {
             console.log(error);
         }
 
     }
-    public printImg(img: ImageSource) {
+
+    public printImg(img: ImageSource, bmpType: BmpType = BmpType.Threshold, height = 0) {
         try {
-            let data = MCommand.printRasteBmpWithMAndImageAndTypeAndPaperHeight(PrintRasterType.RasterNolmorWH, img.ios, BmpType.Threshold, img.height);
-            this.printer.MWriteCommandWithData(data);
-            this.printer.MSendMSGWith("\n");
-            this.printer.MSendMSGWith("\n");
+            let data = MCommand.initializePrinter();
+            let buffer = NSMutableData.alloc().initWithData(data);
+            data = MCommand.setPrintAreaWidthWithnLAndnH(img.width, img.height);
+            buffer.appendData(data);
+            data = MCommand.printRasteBmpWithMAndImageAndTypeAndPaperHeight(PrintRasterType.RasterNolmorWH, img.ios, bmpType, height || img.height);
+            buffer.appendData(data);
+            this.printer.MWriteCommandWithData(buffer);
             this.printer.MSendMSGWith("\n");
         } catch (error) {
             console.log(error);
@@ -76,10 +113,17 @@ export class T3bPrinter extends T3bPrinterCommon {
             console.log(error);
         }
     }
-    public setLeftPadding(x = 0) {
-        let data = MCommand.setLeftSpaceWithnLAndnH(x, 0);
-        // console.log(data);
+    public setFont(font = 0) {
+        let data = MCommand.selectFont(font);
         this.printer.MWriteCommandWithData(data);
     }
 
+    public openCashDrawer() {
+        try {
+            let data = MCommand.openCashBoxRealTimeWithMAndT(1, 1);
+            this.printer.MWriteCommandWithData(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }

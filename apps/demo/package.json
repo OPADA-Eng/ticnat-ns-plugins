@@ -10,14 +10,14 @@
     "@ticnat/nativescript-intermec-printer": "file:../../packages/nativescript-intermec-printer",
     "@ticnat/nativescript-searchable-select": "file:../../packages/nativescript-searchable-select",
     "@ticnat/nativescript-sewoo-printer": "file:../../packages/nativescript-sewoo-printer",
+    "@ticnat/nativescript-socketmobile": "file:../../packages/nativescript-socketmobile",
+    "@ticnat/nativescript-t3b-printer": "file:../../packages/nativescript-t3b-printer",
     "@ticnat/nativescript-woosim-printer": "file:../../packages/nativescript-woosim-printer",
     "nativescript-fonticon": "^2.0.2",
-    "nativescript-theme-core": "file:../../node_modules/nativescript-theme-core",
-    "@ticnat/nativescript-socketmobile": "file:../../packages/nativescript-socketmobile",
-    "@ticnat/nativescript-t3b-printer": "file:../../packages/nativescript-t3b-printer"
+    "nativescript-theme-core": "file:../../node_modules/nativescript-theme-core"
   },
   "devDependencies": {
     "@nativescript/android": "~8.1.1",
-    "@nativescript/ios": "~8.1.0"
+    "@nativescript/ios": "8.2.1"
   }
 }

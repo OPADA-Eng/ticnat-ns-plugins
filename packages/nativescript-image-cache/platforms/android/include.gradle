@@ -5,5 +5,5 @@ android {
 }
 
 dependencies {
-	compile "com.facebook.fresco:fresco:2.4.0"
+	implementation "com.facebook.fresco:fresco:2.6.0"
 }

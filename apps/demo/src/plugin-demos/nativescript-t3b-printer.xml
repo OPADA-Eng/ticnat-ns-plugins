@@ -22,9 +22,13 @@
             <Label col="0" text="Left padding:" textWrap="true" />
             <TextField col="1" class="text-field" hint="Write some text here" text="{{ padding }}" />
           </GridLayout>
+          <GridLayout rows="auto" columns="auto,*">
+            <Label col="0" text="encoding:" textWrap="true" />
+            <TextField col="1" class="text-field" hint="encoding" text="{{ encoding }}" />
+          </GridLayout>
 
           <Button text="print" tap="{{ print }}" class="btn btn-primary"/>
-          <Image src="~/images/logo-strok.png" horizontalAlignment="center" stretch="none" />
+          <Image src="~/images/logo-ma.png" horizontalAlignment="center" stretch="none" />
 
           <Button text="print Img" tap="{{ printImg }}" class="btn btn-primary"/>
           <Button text="Paper cut" tap="{{ cut }}" class="btn btn-primary"/>

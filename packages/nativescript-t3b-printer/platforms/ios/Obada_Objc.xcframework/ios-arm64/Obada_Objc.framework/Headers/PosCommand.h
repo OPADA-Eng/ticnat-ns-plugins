@@ -163,10 +163,10 @@
  */
 +(NSData *) setHorizontalTabsMition:(NSData *) data;
 /**
- 选择或取消加粗模式<br>
- ESC E n<br>
- 1B 45 n<br>
- (int) n: 0~255,只有n的最后一位有效，0代表取消，1代表选择.<br>
+Select or deselect bold mode<br>
+  ESC En<br>
+  1B 45 n<br>
+  (int) n: 0~255, only the last digit of n is valid, 0 means cancel, 1 means select.<br>  
  */
 +(NSData *) selectOrCancleBoldModel:(int) n;
 /**
@@ -321,9 +321,9 @@ Choose an alignment<br>
  */
 +(NSData *)definedFlashBmpWithN:(int)n andBmp:(UIImage *)image andBmpType:(BmpType) bmptype andPrintType:(PrintRasterType) type andPaperHeight:(int) paperheight;
 /**
- 选择字符大小<br>
- GS ! n<br>
- (int) n:0~255,n的0-3位设定字符高度，4-7为来设定字符宽度。<br>
+Select character size<br>
+  GS ! n<br>
+  (int) n: 0~255, bits 0-3 of n set the character height, and bits 4-7 are used to set the character width. <br> 
  */
 +(NSData *) selectCharacterSize:(int) n;
 /**
