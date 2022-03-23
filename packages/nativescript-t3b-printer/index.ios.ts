@@ -91,20 +91,58 @@ export class T3bPrinter extends T3bPrinterCommon {
 
     }
 
-    public printImg(img: ImageSource, bmpType: BmpType = BmpType.Threshold, height = 0) {
+    public printImg(img: UIImage, bmpType: BmpType = BmpType.Threshold, height = 0) {
         try {
+            img = this.convertImageToGrayScale(img);
+            // console.log("img", img);
             let data = MCommand.initializePrinter();
             let buffer = NSMutableData.alloc().initWithData(data);
-            data = MCommand.setPrintAreaWidthWithnLAndnH(img.width, img.height);
+            data = MCommand.setPrintAreaWidthWithnLAndnH(img.size.width, img.size.height);
             buffer.appendData(data);
-            data = MCommand.printRasteBmpWithMAndImageAndTypeAndPaperHeight(PrintRasterType.RasterNolmorWH, img.ios, bmpType, height || img.height);
+            data = MCommand.printRasteBmpWithMAndImageAndTypeAndPaperHeight(PrintRasterType.RasterNolmorWH, img, bmpType, height || img.size.height);
             buffer.appendData(data);
+            // buffer.appendData(image);
             this.printer.MWriteCommandWithData(buffer);
             this.printer.MSendMSGWith("\n");
         } catch (error) {
             console.log(error);
         }
     }
+    // public convertImgToBmp(img: UIImage) {
+    //     return PrinterManager.new().convertImageToBmp(img);
+    // }
+
+    public convertImageToGrayScale(image: UIImage) {
+
+
+        // Create image rectangle with current image width/height
+        let imageRect = CGRectMake(0, 0, image.size.width, image.size.height);
+
+        // Grayscale color space
+        let colorSpace = CGColorSpaceCreateDeviceGray();
+
+        // Create bitmap content with current image size and grayscale colorspace
+        let context = CGBitmapContextCreate(null, image.size.width, image.size.height, 8, 0, colorSpace, CGImageAlphaInfo.kCGImageAlphaNone);
+
+        // Draw image into current context, with specified rectangle
+        // using previously defined context (with grayscale colorspace)
+        CGContextDrawImage(context, imageRect, image.CGImage);
+
+        // Create bitmap image info from pixel data in current context
+        let imageRef = CGBitmapContextCreateImage(context);
+
+        // Create a new UIImage object
+        let newImage = UIImage.imageWithCGImage(imageRef);
+
+        // Release colorspace, context and bitmap information
+        CGColorSpaceRelease(colorSpace);
+        CGContextRelease(context);
+        CFRelease(imageRef);
+
+        // Return the new grayscale image
+        return newImage;
+    }
+
     public cut() {
         try {
             let data = MCommand.selectCutPageModelAndCutpage(49);

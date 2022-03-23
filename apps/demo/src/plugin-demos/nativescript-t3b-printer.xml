@@ -5,9 +5,11 @@
   </Page.actionBar>
   <StackLayout class="p-20">
     <ScrollView class="h-full">
-      <StackLayout>
+      <StackLayout id="printArea" backgroundColor="#fff">
+        <Label text="This is a Title" fontSize="44" class="text-center" horizontalAlignment="center" textWrap="true" />
+
         <GridLayout rows="auto" columns="auto,*">
-          <Label col="0" text="Printer IP:" textWrap="true" />
+          <Label col="0" class="text-big" text="Printer IP:" textWrap="true" />
           <TextField col="1" class="text-field" hint="192.168.X.X" text="{{ printerIP }}" />
         </GridLayout>
         <Button visibility="{{ !isConnected ? 'visible' : 'collapsed' }}" text="connect to t3b-printer" tap="{{ connect }}" class="btn btn-primary"/>
@@ -15,22 +17,23 @@
         <StackLayout visibility="{{  isConnected ? 'visible' : 'collapsed' }}">
 
           <GridLayout rows="auto" columns="auto,*">
-            <Label col="0" text="Text to print:" textWrap="true" />
+            <Label col="0" class="text-big" text="Text to print:" textWrap="true" />
             <TextField col="1" class="text-field" hint="Write some text here" text="{{ text }}" />
           </GridLayout>
           <GridLayout rows="auto" columns="auto,*">
-            <Label col="0" text="Left padding:" textWrap="true" />
+            <Label col="0" class="text-big" text="Left padding:" textWrap="true" />
             <TextField col="1" class="text-field" hint="Write some text here" text="{{ padding }}" />
           </GridLayout>
           <GridLayout rows="auto" columns="auto,*">
-            <Label col="0" text="encoding:" textWrap="true" />
+            <Label col="0" class="text-big" text="encoding:" textWrap="true" />
             <TextField col="1" class="text-field" hint="encoding" text="{{ encoding }}" />
           </GridLayout>
 
           <Button text="print" tap="{{ print }}" class="btn btn-primary"/>
-          <Image src="~/images/logo-ma.png" horizontalAlignment="center" stretch="none" />
+          <Image src="~/images/logo-ma.png" id="logo" horizontalAlignment="center" stretch="none" />
 
-          <Button text="print Img" tap="{{ printImg }}" class="btn btn-primary"/>
+          <Button text="print Screen" tap="{{ printImg }}" class="btn btn-primary"/>
+          <Button text="print Logo" tap="{{ printLogo }}" class="btn btn-primary"/>
           <Button text="Paper cut" tap="{{ cut }}" class="btn btn-primary"/>
         </StackLayout>
 

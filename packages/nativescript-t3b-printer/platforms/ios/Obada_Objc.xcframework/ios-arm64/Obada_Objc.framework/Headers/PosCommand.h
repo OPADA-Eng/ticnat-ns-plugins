@@ -163,10 +163,10 @@
  */
 +(NSData *) setHorizontalTabsMition:(NSData *) data;
 /**
-Select or deselect bold mode<br>
-  ESC En<br>
-  1B 45 n<br>
-  (int) n: 0~255, only the last digit of n is valid, 0 means cancel, 1 means select.<br>  
+ 选择或取消加粗模式<br>
+ ESC E n<br>
+ 1B 45 n<br>
+ (int) n: 0~255,只有n的最后一位有效，0代表取消，1代表选择.<br>
  */
 +(NSData *) selectOrCancleBoldModel:(int) n;
 /**
@@ -250,9 +250,9 @@ Select or deselect bold mode<br>
  */
 +(NSData *) setRelativeHorizontalPrintMitionWithnL:(int) nL andnH:(int) nH;
 /**
-Choose an alignment<br>
-  ESC a n<br>
-  1B 61 n<br> 
+ 选择对齐方式<br>
+ ESC a n<br>
+ 1B 61 n<br>
  */
 +(NSData *) selectAlignment:(int) n;
 /**
@@ -321,9 +321,9 @@ Choose an alignment<br>
  */
 +(NSData *)definedFlashBmpWithN:(int)n andBmp:(UIImage *)image andBmpType:(BmpType) bmptype andPrintType:(PrintRasterType) type andPaperHeight:(int) paperheight;
 /**
-Select character size<br>
-  GS ! n<br>
-  (int) n: 0~255, bits 0-3 of n set the character height, and bits 4-7 are used to set the character width. <br> 
+ 选择字符大小<br>
+ GS ! n<br>
+ (int) n:0~255,n的0-3位设定字符高度，4-7为来设定字符宽度。<br>
  */
 +(NSData *) selectCharacterSize:(int) n;
 /**
@@ -375,10 +375,10 @@ Select character size<br>
 +(NSData *) selectHRICharactersPrintMition:(int) n;
 
 /**
-Set left margin<br>
-  GS L nL nH<br>
-  1D 4C nL nH<br>
-  (nL+nH*256)* horizontal movement unit, representing the set left margin, unit: inch.<br>
+ 设置左边距<br>
+ GS L nL nH<br>
+ 1D 4C nL nH<br>
+ (nL+nH*256)*横向移动单位，代表设置的左边距，单位：inch.<br>
  */
 
 +(NSData *) setLeftSpaceWithnL:(int) nL andnH:(int) nH;
@@ -392,10 +392,10 @@ Set left margin<br>
 
 +(NSData *) setHorizontalAndVerticalMoveUnitWithX:(int) x andY:(int) y;
 /**
-Select the tear-off mode and cut the paper<br>
-  GS V m<br>
-  1D 56 m<br>
-  (int) m: 0 or 48, full cut; 1 or 49, half cut.<br>
+ 选择切纸模式并切纸<br>
+ GS V m<br>
+ 1D 56 m<br>
+ (int) m:0 or 48,全切;1 or 49，半切.<br>
  */
 
 +(NSData *) selectCutPageModelAndCutpage:(int) m;

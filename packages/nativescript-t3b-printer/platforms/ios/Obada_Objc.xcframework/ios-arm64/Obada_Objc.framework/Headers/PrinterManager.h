@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PrinterManager:NSObject
     -(MWIFIManager*) getWifiObj;
+    -(NSData*) convertImageToBmp: (UIImage *)image;
 @end
 
 NS_ASSUME_NONNULL_END

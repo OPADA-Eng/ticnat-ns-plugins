@@ -823,6 +823,8 @@ declare class PrinterManager extends NSObject {
 
 	static new(): PrinterManager; // inherited from NSObject
 
+	convertImageToBmp(image: UIImage): NSData;
+
 	getWifiObj(): MWIFIManager;
 }
 

@@ -42,7 +42,7 @@
 		</data>
 		<key>Headers/PrinterManager.h</key>
 		<data>
-		2Bplbcalbni7VHj66xQYerrNW0g=
+		VVOZpBdWmDhWsjYQV4+IgletHWc=
 		</data>
 		<key>Headers/TscCommand.h</key>
 		<data>
@@ -55,6 +55,10 @@
 		<key>Info.plist</key>
 		<data>
 		ZAyACzBO7uj5jXE9gk2zFkPAO0c=
+		</data>
+		<key>LICENSE</key>
+		<data>
+		ISCYys42HzGbo9RG3wrT4w/PrQI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -130,7 +134,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MuSSZKUXbCi2W2Gc/qkyEbse0y6CFpnSTenzYFGyDP0=
+			XPvaXmw2kkKkSFUrfFBRUvuBr2prT8Cyj/q9dXZtJMo=
 			</data>
 		</dict>
 		<key>Headers/TscCommand.h</key>
@@ -145,6 +149,13 @@
 			<key>hash2</key>
 			<data>
 			dOIw0Jmmdl/4t7wGemo1xgidT5ThwMQCioMD492VX+8=
+			</data>
+		</dict>
+		<key>LICENSE</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			r4IXSVBJP7JaESRyug5pj9ZWjWtBER5UIRUPEx6R/3U=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
