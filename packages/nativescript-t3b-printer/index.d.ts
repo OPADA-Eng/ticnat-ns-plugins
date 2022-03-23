@@ -9,6 +9,7 @@ export declare class T3bPrinter extends T3bPrinterCommon {
     public printImg(img: any, bmpType: BmpType = BmpType.Threshold, height: number = 0): void;
     public cut(): void;
     // public convertImgToBmp(img: UIImage): NSData;
+    public resizeImage(image: UIImage, scale: number): UIImage;
     public setFont(font: number): void;
     public openCashDrawer(): void;
     // public setLeftPadding(padding: number): void;

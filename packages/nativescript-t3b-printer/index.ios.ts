@@ -39,8 +39,12 @@ export class T3bPrinter extends T3bPrinterCommon {
     }
     public disconnect() {
         if (this.printer && this.printer.connectOK) {
-            this.printer.MDisConnect();
-            this.set('isConnected', false);
+            try {
+                this.printer.MDisConnect();
+                this.set('isConnected', false);
+            } catch (err) {
+                console.log(err)
+            }
 
         }
     }
@@ -135,12 +139,22 @@ export class T3bPrinter extends T3bPrinterCommon {
         let newImage = UIImage.imageWithCGImage(imageRef);
 
         // Release colorspace, context and bitmap information
-        CGColorSpaceRelease(colorSpace);
-        CGContextRelease(context);
-        CFRelease(imageRef);
+        // CGColorSpaceRelease(colorSpace);
+        // CGContextRelease(context);
+        // CFRelease(imageRef);
 
         // Return the new grayscale image
         return newImage;
+    }
+
+    public resizeImage(image: UIImage, scale: number) {
+        let new_width = image.size.width * scale;
+        let new_height = image.size.height * scale;
+        UIGraphicsBeginImageContext({ width: new_width, height: new_height });
+        image.drawInRect(CGRectMake(0, 0, new_width, new_height));
+        let destImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return destImage;
     }
 
     public cut() {
