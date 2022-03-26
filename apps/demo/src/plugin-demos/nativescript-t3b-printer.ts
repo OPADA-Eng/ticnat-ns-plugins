@@ -71,7 +71,9 @@ export class DemoModel extends Observable {
 		this.printer.printImg(img);
 	}
 
-
+	openDrawer() {
+		this.printer.openCashDrawer();
+	}
 
 
 }

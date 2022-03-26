@@ -284,11 +284,11 @@
  */
 +(NSData *) printAndFeedForwardWhitN:(int) n;
 /**
- 产生钱箱控制脉冲<br>
- ESC p m t1 t2<br>
- 1B 70 m t1 t2<br>
- (int) m:连接引脚,0 or 1 or 48 or 49.<br>
- t1 ,t2 :0~255.<br>
+Generate cash drawer control pulses<br>
+  ESC p m t1 t2<br>
+  1B 70 m t1 t2<br>
+  (int) m: connection pin, 0 or 1 or 48 or 49.<br>
+  t1 ,t2 :0~255.<br>
  */
 +(NSData *) creatCashBoxContorPulseWithM:(int) m andT1:(int) t1 andT2:(int) t2;
 /**

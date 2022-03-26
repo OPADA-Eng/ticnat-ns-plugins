@@ -26,6 +26,8 @@ export class T3bPrinter extends T3bPrinterCommon {
             });
             let context = Utils.android.getApplicationContext();
             let intent = new android.content.Intent(context, net.posprinter.service.PosprinterService.class);
+            console.log(intent);
+            console.log(conn);
             context.bindService(intent, conn, android.content.Context.BIND_AUTO_CREATE);
             // bindService(intent, conn, BIND_AUTO_CREATE);
 

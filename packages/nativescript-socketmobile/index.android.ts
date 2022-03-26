@@ -34,23 +34,24 @@ export class Socketmobile extends SocketmobileCommon {
     // @org.greenrobot.eventbus.Subscribe(org.greenrobot.eventbus.ThreadMode.MAIN)
     public initScanner() {
         this.capture = new com.socketmobile.capture.android.Capture.Builder(Application.android.context.getApplicationContext()).enableLogging(true).build();
-        // this.listener = new com.socketmobile.capture.client.CaptureClient.Listener({
-        //     // this.listener = new com.socketmobile.capture.client.CaptureClient.Listener({
-        //     onData: (event) => {
-        //         console.log(event);
+        console.dir(this.capture);
+        this.listener = new com.socketmobile.capture.client.CaptureClient.Listener({
+            // this.listener = new com.socketmobile.capture.client.CaptureClient.Listener({
+            onData: (event) => {
+                console.log(event);
 
-        //     },
-        //     onError: (event) => {
-        //         console.log(event);
+            },
+            onError: (event) => {
+                console.log(event);
 
-        //     },
-        //     onDeviceStateEvent: (event) => {
-        //         console.log(event);
+            },
+            onDeviceStateEvent: (event) => {
+                console.log(event);
 
-        //     }
-        // });
-        // console.log(this.listener);
-        // this.capture.setListener(this.listener);
+            }
+        });
+        console.log(this.listener);
+        this.capture.setListener(this.listener);
         // this.listener.onData = (event) => {
         //     console.log('onData');
         // };

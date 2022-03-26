@@ -172,8 +172,11 @@ export class T3bPrinter extends T3bPrinterCommon {
 
     public openCashDrawer() {
         try {
-            let data = MCommand.openCashBoxRealTimeWithMAndT(1, 1);
-            this.printer.MWriteCommandWithData(data);
+            let data = MCommand.initializePrinter();
+            let buffer = NSMutableData.alloc().initWithData(data);
+            data = MCommand.openCashBoxRealTimeWithMAndT(0, 2);
+            buffer.appendData(data);
+            this.printer.MWriteCommandWithData(buffer);
         } catch (error) {
             console.log(error);
         }

@@ -35,6 +35,7 @@
           <Button text="print Screen" tap="{{ printImg }}" class="btn btn-primary"/>
           <Button text="print Logo" tap="{{ printLogo }}" class="btn btn-primary"/>
           <Button text="Paper cut" tap="{{ cut }}" class="btn btn-primary"/>
+          <Button text="Open Drawer" tap="{{ openDrawer }}" class="btn btn-primary"/>
         </StackLayout>
 
       </StackLayout>
