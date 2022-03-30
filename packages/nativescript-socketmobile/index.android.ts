@@ -5,6 +5,8 @@ export class Socketmobile extends SocketmobileCommon {
     public capture;
     public listener;
     public context: android.content.Context;
+    public didReceiveDecodedData: (data: string, device: any, result: any) => void = (data: string, device: any, result: any) => { };
+
     constructor() {
         super();
         this.context = Application.android.context.getApplicationContext();
