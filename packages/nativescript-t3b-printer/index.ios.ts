@@ -108,6 +108,7 @@ export class T3bPrinter extends T3bPrinterCommon {
             // buffer.appendData(image);
             this.printer.MWriteCommandWithData(buffer);
             this.printer.MSendMSGWith("\n");
+            this.printer.MClearBuffer();
         } catch (error) {
             console.log(error);
         }

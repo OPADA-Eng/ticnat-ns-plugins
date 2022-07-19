@@ -30,7 +30,12 @@ var BluetoothPermissions = (function () {
 		var hasPermission = android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2;
 		if (!hasPermission) {
 			var ctx = this._getContext();
-			hasPermission = android.content.pm.PackageManager.PERMISSION_GRANTED === this.androidSupport.content.ContextCompat.checkSelfPermission(ctx, android.Manifest.permission.ACCESS_COARSE_LOCATION);
+			if (android.os.Build.VERSION.SDK_INT == android.os.Build.VERSION_CODES.S) {
+				hasPermission = android.content.pm.PackageManager.PERMISSION_GRANTED === this.androidSupport.content.ContextCompat.checkSelfPermission(ctx, android.Manifest.permission.BLUETOOTH_SCAN);
+			}
+			else {
+				hasPermission = android.content.pm.PackageManager.PERMISSION_GRANTED === this.androidSupport.content.ContextCompat.checkSelfPermission(ctx, android.Manifest.permission.ACCESS_COARSE_LOCATION);
+			}
 		}
 		return hasPermission;
 	};
