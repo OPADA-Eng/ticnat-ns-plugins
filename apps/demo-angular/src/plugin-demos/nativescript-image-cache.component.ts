@@ -1,19 +1,19 @@
 import { Component, NgZone } from '@angular/core';
-import { DemoSharedNativescriptImageCache } from '@demo/shared';
+import { DemoSharedImageCache } from '@demo/shared';
 import { } from '@ticnat/nativescript-image-cache';
 
 @Component({
-	selector: 'demo-nativescript-image-cache',
-	templateUrl: 'nativescript-image-cache.component.html',
+  selector: 'demo-nativescript-image-cache',
+  templateUrl: 'nativescript-image-cache.component.html',
 })
 export class NativescriptImageCacheComponent {
-  
-  demoShared: DemoSharedNativescriptImageCache;
-  
-	constructor(private _ngZone: NgZone) {}
+
+  demoShared: DemoSharedImageCache;
+
+  constructor(private _ngZone: NgZone) { }
 
   ngOnInit() {
-    this.demoShared = new DemoSharedNativescriptImageCache();
+    this.demoShared = new DemoSharedImageCache();
   }
 
 }
