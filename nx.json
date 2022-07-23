@@ -1,5 +1,5 @@
 {
-  "npmScope": "ticnat",
+  "npmScope": "nativescript",
   "affected": {
     "defaultBase": "master"
   },
@@ -13,40 +13,22 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {
-    "demo": {
-      "tags": []
-    },
-    "demo-angular": {
-      "tags": []
-    },
-    "all": {
-      "tags": []
-    },
-    "nativescript-image-cache": {
-      "tags": []
-    },
-    "nativescript-searchable-select": {
-      "tags": []
-    },
-    "nativescript-sewoo-printer": {
-      "tags": []
-    },
-    "nativescript-woosim-printer": {
-      "tags": []
-    },
-    "nativescript-intermec-printer": {
-      "tags": []
-    },
-    "nativescript-socketmobile": {
-      "tags": []
-    },
-    "nativescript-t3b-printer": {
-      "tags": []
-    }
-  },
   "workspaceLayout": {
     "appsDir": "apps",
     "libsDir": "packages"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "build.all", "lint", "test", "e2e"],
+        "runtimeCacheInputs": ["node -v"],
+        "parallel": 1,
+        "useDaemonProcess": false
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/workspace"
   }
 }
