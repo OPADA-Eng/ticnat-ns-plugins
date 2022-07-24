@@ -1,5 +1,5 @@
 {
-  "npmScope": "nativescript",
+  "npmScope": "ticnat",
   "affected": {
     "defaultBase": "master"
   },

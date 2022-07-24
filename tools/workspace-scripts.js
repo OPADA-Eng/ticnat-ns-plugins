@@ -160,7 +160,7 @@ module.exports = {
         description: 'Focus on @ticnat/nativescript-t3b-printer',
       },
       reset: {
-        script: 'nx g @nativescript/plugin-tools:focus-packages',
+        script: 'nx g @ticnat/plugin-tools:focus-packages',
         description: 'Reset Focus',
       },
     },
