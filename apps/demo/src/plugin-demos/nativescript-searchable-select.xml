@@ -21,7 +21,7 @@
         <StackLayout class="hr-dark m-t-20 m-b-20" />
 
         <Label class="h2" text="dropdown render" textWrap="true" />
-        <SS:SearchableSelect class="drop-down" col="0" render="drop" items="{{ countries }}" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
+        <SS:SearchableSelect class="drop-down" col="0" render="drop" windowHeight="30" items="{{ countries }}" hint="Please select some countries" modal_title="Countries" search_param="name" primary_key="code" change="{{ onSelect }}" />
 
         <StackLayout class="hr-dark m-t-20 m-b-20" />
 

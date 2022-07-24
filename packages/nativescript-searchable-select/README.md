@@ -1,7 +1,15 @@
 # @ticnat/nativescript-searchable-select
 
+Since nativescript changed the way it fill up ObservableArray and breaking changes so
+For nativescript >= 8.3.0
+
 ```javascript
 ns plugin add @ticnat/nativescript-searchable-select
+```
+
+For nativescript < 8.3.0
+```javascript
+ns plugin add @ticnat/nativescript-searchable-select@1.0.7
 ```
 
 # FilterSelect
@@ -110,6 +118,7 @@ registerElement('FilterSelect', () => FilterSelect);
 | selected      | array of objects to mark some options as selected and it will be the result when select is done | Array: []                                                                                                           |
 | disabled      | to disable select botton                                                                        | boolean : false                                                                                                     |
 | allowSearch   | to enable/disable search bar in the modal                                                       | boolean : true                                                                                                      |
+| windowHeight   | to specify the height of the select window                                                      | number : 50                                                                                                      |
 | refresh       | to refresh the filter select with new values good with remote data                              | function                                                                                                            |
 | searchHint    | search placeholder or hint in the items modal                                                   | "Search for item"                                                                                                   |
 | xbtn          | remove tag text you can use tag icon here                                                       | "x"                                                                                                                 |

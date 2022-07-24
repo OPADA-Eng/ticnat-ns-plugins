@@ -5,12 +5,14 @@ FilterSelect {
 	border-color: #ccc;
 	border-radius: 5;
 }
+
 .btn-filter-select {
 	vertical-align: top;
 	align-content: center;
 	margin: 0;
 	padding: 1;
 }
+
 .fa {
 	font-family: FontAwesome, fontawesome-webfont;
 }
@@ -37,6 +39,7 @@ FilterSelect {
 	border-color: #ccc;
 	border-width: 1;
 }
+
 .filter-select-tag-label {
 	horizontal-align: right;
 }
@@ -48,6 +51,7 @@ FilterSelect {
 .filter-select-list {
 	margin: 2;
 }
+
 .filter-select-hint {
 	vertical-align: middle;
 	text-align: center;
@@ -67,12 +71,15 @@ FilterSelect.disabled {
 	height: auto;
 	padding: 5;
 }
+
 .filter-select-label.hint {
 	color: rgb(82, 82, 82);
 }
+
 .filter-select-label.selected {
 	color: black;
 }
+
 .filter-select-icon {
 	margin-left: 10;
 	width: 10;
@@ -82,15 +89,19 @@ FilterSelect.disabled {
 FilterSelect.disabled {
 	background-color: #ccc;
 }
+
 .modal-dialog-container {
 	border-radius: 25;
 	padding: 15;
+	background-color: yellow;
 }
+
 .modal-dialog-box {
 	width: 300;
 	height: 400;
 	background-color: #fff;
 }
+
 FilterSelect {
 	text-align: center;
 }

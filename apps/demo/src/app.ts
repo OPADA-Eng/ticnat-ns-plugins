@@ -1,12 +1,11 @@
 import { Application } from '@nativescript/core';
 import { TNSFontIcon, fonticon } from 'nativescript-fonticon';
-import { Socketmobile } from '@ticnat/nativescript-socketmobile';
 
-let resources = Application.getResources();
+const resources = Application.getResources();
 TNSFontIcon.debug = false;
 TNSFontIcon.paths = {
-	fa: 'font-awesome.css',
-	ion: 'ionicons.css',
+  fa: 'font-awesome.css',
+  ion: 'ionicons.css',
 };
 TNSFontIcon.loadCss();
 resources['fonticon'] = fonticon;
