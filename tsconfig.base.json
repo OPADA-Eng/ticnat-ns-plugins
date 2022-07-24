@@ -9,10 +9,7 @@
     "noEmitHelpers": true,
     "target": "es2017",
     "module": "esnext",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -23,16 +20,10 @@
       }
     ],
     "paths": {
-      "@demo/shared": [
-        "tools/demo/index.ts"
-      ],
-      "@ticnat/*": [
-        "packages/*"
-      ]
+      "@demo/shared": ["tools/demo/index.ts"],
+      "@ticnat/*": ["packages/*"],
+      "@ticnat/nativescript-searchable-select": ["packages/nativescript-searchable-select/index.d.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }
