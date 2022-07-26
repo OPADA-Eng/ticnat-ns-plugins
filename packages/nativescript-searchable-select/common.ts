@@ -1,6 +1,8 @@
 import { booleanConverter, Button, Color, FlexboxLayout, Frame, GridUnitType, isAndroid, ItemSpec, Label, ListView, Observable, ObservableArray, Page, Property, SearchBar, StackLayout, Template } from '@nativescript/core';
 import { isNullOrUndefined } from '@nativescript/core/utils/types';
 import { GridLayout } from '@nativescript/core/ui/layouts/grid-layout';
+import { CoreTypes } from '@nativescript/core/core-types';
+import { PercentLength } from '@nativescript/core/ui/styling/style-properties';
 export class SearchableSelectCommon extends GridLayout {
   // public isSearchable: boolean = false;
   public hint: string = 'Select some item';
@@ -43,10 +45,10 @@ export class SearchableSelectCommon extends GridLayout {
   private multiple: any = true;
   private allowSearch: any = true;
 
-  public doneText: string = 'Done';
+  public doneText: string = '✓';
   public clearText: string = 'Clear';
   public selectText: string = 'Select';
-  public closeText: string = 'Close';
+  public closeText: string = '×';
 
   public get selected_flag(): string {
     return this._selected_flag;
@@ -224,7 +226,7 @@ export class SearchableSelectCommon extends GridLayout {
       this.addRow(new ItemSpec(1, 'auto'));
       this.addChild(this.filterselect);
       GridLayout.setRow(this.filterselect, 0);
-      this.verticalAlignment = 'top';
+      this.verticalAlignment = CoreTypes.VerticalAlignment.top;
     } else if (this.render == 'label') {
       this.multiple = false;
       this.labelselect = this.parseOptions(new Label(), {
@@ -448,20 +450,20 @@ export class SearchableSelectCommon extends GridLayout {
       });
   }
   private Modal() {
-    var stackLayout = new StackLayout();
-    stackLayout.width = '100%';
+    const stackLayout = new StackLayout();
+    stackLayout.width = PercentLength.parse('100%');
+    // stackLayout.width = '100%';
     stackLayout.height = 'auto';
     stackLayout.backgroundColor = 'white';
     stackLayout.borderRadius = '25';
     stackLayout.padding = '15';
-    stackLayout.verticalAlignment = 'center';
-    var gridLayout = new GridLayout();
-    var listView = new ListView();
+    (<any>stackLayout.verticalAlignment) = 'center';
+    const gridLayout = new GridLayout();
+    const listView = new ListView();
     // if (Object.prototype.toString.call(this.items) == '[object Array]') this.filterd = this.items;
     // else this.filterd = <any>this.items;
     this.filterd = this.items;
-    console.log(this.filterd.length, this.filterd.getItem(0));
-    var listViewBindingOptions = {
+    const listViewBindingOptions = {
       sourceProperty: 'filterd',
       targetProperty: 'items',
       twoWay: false,
@@ -474,7 +476,7 @@ export class SearchableSelectCommon extends GridLayout {
     // listView.itemTemplate = this.item_template;
     listView.itemTemplate = isNullOrUndefined(this.itemTemplate) ? this.item_template : this.itemTemplate;
     listView.on(ListView.itemLoadingEvent, (args: any) => {
-      var selected = this.selected_items.filter((item) => {
+      const selected = this.selected_items.filter((item) => {
         return item[this.primary_key] == this.filterd.getItem(args.index)[this.primary_key];
       });
       if (selected.length) args.view.className = 'item filter-select-selected';
@@ -491,7 +493,7 @@ export class SearchableSelectCommon extends GridLayout {
         if (this.selected_flag) args.view.bindingContext[this.selected_flag] = false;
       }
 
-      var selected = this.selected_items.filter((item, index) => {
+      const selected = this.selected_items.filter((item, index) => {
         return args.view.bindingContext[this.primary_key] == item[this.primary_key];
       });
       if (!selected.length) this.selected_items.push(args.view.bindingContext);
@@ -506,21 +508,45 @@ export class SearchableSelectCommon extends GridLayout {
       return true;
     });
 
-    var label = new Label();
-    var donebtn = new Button();
-    var closebtn = new Button();
+    const label = new Label();
+    const donebtn = new Button();
+    const closebtn = new Button();
     label.text = this.modal_title;
     label.className = 'action-bar-title filter-select-modal-title text-center';
     closebtn.text = this.closeText;
-    closebtn.className = 'action-item filter-select-modal-left text-left';
+    closebtn.className = 'action-item filter-select-modal-left text-center';
+    if (closebtn.text == '×') {
+      closebtn.fontSize = 26;
+      closebtn.margin = 0;
+      closebtn.padding = 1;
+      closebtn.borderWidth = 0.01;
+      closebtn.androidElevation = 0;
+      closebtn.width = PercentLength.parse('35');
+      // closebtn.width = '35';
+      closebtn.borderColor = 'transparent';
+    } else {
+      closebtn.width = 'auto';
+    }
     closebtn.on('tap', (args) => {
       this.selected_items.splice(0, this.selected_items.length);
       this.closeModal();
     });
     if (this.multiple == false) donebtn.text = this.clearText;
     else donebtn.text = this.doneText;
-
-    donebtn.className = 'action-item text-right filter-select-modal-right';
+    if (donebtn.text == '✓') {
+      donebtn.fontSize = 26;
+      donebtn.margin = 0;
+      donebtn.padding = 1;
+      donebtn.borderWidth = 0.01;
+      donebtn.androidElevation = 0;
+      // donebtn.width = '35';
+      donebtn.width = PercentLength.parse('35');
+      donebtn.borderColor = 'transparent';
+    } else {
+      donebtn.width = 'auto';
+    }
+    console.log(donebtn.text);
+    donebtn.className = 'action-item text-center filter-select-modal-right';
     gridLayout.addRow(new ItemSpec(1, 'auto'));
     gridLayout.addColumn(new ItemSpec(1, 'auto'));
     gridLayout.addColumn(new ItemSpec(1, 'star'));
@@ -559,16 +585,18 @@ export class SearchableSelectCommon extends GridLayout {
     // containerStack.padding = '15';
     containerStack.borderRadius = '25';
     containerStack.height = 'auto';
-    containerStack.width = '90%';
-    containerStack.verticalAlignment = 'center';
-    containerStack.borderColor = 'black';
+    // containerStack.width = '90%';
+    containerStack.width = PercentLength.parse('95%');
+
+    (<any>containerStack.verticalAlignment) = 'center';
+    containerStack.borderColor = '#ababab';
     containerStack.borderWidth = '1';
     containerStack.className = 'modal-dialog-container';
     // containerStack.backgroundColor = 'yellow';
     var hr = new StackLayout();
     hr.className = 'hr-light';
     stackLayout.addChild(hr);
-    (<any>listView).height = this.windowHeight ? this.windowHeight + '%' : '50%';
+    (<any>listView).height = this.windowHeight ? this.windowHeight + '%' : '70%';
     stackLayout.addChild(listView);
     stackLayout.className = 'modal-dialog-box';
     stackLayout.height = 'auto';
@@ -577,6 +605,7 @@ export class SearchableSelectCommon extends GridLayout {
     // containerStack.backgroundColor = "yellow";
     this.modalPage.content = containerStack;
     this.modalPage.backgroundColor = new Color(0.5, 0, 0, 0);
+    this.modalPage.borderRadius = '25';
 
     // this.modalPage.backgroundColor = new Color(0.5, 0, 0, 0);
     this.modalPage.on('loaded', (args) => {
