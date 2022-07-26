@@ -1,6 +1,6 @@
 {
   "name": "@ticnat/nativescript-woosim-printer",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "NS Plugin for printing on Woosim printers",
   "main": "index",
   "typings": "index.d.ts",

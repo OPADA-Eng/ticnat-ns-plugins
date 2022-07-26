@@ -22,7 +22,8 @@
     "paths": {
       "@demo/shared": ["tools/demo/index.ts"],
       "@ticnat/*": ["packages/*"],
-      "@ticnat/nativescript-searchable-select": ["packages/nativescript-searchable-select/index.d.ts"]
+      "@ticnat/nativescript-searchable-select": ["packages/nativescript-searchable-select/index.d.ts"],
+      "@ticnat/nativescript-woosim-printer": ["packages/nativescript-woosim-printer/index.d.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

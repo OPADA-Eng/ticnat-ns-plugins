@@ -40,7 +40,7 @@ export class BluetoothPermissions {
     if (!hasPermission) {
       const ctx = this._getContext();
       if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
-        hasPermission = android.content.pm.PackageManager.PERMISSION_GRANTED === this.androidSupport.content.ContextCompat.checkSelfPermission(ctx, android.Manifest.permission.BLUETOOTH_CONNECT);
+        hasPermission = android.content.pm.PackageManager.PERMISSION_GRANTED === this.androidSupport.content.ContextCompat.checkSelfPermission(ctx, android.Manifest.permission.BLUETOOTH_CONNECT) && android.content.pm.PackageManager.PERMISSION_GRANTED === this.androidSupport.content.ContextCompat.checkSelfPermission(ctx, android.Manifest.permission.BLUETOOTH_SCAN);
       } else {
         hasPermission = android.content.pm.PackageManager.PERMISSION_GRANTED === (this.androidSupport.content.ContextCompat as any).checkSelfPermission(ctx, android.Manifest.permission.ACCESS_COARSE_LOCATION);
       }
@@ -72,7 +72,7 @@ export class BluetoothPermissions {
       Application.android.on(AndroidApplication.activityRequestPermissionsEvent, permissionCb);
       if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
         // invoke the permission dialog
-        (this.androidSupport.app.ActivityCompat as any).requestPermissions(this._getActivity(), [android.Manifest.permission.BLUETOOTH_CONNECT], 2);
+        (this.androidSupport.app.ActivityCompat as any).requestPermissions(this._getActivity(), [android.Manifest.permission.BLUETOOTH_CONNECT, android.Manifest.permission.BLUETOOTH_SCAN], 2);
       } else {
         (this.androidSupport.app.ActivityCompat as any).requestPermissions(this._getActivity(), [android.Manifest.permission.ACCESS_COARSE_LOCATION], ACCESS_COARSE_LOCATION_PERMISSION_REQUEST_CODE);
       }

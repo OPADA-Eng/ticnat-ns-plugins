@@ -3,6 +3,7 @@
   "projects": {
     "demo": "apps/demo",
     "demo-angular": "apps/demo-angular",
-    "nativescript-searchable-select": "packages/nativescript-searchable-select"
+    "nativescript-searchable-select": "packages/nativescript-searchable-select",
+    "nativescript-woosim-printer": "packages/nativescript-woosim-printer"
   }
 }

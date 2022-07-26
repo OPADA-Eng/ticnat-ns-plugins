@@ -1,0 +1,64 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/nativescript-woosim-printer",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/nativescript-woosim-printer",
+        "tsConfig": "packages/nativescript-woosim-printer/tsconfig.json",
+        "packageJson": "packages/nativescript-woosim-printer/package.json",
+        "main": "packages/nativescript-woosim-printer/index.d.ts",
+        "assets": [
+          "packages/nativescript-woosim-printer/*.md",
+          "packages/nativescript-woosim-printer/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/nativescript-woosim-printer/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts nativescript-woosim-printer"],
+        "parallel": false
+      },
+      "outputs": ["dist/packages/nativescript-woosim-printer"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages nativescript-woosim-printer"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/nativescript-woosim-printer/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
