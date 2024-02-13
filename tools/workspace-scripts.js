@@ -117,6 +117,13 @@ module.exports = {
           description: '@ticnat/nativescript-t3b-printer: Build',
         },
       },
+      // @ticnat/nativescript-x-printer-bt
+      'nativescript-x-printer-bt': {
+        build: {
+          script: 'nx run nativescript-x-printer-bt:build.all',
+          description: '@ticnat/nativescript-x-printer-bt: Build',
+        },
+      },
       'build-all': {
         script: 'nx run-many --target=build.all --all',
         description: 'Build all packages',
@@ -158,6 +165,10 @@ module.exports = {
       'nativescript-t3b-printer': {
         script: 'nx run nativescript-t3b-printer:focus',
         description: 'Focus on @ticnat/nativescript-t3b-printer',
+      },
+      'nativescript-x-printer-bt': {
+        script: 'nx run nativescript-x-printer-bt:focus',
+        description: 'Focus on @ticnat/nativescript-x-printer-bt',
       },
       reset: {
         script: 'nx g @ticnat/plugin-tools:focus-packages',

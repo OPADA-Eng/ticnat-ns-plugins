@@ -1,0 +1,156 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+  <Page.actionBar>
+    <ActionBar title="nativescript-x-printer-bt" icon="" class="action-bar">
+    </ActionBar>
+  </Page.actionBar>
+  <StackLayout class="p-20">
+    <ScrollView class="h-full">
+
+
+      <StackLayout >
+        <ScrollView id="scrollView" visibility="{{ disconnectVisible ? 'visible' : 'collapse' }}" backgroundColor="#ffffff" height="100%">
+          <StackLayout id="printArea" style="font-size: 20; color: #000000;" backgroundColor="#ffffff" color="#000000" height="100%">
+            <!-- header and logo -->
+            <label text="company_logo" textWrap="true" verticalAlignment="center" horizontalAlignment="center" />
+            <GridLayout rows="auto" columns="*,*" margin="5">
+              <StackLayout col="1">
+                <GridLayout rows="auto" columns="auto,*" horizontalAlignment="right" verticalAlignment="center">
+                  <Label col="1" text="رقم الهاتف: " textWrap="true" />
+                  <Label col="0" text="+962782277361" textWrap="true" />
+                </GridLayout>
+
+                <GridLayout rows="auto" columns="*,auto" horizontalAlignment="right" verticalAlignment="center">
+                  <Label col="1" text="sales tax number: " textWrap="true" />
+                  <Label col="0" text="123456789" textWrap="true" />
+                </GridLayout>
+              </StackLayout>
+              <Image col="0" id="imageSrc" src="~/images/logo-strok.png" horizontalAlignment="center" verticalAlignment="center" stretch="aspectFit" />
+            </GridLayout>
+            <StackLayout style="border: 1px solid red;"></StackLayout>
+
+            <!-- bill information -->
+            <label text="Sales #1090" textWrap="true" horizontalAlignment="center" verticalAlignment="center" />
+            <GridLayout rows="auto" columns="*,*" class="m-5">
+              <Label text="createdAt:2024-02-12" textWrap="true" horizontalAlignment="center" verticalAlignment="center" col="0" />
+              <Label text="Saleh" textWrap="true" horizontalAlignment="center" verticalAlignment="center" col="1" />
+            </GridLayout>
+            <Label text="10123 Saleh  123456789" horizontalAlignment="center" verticalAlignment="center" textWrap="true" />
+            <GridLayout rows="auto" columns="*,*,*" margin="5">
+              <Label text="is_cheque" textWrap="true" horizontalAlignment="right" col="0" />
+              <Label text="cash1" textWrap="true" col="1" />
+              <Label text="pay way" textWrap="true" horizontalAlignment="right" col="2" />
+            </GridLayout>
+
+            <!-- header for Items -->
+            <StackLayout style="border: 1px solid red;"></StackLayout>
+            <GridLayout rows="auto" columns="*,*,*,*,*,*,2*" margin="5">
+              <label horizontalAlignment="center" verticalAlignment="center" text="total" col="0" />
+              <label horizontalAlignment="center" verticalAlignment="center" text="discount" col="1" />
+              <label horizontalAlignment="center" verticalAlignment="center" text="tax" col="2" />
+              <label horizontalAlignment="center" verticalAlignment="center" text="price" col="3" />
+              <label horizontalAlignment="center" verticalAlignment="center" text="free_count" col="4" />
+              <label horizontalAlignment="center" verticalAlignment="center" text="quantity" col="5" />
+              <label horizontalAlignment="center" verticalAlignment="center" text="product" col="6" />
+            </GridLayout>
+
+
+            <StackLayout style="border: 1px solid red;"></StackLayout>
+
+            <StackLayout>
+              <GridLayout rows="auto" columns="85,*,*,85,*,*,2*" margin="2">
+                <Label verticalAlignment="center" horizontalAlignment="center" col="6" text=" name " textWrap="true" />
+                <Label verticalAlignment="center" horizontalAlignment="center" col="5" text=" 10" textWrap="true" style="font-weight: bold;" />
+                <Label verticalAlignment="center" horizontalAlignment="center" col="4" text=" 1" textWrap="true" />
+                <Label verticalAlignment="center" horizontalAlignment="center" col="3" text=" 1.4334" textWrap="true" />
+                <Label verticalAlignment="center" horizontalAlignment="center" col="2" text=" 5" textWrap="true" />
+                <Label verticalAlignment="center" horizontalAlignment="center" col="1" text=" 0" textWrap="true" />
+                <Label verticalAlignment="center" horizontalAlignment="center" col="0" text=" 23.906" textWrap="true" />
+              </GridLayout>
+            </StackLayout>
+
+            <StackLayout style="border: 1px solid red;"></StackLayout>
+
+            <StackLayout>
+              <GridLayout rows="auto" columns="*,*" margin="5">
+                <label col="0" horizontalAlignment="right" text="10" />
+                <label col="1" textWrap="true" horizontalAlignment="right" text="sum_quantity" />
+              </GridLayout>
+              <GridLayout rows="auto" columns="*,*" margin="5">
+                <label col="0" horizontalAlignment="right" text="34.394" />
+                <label col="1" textWrap="true" horizontalAlignment="right" text="sum_before_tax" />
+              </GridLayout>
+              <GridLayout rows="auto" columns="*,*" margin="5">
+                <label col="0" horizontalAlignment="right" text="3" />
+                <label col="1" textWrap="true" horizontalAlignment="right" text="sum_tax" />
+              </GridLayout>
+              <StackLayout class="m-r-20">
+
+                <GridLayout rows="auto" columns="*,20,130">
+                  <label col="2" class="tax-info kufi-bold" text="name" />
+                  <label col="0" class="tax-info kufi-bold" text="53" />
+                </GridLayout>
+                <GridLayout rows="auto" columns="*,20,130">
+                  <label col="2" class="tax-info kufi-bold" text="name" />
+                  <label col="0" class="tax-info kufi-bold" text="53" />
+                </GridLayout>
+                <GridLayout rows="auto" columns="*,20,130">
+                  <label col="2" class="tax-info kufi-bold" text="name" />
+                  <label col="0" class="tax-info kufi-bold" text="53" />
+                </GridLayout>
+
+
+              </StackLayout>
+              <GridLayout rows="auto" columns="*,*" margin="5">
+                <label col="0" text="3" />
+                <label col="1" horizontalAlignment="right" text="total" />
+              </GridLayout>
+            </StackLayout>
+
+            <StackLayout style="border: 1px solid red;"></StackLayout>
+
+            <!-- footer section -->
+            <GridLayout rows="auto,60,auto" columns="*,60,*" margin="5">
+              <Label row="0" col="0" text="driver_name" horizontalAlignment="center" />
+              <Label row="0" col="2" text="recipient" horizontalAlignment="center" />
+              <StackLayout row="2" col="0" style="border: 1px solid red;"></StackLayout>
+              <StackLayout row="2" col="2" style="border: 1px solid red;"></StackLayout>
+            </GridLayout>
+            <!-- <Button row="3" text="save" class="btn btn-primary" tap="print" /> -->
+            <!-- <StackLayout id="screenShots"></StackLayout> -->
+          </StackLayout>
+
+        </ScrollView>
+        <StackLayout>
+          <GridLayout rows="auto" columns="*,auto">
+            <TextField col="0" hint="Add Printer Address Here" text="{{ printerAddress }}" />
+            <Button col="1" text="Connect" visibility="{{ connectVisible ? 'visible' : 'collapse' }}" tap="{{ connect }}" />
+            <Button col="1" text="Disconnect" visibility="{{ disconnectVisible ? 'visible' : 'collapse' }}" tap="{{ disconnect }}" />
+
+          </GridLayout>
+
+          <StackLayout visibility="{{ disconnectVisible ? 'visible' : 'collapse' }}" marginBottom="10">
+            <Label text="connection state:" textWrap="true" />
+
+            <Label text="{{ printerState }}" textWrap="true" />
+
+            <Label text="This Content Will be printed with screenshot button" textWrap="true" />
+
+            <Button text="Print Screen" tap="{{ printImg }}" />
+          </StackLayout>
+
+          <StackLayout visibility="{{ disconnectVisible ? 'visible' : 'collapse' }}">
+            <TextField col="0" hint="Add text here to print..." text="{{ textToPrint }}" />
+            <Button text="Print Text" tap="{{ printText }}" />
+          </StackLayout>
+          <!-- <Button text="Print Text File" visibility="{{ disconnectVisible ? 'visible' : 'collapse' }}" tap="{{ printText }}" /> -->
+
+          <StackLayout class="row m-5" id="screenShots">
+
+          </StackLayout>
+
+
+        </StackLayout>
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
+</Page>

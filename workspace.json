@@ -4,6 +4,7 @@
     "demo": "apps/demo",
     "demo-angular": "apps/demo-angular",
     "nativescript-searchable-select": "packages/nativescript-searchable-select",
-    "nativescript-woosim-printer": "packages/nativescript-woosim-printer"
+    "nativescript-woosim-printer": "packages/nativescript-woosim-printer",
+    "nativescript-x-printer-bt": "packages/nativescript-x-printer-bt"
   }
 }

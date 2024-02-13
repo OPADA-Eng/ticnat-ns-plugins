@@ -6,3 +6,4 @@ export * from './nativescript-sewoo-printer';
 export * from './nativescript-socketmobile';
 export * from './nativescript-t3b-printer';
 export * from './nativescript-woosim-printer';
+export * from './nativescript-x-printer-bt';

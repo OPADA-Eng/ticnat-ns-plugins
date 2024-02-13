@@ -8,7 +8,8 @@
     "@ticnat/nativescript-woosim-printer": "file:../../dist/packages/nativescript-woosim-printer",
     "@ticnat/nativescript-intermec-printer": "file:../../dist/packages/nativescript-intermec-printer",
     "@ticnat/nativescript-socketmobile": "file:../../dist/packages/nativescript-socketmobile",
-    "@ticnat/nativescript-t3b-printer": "file:../../dist/packages/nativescript-t3b-printer"
+    "@ticnat/nativescript-t3b-printer": "file:../../dist/packages/nativescript-t3b-printer",
+    "@ticnat/nativescript-x-printer-bt": "file:../../dist/packages/nativescript-x-printer-bt"
   },
   "devDependencies": {
     "@nativescript/android": "~8.2.0",

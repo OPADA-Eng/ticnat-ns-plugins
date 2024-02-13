@@ -14,7 +14,8 @@
     "@ticnat/nativescript-t3b-printer": "file:../../packages/nativescript-t3b-printer",
     "@ticnat/nativescript-woosim-printer": "file:../../packages/nativescript-woosim-printer",
     "nativescript-fonticon": "^2.0.2",
-    "nativescript-theme-core": "file:../../node_modules/nativescript-theme-core"
+    "nativescript-theme-core": "file:../../node_modules/nativescript-theme-core",
+    "@ticnat/nativescript-x-printer-bt": "file:../../packages/nativescript-x-printer-bt"
   },
   "devDependencies": {
     "@nativescript/android": "~8.2.0",

@@ -1,0 +1,64 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/nativescript-x-printer-bt",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/nativescript-x-printer-bt",
+        "tsConfig": "packages/nativescript-x-printer-bt/tsconfig.json",
+        "packageJson": "packages/nativescript-x-printer-bt/package.json",
+        "main": "packages/nativescript-x-printer-bt/index.d.ts",
+        "assets": [
+          "packages/nativescript-x-printer-bt/*.md",
+          "packages/nativescript-x-printer-bt/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/nativescript-x-printer-bt/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts nativescript-x-printer-bt"],
+        "parallel": false
+      },
+      "outputs": ["dist/packages/nativescript-x-printer-bt"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages nativescript-x-printer-bt"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/nativescript-x-printer-bt/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

@@ -5,6 +5,7 @@
 - [@ticnat/nativescript-socketmobile](packages/nativescript-socketmobile/README.md)
 - [@ticnat/nativescript-t3b-printer](packages/nativescript-t3b-printer/README.md)
 - [@ticnat/nativescript-woosim-printer](packages/nativescript-woosim-printer/README.md)
+- [@ticnat/nativescript-x-printer-bt](packages/nativescript-x-printer-bt/README.md)
 
 # How to use?
 
