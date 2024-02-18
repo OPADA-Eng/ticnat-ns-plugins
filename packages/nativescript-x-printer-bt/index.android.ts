@@ -113,7 +113,7 @@ export class NativescriptXPrinterBt extends NativescriptXPrinterBtCommon {
     this.initXPrinterBt(printHeight)
       .then((CPCLPrinterInstance: net.posprinter.CPCLPrinter) => {
         if (CPCLPrinterInstance) {
-          CPCLPrinterInstance.setCharSet('utf-8');
+          CPCLPrinterInstance.setCharSet('UTF-8');
           if (arrText.length > 0) {
             arrText.forEach((element) => {
               CPCLPrinterInstance.addText(element.x, element.y, element.text);
