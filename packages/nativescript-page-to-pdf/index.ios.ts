@@ -1,5 +1,5 @@
 import { Application, type View } from '@nativescript/core';
-import { ensureViewLayout, resolvePdfPath, type ExportPdfOptions, type ExportPdfResult } from './common';
+import { ensureViewLayout, resolvePdfPath, unwrapScrollableContent, type ExportPdfOptions, type ExportPdfResult } from './common';
 
 function toUIView(nsView: View): UIView {
   const native = nsView.nativeViewProtected as UIView;
@@ -13,13 +13,14 @@ function openFileIOS(filePath: string) {
   if (!root) return;
 
   const controller = UIDocumentInteractionController.interactionControllerWithURL(url);
-
-  // Present open/share sheet. (This is the simplest reliable "open" UX on iOS.)
   controller.presentOptionsMenuFromRectInViewAnimated(root.view.bounds, root.view, true);
 }
 
 export async function exportViewToPdf(view: View, options?: ExportPdfOptions): Promise<ExportPdfResult> {
   if (!view) throw new Error('exportViewToPdf: view is required');
+
+  // ✅ Minor change: if ScrollView, export its content
+  view = unwrapScrollableContent(view);
 
   if (options?.ensureLayout) {
     ensureViewLayout(view);

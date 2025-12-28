@@ -1,5 +1,5 @@
 import { Application, type View } from '@nativescript/core';
-import { ensureViewLayout, resolvePdfPath, type ExportPdfOptions, type ExportPdfResult } from './common';
+import { ensureViewLayout, resolvePdfPath, unwrapScrollableContent, type ExportPdfOptions, type ExportPdfResult } from './common';
 
 function toAndroidView(nsView: View): android.view.View {
   const native = nsView.nativeViewProtected;
@@ -21,14 +21,13 @@ function openFileAndroid(filePath: string, mimeType: string) {
   try {
     const authority = ctx.getPackageName() + '.provider';
     uri = androidx.core.content.FileProvider.getUriForFile(ctx, authority, file);
-  } catch (e) {
-    // Fallback to file:// (may fail on newer Android if StrictMode blocks it)
+  } catch (_e) {
+    // Fallback to file:// (will throw FileUriExposedException on newer Android)
     uri = android.net.Uri.fromFile(file);
   }
 
   intent.setDataAndType(uri, mimeType);
 
-  // If no app can open it, this throws.
   try {
     ctx.startActivity(intent);
   } catch (e) {
@@ -38,6 +37,9 @@ function openFileAndroid(filePath: string, mimeType: string) {
 
 export async function exportViewToPdf(view: View, options?: ExportPdfOptions): Promise<ExportPdfResult> {
   if (!view) throw new Error('exportViewToPdf: view is required');
+
+  // ✅ Minor change: if ScrollView, export its content
+  view = unwrapScrollableContent(view);
 
   if (options?.ensureLayout) {
     ensureViewLayout(view);

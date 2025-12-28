@@ -13,7 +13,7 @@ export interface ExportPdfOptions {
 
   /**
    * If true, will try to layout the view before rendering.
-   * Useful when exporting a view that is already on screen it’s usually not needed.
+   * Useful when exporting a view that is not yet measured.
    */
   ensureLayout?: boolean;
 
@@ -23,10 +23,15 @@ export interface ExportPdfOptions {
    */
   backgroundColor?: any;
 
-  /** If true, open the generated PDF right after saving. */
+  /**
+   * If true, open the generated PDF right after saving.
+   */
   openAfterSave?: boolean;
 
-  /** MIME type used when opening the file (Android). Default: application/pdf */
+  /**
+   * MIME type used when opening the file (Android).
+   * Default: "application/pdf"
+   */
   mimeType?: string;
 }
 
@@ -42,6 +47,25 @@ export function resolvePdfPath(options?: ExportPdfOptions): string {
 }
 
 /**
+ * Minor change: if a ScrollView is passed, export its `content` instead,
+ * so we can capture beyond the visible viewport.
+ *
+ * Note: this fixes the common case where the caller passes the ScrollView itself.
+ * For full "entire scroll content" export you may still need ensureLayout and/or
+ * a dedicated multi-page export if content is extremely tall.
+ */
+export function unwrapScrollableContent(view: View): View {
+  const anyView: any = view as any;
+
+  // NativeScript ScrollView exposes `content` (single child)
+  if (anyView && anyView.content) {
+    return anyView.content as View;
+  }
+
+  return view;
+}
+
+/**
  * Make sure view has valid measured/layout size.
  */
 export function ensureViewLayout(view: View) {
@@ -51,9 +75,8 @@ export function ensureViewLayout(view: View) {
 
   if (w > 0 && h > 0) return;
 
-  // Fallback layout pass: measure & layout using current screen constraints.
-  const width = view.getActualSize?.()?.width ?? view.getMeasuredWidth?.() ?? 0;
-  const height = view.getActualSize?.()?.height ?? view.getMeasuredHeight?.() ?? 0;
+  const width = (view as any).getActualSize?.()?.width ?? view.getMeasuredWidth?.() ?? 0;
+  const height = (view as any).getActualSize?.()?.height ?? view.getMeasuredHeight?.() ?? 0;
 
   // If still unknown, do a minimal measure/layout; for on-screen Page this should not happen.
   const mw = width > 0 ? width : 1080;
