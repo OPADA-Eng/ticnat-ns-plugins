@@ -1,10 +1,21 @@
-import { type View } from '@nativescript/core';
+import { Application, type View } from '@nativescript/core';
 import { ensureViewLayout, resolvePdfPath, type ExportPdfOptions, type ExportPdfResult } from './common';
 
 function toUIView(nsView: View): UIView {
   const native = nsView.nativeViewProtected as UIView;
   if (!native) throw new Error('View has no nativeView. Ensure it is created and attached.');
   return native;
+}
+
+function openFileIOS(filePath: string) {
+  const url = NSURL.fileURLWithPath(filePath);
+  const root = Application.ios?.rootController;
+  if (!root) return;
+
+  const controller = UIDocumentInteractionController.interactionControllerWithURL(url);
+
+  // Present open/share sheet. (This is the simplest reliable "open" UX on iOS.)
+  controller.presentOptionsMenuFromRectInViewAnimated(root.view.bounds, root.view, true);
 }
 
 export async function exportViewToPdf(view: View, options?: ExportPdfOptions): Promise<ExportPdfResult> {
@@ -52,30 +63,34 @@ export async function exportViewToPdf(view: View, options?: ExportPdfOptions): P
     });
 
     data.writeToURLAtomically(url, true);
-    return { filePath };
-  }
+  } else {
+    // Legacy fallback (older iOS)
+    const bounds = CGRectMake(0, 0, width, height);
+    const pdfData = NSMutableData.data();
+    UIGraphicsBeginPDFContextToData(pdfData, bounds, null);
+    UIGraphicsBeginPDFPage();
 
-  // Legacy fallback (older iOS)
-  const bounds = CGRectMake(0, 0, width, height);
-  const pdfData = NSMutableData.data();
-  UIGraphicsBeginPDFContextToData(pdfData, bounds, null);
-  UIGraphicsBeginPDFPage();
-
-  if (options?.backgroundColor) {
-    (options.backgroundColor as UIColor).setFill();
-    UIRectFill(bounds);
-  }
-
-  const ctx = UIGraphicsGetCurrentContext();
-  if (ctx) {
-    const ok = uiView.drawViewHierarchyInRectAfterScreenUpdates(bounds, true);
-    if (!ok) {
-      uiView.layer.renderInContext(ctx);
+    if (options?.backgroundColor) {
+      (options.backgroundColor as UIColor).setFill();
+      UIRectFill(bounds);
     }
+
+    const ctx = UIGraphicsGetCurrentContext();
+    if (ctx) {
+      const ok = uiView.drawViewHierarchyInRectAfterScreenUpdates(bounds, true);
+      if (!ok) {
+        uiView.layer.renderInContext(ctx);
+      }
+    }
+
+    UIGraphicsEndPDFContext();
+    pdfData.writeToURLAtomically(url, true);
   }
 
-  UIGraphicsEndPDFContext();
-  pdfData.writeToURLAtomically(url, true);
+  // ✅ Mini modification: open after save
+  if (options?.openAfterSave) {
+    openFileIOS(filePath);
+  }
 
   return { filePath };
 }

@@ -13,6 +13,7 @@ export async function exportToPdf() {
     const res = await exportViewToPdf(content as any, {
       fileName: `demo-${Date.now()}.pdf`,
       ensureLayout: true,
+      openAfterSave: true,
     });
 
     const label = page.getViewById('resultLabel') as any;

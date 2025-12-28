@@ -35,6 +35,8 @@ export function exportViewToPdf(
 | `outputFolder` | `string` | Folder path (defaults to app Documents folder) |
 | `ensureLayout` | `boolean` | Forces layout before export (useful if view size is 0) |
 | `backgroundColor` | `number \| UIColor` | Optional background fill |
+| `openAfterSave` | `boolean` | Open the generated PDF right after saving |
+| `mimeType` | `string` | Android only: MIME type when opening (default `application/pdf`) |
 
 ---
 
@@ -72,6 +74,20 @@ await exportViewToPdf(view, {
 
 ---
 
+### Export + open the PDF right after saving
+
+```ts
+import { exportViewToPdf } from '@ticnat/nativescript-page-to-pdf';
+
+await exportViewToPdf(view, {
+  fileName: 'demo.pdf',
+  ensureLayout: true,
+  openAfterSave: true
+});
+```
+
+---
+
 ## Usage — NativeScript Angular
 
 ### Component example
@@ -100,13 +116,71 @@ export class DemoComponent {
 
     const res = await exportViewToPdf(view, {
       fileName: 'angular-view.pdf',
-      ensureLayout: true
+      ensureLayout: true,
+      openAfterSave: true
     });
 
     console.log('PDF saved at:', res.filePath);
   }
 }
 ```
+
+---
+
+## Android: required FileProvider setup (for openAfterSave)
+
+When `openAfterSave: true`, Android must open the PDF using a **content://** URI.
+If your app does not already include a FileProvider, you’ll get `FileUriExposedException`.
+
+### Where to add it (your plugin seed structure)
+
+In your NativeScript app add these changes in your App_Resources folder under:
+
+- `App_Resources/Android/src/main/AndroidManifest.xml`
+- `App_Resources/Android/src/main/res/xml/file_paths.xml` // create one if not exist
+
+(If your app uses `App_Resources` directly under the app, use that path instead.)
+
+### 1) Create `file_paths.xml`
+
+Create this file:
+
+`App_Resources/Android/src/main/res/xml/file_paths.xml`
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+  <!-- /data/user/0/<package>/files/... -->
+  <files-path name="files" path="." />
+  <!-- optional -->
+  <cache-path name="cache" path="." />
+  <external-files-path name="external_files" path="." />
+</paths>
+```
+
+### 2) Add the provider inside `<application>` (before `<activity>`)
+
+Edit:
+
+`tools/assets/App_Resources/Android/src/main/AndroidManifest.xml`
+
+Inside the `<application ...>` tag, add:
+
+```xml
+<provider
+  android:name="androidx.core.content.FileProvider"
+  android:authorities="${applicationId}.provider"
+  android:exported="false"
+  android:grantUriPermissions="true">
+  <meta-data
+    android:name="android.support.FILE_PROVIDER_PATHS"
+    android:resource="@xml/file_paths" />
+</provider>
+```
+
+### 3) Rebuild clean (platform folder is generated)
+
+> If you still see “No app found to open PDF”, install a PDF viewer on the device/emulator.
 
 ---
 

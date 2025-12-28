@@ -25,6 +25,17 @@
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup,android:icon">
 
+        <!-- FileProvider for opening PDFs via content:// URI (fixes FileUriExposedException) -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
 		<activity
 			android:name="com.tns.NativeScriptActivity"
 			android:label="@string/title_activity_kimera"
@@ -39,6 +50,7 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
+
 		<activity android:name="com.tns.ErrorReportActivity"/>
 	</application>
 </manifest>

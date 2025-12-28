@@ -22,6 +22,12 @@ export interface ExportPdfOptions {
    * Android: ARGB int, iOS: UIColor. If omitted, the view draws as-is.
    */
   backgroundColor?: any;
+
+  /** If true, open the generated PDF right after saving. */
+  openAfterSave?: boolean;
+
+  /** MIME type used when opening the file (Android). Default: application/pdf */
+  mimeType?: string;
 }
 
 export interface ExportPdfResult {
