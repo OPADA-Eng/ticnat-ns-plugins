@@ -99,6 +99,13 @@ module.exports = {
           description: '@ticnat/nativescript-image-cache: Build',
         },
       },
+      // @ticnat/nativescript-page-to-pdf
+      'nativescript-page-to-pdf': {
+        build: {
+          script: 'nx run nativescript-page-to-pdf:build.all',
+          description: '@ticnat/nativescript-page-to-pdf: Build',
+        },
+      },
       'build-all': {
         script: 'nx run-many --target=build.all --all',
         description: 'Build all packages',
@@ -140,6 +147,10 @@ module.exports = {
       'nativescript-image-cache': {
         script: 'nx run nativescript-image-cache:focus',
         description: 'Focus on @ticnat/nativescript-image-cache',
+      },
+      'nativescript-page-to-pdf': {
+        script: 'nx run nativescript-page-to-pdf:focus',
+        description: 'Focus on @ticnat/nativescript-page-to-pdf',
       },
       reset: {
         script: 'nx g @nativescript/plugin-tools:focus-packages',

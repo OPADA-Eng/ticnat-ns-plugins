@@ -29,7 +29,8 @@
       "@ticnat/nativescript-sewoo-printer": ["packages/nativescript-sewoo-printer/index.d.ts"],
       "@ticnat/nativescript-searchable-select": ["packages/nativescript-searchable-select/index.d.ts"],
       "@ticnat/nativescript-intermec-printer": ["packages/nativescript-intermec-printer/index.d.ts"],
-      "@ticnat/nativescript-image-cache": ["packages/nativescript-image-cache/index.d.ts"]
+      "@ticnat/nativescript-image-cache": ["packages/nativescript-image-cache/index.d.ts"],
+      "@ticnat/nativescript-page-to-pdf": ["packages/nativescript-page-to-pdf/index.d.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

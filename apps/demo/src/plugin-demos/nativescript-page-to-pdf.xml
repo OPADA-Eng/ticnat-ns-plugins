@@ -1,0 +1,15 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+  <ActionBar title="Page to PDF" />
+  <ScrollView>
+    <StackLayout padding="16" spacing="12">
+      <Label text="This view will be exported to PDF." class="h2" />
+      <StackLayout id="pdfContent" padding="12" borderWidth="1" borderColor="#999">
+        <Label text="Section A" class="h3" />
+        <Label text="Charts go here..." />
+      </StackLayout>
+
+      <Button text="Export to PDF" tap="exportToPdf" />
+      <Label id="resultLabel" textWrap="true" />
+    </StackLayout>
+  </ScrollView>
+</Page>

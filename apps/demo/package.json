@@ -13,7 +13,8 @@
     "@ticnat/nativescript-socketmobile": "file:../../packages/nativescript-socketmobile",
     "@ticnat/nativescript-t3b-printer": "file:../../packages/nativescript-t3b-printer",
     "@ticnat/nativescript-woosim-printer": "file:../../packages/nativescript-woosim-printer",
-    "@ticnat/nativescript-x-printer-bt": "file:../../packages/nativescript-x-printer-bt"
+    "@ticnat/nativescript-x-printer-bt": "file:../../packages/nativescript-x-printer-bt",
+    "@ticnat/nativescript-page-to-pdf": "file:../../packages/nativescript-page-to-pdf"
   },
   "devDependencies": {
     "@nativescript/android": "~8.9.0",

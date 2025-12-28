@@ -1,5 +1,6 @@
 - [@ticnat/nativescript-image-cache](packages/nativescript-image-cache/README.md)
 - [@ticnat/nativescript-intermec-printer](packages/nativescript-intermec-printer/README.md)
+- [@ticnat/nativescript-page-to-pdf](packages/nativescript-page-to-pdf/README.md)
 - [@ticnat/nativescript-searchable-select](packages/nativescript-searchable-select/README.md)
 - [@ticnat/nativescript-sewoo-printer](packages/nativescript-sewoo-printer/README.md)
 - [@ticnat/nativescript-socketmobile](packages/nativescript-socketmobile/README.md)

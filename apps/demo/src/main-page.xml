@@ -14,6 +14,7 @@
 <Button text="nativescript-searchable-select" tap="{{ viewDemo }}" class="btn btn-primary rounded view-demo"/>
 <Button text="nativescript-intermec-printer" tap="{{ viewDemo }}" class="btn btn-primary rounded view-demo"/>
 <Button text="nativescript-image-cache" tap="{{ viewDemo }}" class="btn btn-primary rounded view-demo"/>
+<Button text="nativescript-page-to-pdf" tap="{{ viewDemo }}" class="btn btn-primary rounded view-demo"/>
       </StackLayout>
     </ScrollView>
   </StackLayout>
