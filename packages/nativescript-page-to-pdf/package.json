@@ -10,6 +10,9 @@
       "android": "6.0.0"
     }
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/OPADA-Eng/ticnat-ns-plugins.git"
