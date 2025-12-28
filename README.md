@@ -11,6 +11,10 @@
 
 This workspace manages the suite of plugins listed above. 
 
+## Prerequisites
+
+- Node 20+ is recommended
+
 In general, when in doubt with what to do, just `npm start`.
 
 ## How to add a new package to workspace?

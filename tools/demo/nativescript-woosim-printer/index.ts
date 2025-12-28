@@ -1,8 +1,7 @@
 import { DemoSharedBase } from '../utils';
-import { } from '@ticnat/nativescript-woosim-printer';
+import {} from '@ticnat/nativescript-woosim-printer';
 
-export class DemoSharedWoosimPrinter extends DemoSharedBase {
-
+export class DemoSharedNativescriptWoosimPrinter extends DemoSharedBase {
   testIt() {
     console.log('test nativescript-woosim-printer!');
   }

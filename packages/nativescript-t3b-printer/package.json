@@ -3,7 +3,7 @@
   "version": "1.0.7",
   "description": "Add a plugin description",
   "main": "index",
-  "typings": "index.d.ts",
+  "types": "index.d.ts",
   "nativescript": {
     "platforms": {
       "ios": "6.0.0",
@@ -19,14 +19,10 @@
     "JavaScript",
     "TypeScript",
     "iOS",
-    "Android",
-    "Birch",
-    "T3B Printer",
-    "T3B",
-    "POS Printer"
+    "Android"
   ],
   "author": {
-    "name": "OPADA-Eng",
+    "name": "Mohamad Opada Albosh",
     "email": "m.opada.albosh@gmail.com"
   },
   "bugs": {
@@ -35,8 +31,5 @@
   "license": "Apache-2.0",
   "homepage": "https://github.com/OPADA-Eng/ticnat-ns-plugins",
   "readmeFilename": "README.md",
-  "bootstrapper": "@nativescript/plugin-seed",
-  "publishConfig": {
-    "access": "public"
-  }
+  "bootstrapper": "@nativescript/plugin-seed"
 }

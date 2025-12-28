@@ -1,21 +1,20 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDirs": [
-      ".",
-      "../.."
-    ],
+    "rootDirs": [".", "../.."],
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "src/*"
-      ],
-      "@demo/shared": [
-        "../../tools/demo/index.ts"
-      ],
-      "@ticnat/*": [
-        "../../packages/*"
-      ]
+      "~/*": ["src/*"],
+      "@demo/shared": ["../../tools/demo/index.ts"],
+      "@ticnat/*": ["../../packages/*"],
+      "@ticnat/nativescript-woosim-printer": ["../../packages/nativescript-woosim-printer/index.d.ts"],
+      "@ticnat/nativescript-x-printer-bt": ["../../packages/nativescript-x-printer-bt/index.d.ts"],
+      "@ticnat/nativescript-t3b-printer": ["../../packages/nativescript-t3b-printer/index.d.ts"],
+      "@ticnat/nativescript-socketmobile": ["../../packages/nativescript-socketmobile/index.d.ts"],
+      "@ticnat/nativescript-sewoo-printer": ["../../packages/nativescript-sewoo-printer/index.d.ts"],
+      "@ticnat/nativescript-searchable-select": ["../../packages/nativescript-searchable-select/index.d.ts"],
+      "@ticnat/nativescript-intermec-printer": ["../../packages/nativescript-intermec-printer/index.d.ts"],
+      "@ticnat/nativescript-image-cache": ["../../packages/nativescript-image-cache/index.d.ts"]
     }
   }
 }

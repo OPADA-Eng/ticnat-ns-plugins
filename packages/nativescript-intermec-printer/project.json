@@ -1,23 +1,23 @@
 {
-  "name": "nativescript-woosim-printer",
+  "name": "nativescript-intermec-printer",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "packages/nativescript-woosim-printer",
+  "sourceRoot": "packages/nativescript-intermec-printer",
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
       "options": {
-        "outputPath": "dist/packages/nativescript-woosim-printer",
-        "tsConfig": "packages/nativescript-woosim-printer/tsconfig.json",
-        "packageJson": "packages/nativescript-woosim-printer/package.json",
-        "main": "packages/nativescript-woosim-printer/index.d.ts",
+        "outputPath": "dist/packages/nativescript-intermec-printer",
+        "tsConfig": "packages/nativescript-intermec-printer/tsconfig.json",
+        "packageJson": "packages/nativescript-intermec-printer/package.json",
+        "main": "packages/nativescript-intermec-printer/index.d.ts",
         "assets": [
-          "packages/nativescript-woosim-printer/*.md",
-          "packages/nativescript-woosim-printer/index.d.ts",
+          "packages/nativescript-intermec-printer/*.md",
+          "packages/nativescript-intermec-printer/index.d.ts",
           "LICENSE",
           {
             "glob": "**/*",
-            "input": "packages/nativescript-woosim-printer/platforms/",
+            "input": "packages/nativescript-intermec-printer/platforms/",
             "output": "./platforms/"
           }
         ],
@@ -32,10 +32,10 @@
     "build.all": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": ["node tools/scripts/build-finish.ts nativescript-woosim-printer"],
+        "commands": ["node tools/scripts/build-finish.ts nativescript-intermec-printer"],
         "parallel": false
       },
-      "outputs": ["{workspaceRoot}/dist/packages/nativescript-woosim-printer"],
+      "outputs": ["{workspaceRoot}/dist/packages/nativescript-intermec-printer"],
       "dependsOn": [
         {
           "target": "build.all",
@@ -50,14 +50,14 @@
     "focus": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": ["nx g @nativescript/plugin-tools:focus-packages nativescript-woosim-printer"],
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages nativescript-intermec-printer"],
         "parallel": false
       }
     },
     "lint": {
       "executor": "@nx/eslint:eslint",
       "options": {
-        "lintFilePatterns": ["packages/nativescript-woosim-printer/**/*.ts"]
+        "lintFilePatterns": ["packages/nativescript-intermec-printer/**/*.ts"]
       }
     }
   },

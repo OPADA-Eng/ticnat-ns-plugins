@@ -1,11 +1,6 @@
 @import 'nativescript-theme-core/scss/light';
 @import 'nativescript-theme-core/scss/index';
 
-.text-field{
-    color: #000;
-    border-color: #ababab;
-    border-width: 1;
-}
-.text-big{
-    font-size: 36;
+.rounded {
+  border-radius: 20;
 }

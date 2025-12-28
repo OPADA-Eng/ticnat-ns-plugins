@@ -1,9 +1,9 @@
 {
   "name": "@ticnat/nativescript-searchable-select",
   "version": "2.0.4",
-  "description": "Nativescript plugin for making a select component with a lot of features",
+  "description": "Add a plugin description",
   "main": "index",
-  "typings": "index.d.ts",
+  "types": "index.d.ts",
   "nativescript": {
     "platforms": {
       "ios": "6.0.0",
@@ -12,18 +12,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/OPADA-Eng/ticnat-ns-plugins/tree/master/packages/nativescript-searchable-select"
+    "url": "https://github.com/OPADA-Eng/ticnat-ns-plugins"
   },
   "keywords": [
     "NativeScript",
     "JavaScript",
     "TypeScript",
     "iOS",
-    "Android",
-    "TicNat"
+    "Android"
   ],
   "author": {
-    "name": "OPADA-Eng",
+    "name": "Mohamad Opada Albosh",
     "email": "m.opada.albosh@gmail.com"
   },
   "bugs": {
