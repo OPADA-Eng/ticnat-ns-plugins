@@ -1,6 +1,6 @@
 {
   "name": "@ticnat/nativescript-page-to-pdf",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Export NativeScript Page/View to PDF (Android & iOS)",
   "main": "index",
   "types": "index.d.ts",
