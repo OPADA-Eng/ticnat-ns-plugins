@@ -1,4 +1,24 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx lint-staged --allow-empty
+# Ensure Homebrew paths are available (Apple Silicon + Intel)
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+# Load nvm if installed (common on macOS)
+export NVM_DIR="$HOME/.nvm"
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  . "$NVM_DIR/nvm.sh"
+fi
+
+# If there's an .nvmrc, use it; otherwise just use default nvm node
+if command -v nvm >/dev/null 2>&1; then
+  if [ -f .nvmrc ]; then
+    nvm use --silent || true
+  else
+    nvm use --silent default >/dev/null 2>&1 || true
+  fi
+fi
+
+# Now run your actual hook command(s)
+# Replace the line below with what your repo uses:
+npx --no-install lint-staged

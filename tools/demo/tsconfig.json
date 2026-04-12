@@ -3,9 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@ticnat/*": [
-        "../../packages/*"
-      ]
+      "@ticnat/*": ["../../packages/*"]
     }
   }
 }

@@ -1,0 +1,65 @@
+{
+  "name": "nativescript-image-cache",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/nativescript-image-cache",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/nativescript-image-cache",
+        "tsConfig": "packages/nativescript-image-cache/tsconfig.json",
+        "packageJson": "packages/nativescript-image-cache/package.json",
+        "main": "packages/nativescript-image-cache/index.d.ts",
+        "assets": [
+          "packages/nativescript-image-cache/*.md",
+          "packages/nativescript-image-cache/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/nativescript-image-cache/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts nativescript-image-cache"],
+        "parallel": false
+      },
+      "outputs": ["{workspaceRoot}/dist/packages/nativescript-image-cache"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages nativescript-image-cache"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/nativescript-image-cache/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

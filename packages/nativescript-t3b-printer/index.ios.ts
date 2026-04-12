@@ -1,185 +1,177 @@
 import { ImageSource } from '@nativescript/core';
 import { T3bPrinterCommon } from './common';
 export class T3bPrinter extends T3bPrinterCommon {
-    public printer: MWIFIManager;
-    constructor() {
-        super();
-        try {
-            this.printer = MWIFIManager.shareWifiManager();
-        } catch (error) {
-            console.log(error);
-        }
+  public printer: MWIFIManager;
+  constructor() {
+    super();
+    try {
+      this.printer = MWIFIManager.shareWifiManager();
+    } catch (error) {
+      console.log(error);
     }
-    public connectWifi(ip: string) {
-        return new Promise((resolve, reject) => {
-            if (this.printer) {
-                if (!this.printer.connectOK) {
-                    this.printer.MConnectWithHostPortCompletion(ip, 9100, (result) => {
-                        console.log(result);
-                        if (result) {
-                            this.set('isConnected', true);
-                            resolve(true);
-                        }
-                        else {
-                            reject(false);
-                        }
-                    });
-                }
-                else {
-                    console.log("Printer is alread connected");
-                    this.set('isConnected', true);
-                    resolve(true);
-                }
+  }
+  public connectWifi(ip: string) {
+    return new Promise((resolve, reject) => {
+      if (this.printer) {
+        if (!this.printer.connectOK) {
+          this.printer.MConnectWithHostPortCompletion(ip, 9100, (result) => {
+            console.log(result);
+            if (result) {
+              this.set('isConnected', true);
+              resolve(true);
+            } else {
+              reject(false);
             }
-            else {
-                this.printer = MWIFIManager.shareWifiManager();
-                return this.connectWifi(ip);
-            }
-        });
-    }
-    public disconnect() {
-        if (this.printer && this.printer.connectOK) {
-            try {
-                this.printer.MDisConnect();
-                this.set('isConnected', false);
-            } catch (err) {
-                console.log(err)
-            }
-
+          });
+        } else {
+          console.log('Printer is alread connected');
+          this.set('isConnected', true);
+          resolve(true);
         }
+      } else {
+        this.printer = MWIFIManager.shareWifiManager();
+        return this.connectWifi(ip);
+      }
+    });
+  }
+  public disconnect() {
+    if (this.printer && this.printer.connectOK) {
+      try {
+        this.printer.MDisConnect();
+        this.set('isConnected', false);
+      } catch (err) {
+        console.log(err);
+      }
     }
-    public getUniCode(aString: NSString) {
-        let theStringToReturn = null;
+  }
+  public getUniCode(aString: NSString) {
+    let theStringToReturn = null;
 
+    let theEncodedString = NSMutableString.alloc().initWithString('');
 
-        let theEncodedString = NSMutableString.alloc().initWithString("");
+    for (var theCharIndex = 0; theCharIndex < aString.length; theCharIndex++) {
+      theEncodedString.appendString('%04x' + aString[theCharIndex]);
+    }
 
-        for (var theCharIndex = 0; theCharIndex < aString.length; theCharIndex++) {
-            theEncodedString.appendString("%04x" + aString[theCharIndex]);
+    theStringToReturn = theEncodedString as any;
+
+    return theStringToReturn;
+  }
+  public printTxt(txt = 'asd', padding = 0, codePage = null, font = 0, bold = false) {
+    try {
+      if (this.printer && this.printer.connectOK) {
+        let data = MCommand.initializePrinter();
+        let buffer = NSMutableData.alloc().initWithData(data);
+        if (bold) {
+          data = MCommand.selectOrCancleBoldModel(1);
+          buffer.appendData(data);
+          // this.printer.commandBuffer.addObject(data);
         }
+        data = MCommand.setLeftSpaceWithnLAndnH(padding, 0);
+        buffer.appendData(data);
+        // data = MCommand.selectCharacterSize(12);
+        // buffer.appendData(data);
 
-        theStringToReturn = NSString.stringWithString(theEncodedString.UTF8String);
-
-        return theStringToReturn;
-    }
-    public printTxt(txt = "asd", padding = 0, codePage = null, font = 0, bold = false) {
-        try {
-            if (this.printer && this.printer.connectOK) {
-                let data = MCommand.initializePrinter();
-                let buffer = NSMutableData.alloc().initWithData(data);
-                if (bold) {
-                    data = MCommand.selectOrCancleBoldModel(1);
-                    buffer.appendData(data);
-                    // this.printer.commandBuffer.addObject(data);
-                }
-                data = MCommand.setLeftSpaceWithnLAndnH(padding, 0);
-                buffer.appendData(data);
-                // data = MCommand.selectCharacterSize(12);
-                // buffer.appendData(data);
-
-                data = MCommand.selectFont(font);
-                buffer.appendData(data);
-                if (codePage) {
-                    data = MCommand.selectCharacterCodePage(codePage);
-                    buffer.appendData(data);
-                }
-                let nsTxt = NSString.stringWithUTF8String(txt);
-                // console.log("nsTxt", nsTxt)
-                data = nsTxt.dataUsingEncoding(NSUTF8StringEncoding);
-                buffer.appendData(data);
-                this.printer.MWriteCommandWithData(buffer);
-            }
-        } catch (error) {
-            console.log(error);
+        data = MCommand.selectFont(font);
+        buffer.appendData(data);
+        if (codePage) {
+          data = MCommand.selectCharacterCodePage(codePage);
+          buffer.appendData(data);
         }
-
+        let nsTxt = NSString.stringWithUTF8String(txt);
+        // console.log("nsTxt", nsTxt)
+        data = nsTxt.dataUsingEncoding(NSUTF8StringEncoding);
+        buffer.appendData(data);
+        this.printer.MWriteCommandWithData(buffer);
+      }
+    } catch (error) {
+      console.log(error);
     }
+  }
 
-    public printImg(img: UIImage, bmpType: BmpType = BmpType.Threshold, height = 0) {
-        try {
-            img = this.convertImageToGrayScale(img);
-            // console.log("img", img);
-            let data = MCommand.initializePrinter();
-            let buffer = NSMutableData.alloc().initWithData(data);
-            data = MCommand.setPrintAreaWidthWithnLAndnH(img.size.width, img.size.height);
-            buffer.appendData(data);
-            data = MCommand.printRasteBmpWithMAndImageAndTypeAndPaperHeight(PrintRasterType.RasterNolmorWH, img, bmpType, height || img.size.height);
-            buffer.appendData(data);
-            // buffer.appendData(image);
-            this.printer.MWriteCommandWithData(buffer);
-            this.printer.MSendMSGWith("\n");
-            this.printer.MClearBuffer();
-        } catch (error) {
-            console.log(error);
-        }
+  public printImg(img: UIImage, bmpType: BmpType = BmpType.Threshold, height = 0) {
+    try {
+      img = this.convertImageToGrayScale(img);
+      // console.log("img", img);
+      let data = MCommand.initializePrinter();
+      let buffer = NSMutableData.alloc().initWithData(data);
+      data = MCommand.setPrintAreaWidthWithnLAndnH(img.size.width, img.size.height);
+      buffer.appendData(data);
+      data = MCommand.printRasteBmpWithMAndImageAndTypeAndPaperHeight(PrintRasterType.RasterNolmorWH, img, bmpType, height || img.size.height);
+      buffer.appendData(data);
+      // buffer.appendData(image);
+      this.printer.MWriteCommandWithData(buffer);
+      this.printer.MSendMSGWith('\n');
+      this.printer.MClearBuffer();
+    } catch (error) {
+      console.log(error);
     }
-    // public convertImgToBmp(img: UIImage) {
-    //     return PrinterManager.new().convertImageToBmp(img);
-    // }
+  }
+  // public convertImgToBmp(img: UIImage) {
+  //     return PrinterManager.new().convertImageToBmp(img);
+  // }
 
-    public convertImageToGrayScale(image: UIImage) {
+  public convertImageToGrayScale(image: UIImage) {
+    // Create image rectangle with current image width/height
+    let imageRect = CGRectMake(0, 0, image.size.width, image.size.height);
 
+    // Grayscale color space
+    let colorSpace = CGColorSpaceCreateDeviceGray();
 
-        // Create image rectangle with current image width/height
-        let imageRect = CGRectMake(0, 0, image.size.width, image.size.height);
+    // Create bitmap content with current image size and grayscale colorspace
+    let context = CGBitmapContextCreate(null, image.size.width, image.size.height, 8, 0, colorSpace, CGImageAlphaInfo.kCGImageAlphaNone);
 
-        // Grayscale color space
-        let colorSpace = CGColorSpaceCreateDeviceGray();
+    // Draw image into current context, with specified rectangle
+    // using previously defined context (with grayscale colorspace)
+    CGContextDrawImage(context, imageRect, image.CGImage);
 
-        // Create bitmap content with current image size and grayscale colorspace
-        let context = CGBitmapContextCreate(null, image.size.width, image.size.height, 8, 0, colorSpace, CGImageAlphaInfo.kCGImageAlphaNone);
+    // Create bitmap image info from pixel data in current context
+    let imageRef = CGBitmapContextCreateImage(context);
 
-        // Draw image into current context, with specified rectangle
-        // using previously defined context (with grayscale colorspace)
-        CGContextDrawImage(context, imageRect, image.CGImage);
+    // Create a new UIImage object
+    let newImage = UIImage.imageWithCGImage(imageRef);
 
-        // Create bitmap image info from pixel data in current context
-        let imageRef = CGBitmapContextCreateImage(context);
+    // Release colorspace, context and bitmap information
+    // CGColorSpaceRelease(colorSpace);
+    // CGContextRelease(context);
+    // CFRelease(imageRef);
 
-        // Create a new UIImage object
-        let newImage = UIImage.imageWithCGImage(imageRef);
+    // Return the new grayscale image
+    return newImage;
+  }
 
-        // Release colorspace, context and bitmap information
-        // CGColorSpaceRelease(colorSpace);
-        // CGContextRelease(context);
-        // CFRelease(imageRef);
+  public resizeImage(image: UIImage, scale: number) {
+    let new_width = image.size.width * scale;
+    let new_height = image.size.height * scale;
+    UIGraphicsBeginImageContext({ width: new_width, height: new_height });
+    image.drawInRect(CGRectMake(0, 0, new_width, new_height));
+    let destImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return destImage;
+  }
 
-        // Return the new grayscale image
-        return newImage;
+  public cut() {
+    try {
+      let data = MCommand.selectCutPageModelAndCutpage(49);
+      this.printer.MWriteCommandWithData(data);
+    } catch (error) {
+      console.log(error);
     }
+  }
+  public setFont(font = 0) {
+    let data = MCommand.selectFont(font);
+    this.printer.MWriteCommandWithData(data);
+  }
 
-    public resizeImage(image: UIImage, scale: number) {
-        let new_width = image.size.width * scale;
-        let new_height = image.size.height * scale;
-        UIGraphicsBeginImageContext({ width: new_width, height: new_height });
-        image.drawInRect(CGRectMake(0, 0, new_width, new_height));
-        let destImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        return destImage;
+  public openCashDrawer() {
+    try {
+      let data = MCommand.initializePrinter();
+      let buffer = NSMutableData.alloc().initWithData(data);
+      data = MCommand.openCashBoxRealTimeWithMAndT(0, 2);
+      buffer.appendData(data);
+      this.printer.MWriteCommandWithData(buffer);
+    } catch (error) {
+      console.log(error);
     }
-
-    public cut() {
-        try {
-            let data = MCommand.selectCutPageModelAndCutpage(49);
-            this.printer.MWriteCommandWithData(data);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-    public setFont(font = 0) {
-        let data = MCommand.selectFont(font);
-        this.printer.MWriteCommandWithData(data);
-    }
-
-    public openCashDrawer() {
-        try {
-            let data = MCommand.initializePrinter();
-            let buffer = NSMutableData.alloc().initWithData(data);
-            data = MCommand.openCashBoxRealTimeWithMAndT(0, 2);
-            buffer.appendData(data);
-            this.printer.MWriteCommandWithData(buffer);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+  }
 }

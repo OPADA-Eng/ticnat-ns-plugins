@@ -3,10 +3,35 @@
 android {
 
 }
+repositories {
+    jcenter()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    // allow resolving local AARs placed in the plugin's libs folder
+    flatDir {
+        dirs "${projectDir}/libs"
+    }
+}
+
 
 dependencies {
     // Describe plugin native Android dependencies like
 	// implementation "groupName:pluginName:ver"
     // EXAMPLE: implementation "com.facebook.fresco:fresco:0.9.0+"
-    // implementation 'com.github.chivorns.androidx:smartmaterialspinner:1.2.1'
+        // Prefer a locally-vendored AAR if present. To vendor the AAR, download
+        // smartmaterialspinner-1.2.1.aar from JitPack and place it in
+        // packages/nativescript-searchable-select/platforms/android/libs
+        // Then uncomment the implementation below and comment out the remote
+        // implementation line.
+
+        // Local vendored AAR (preferred). To vendor the AAR:
+        // 1. Download the AAR from https://jitpack.io/com/github/chivorns/androidx/smartmaterialspinner/1.2.1/smartmaterialspinner-1.2.1.aar
+        // 2. Place it at: packages/nativescript-searchable-select/platforms/android/libs/smartmaterialspinner-1.2.1.aar
+        // 3. Re-run the build.
+
+        // Use local AAR from libs (preferred when present)
+        // implementation(name: 'smartmaterialspinner-1.5.0', ext: 'aar')
+        implementation 'com.github.chivorns:smartmaterialspinner:2.0.0'
+        // Remote fallback (JitPack) - keep as a fallback if network access is available
+        // implementation 'com.github.chivorns.androidx:smartmaterialspinner:1.2.1'
 }

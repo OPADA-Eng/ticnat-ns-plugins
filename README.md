@@ -1,14 +1,20 @@
 - [@ticnat/nativescript-image-cache](packages/nativescript-image-cache/README.md)
 - [@ticnat/nativescript-intermec-printer](packages/nativescript-intermec-printer/README.md)
+- [@ticnat/nativescript-page-to-pdf](packages/nativescript-page-to-pdf/README.md)
 - [@ticnat/nativescript-searchable-select](packages/nativescript-searchable-select/README.md)
 - [@ticnat/nativescript-sewoo-printer](packages/nativescript-sewoo-printer/README.md)
 - [@ticnat/nativescript-socketmobile](packages/nativescript-socketmobile/README.md)
 - [@ticnat/nativescript-t3b-printer](packages/nativescript-t3b-printer/README.md)
 - [@ticnat/nativescript-woosim-printer](packages/nativescript-woosim-printer/README.md)
+- [@ticnat/nativescript-x-printer-bt](packages/nativescript-x-printer-bt/README.md)
 
 # How to use?
 
 This workspace manages the suite of plugins listed above. 
+
+## Prerequisites
+
+- Node 20+ is recommended
 
 In general, when in doubt with what to do, just `npm start`.
 

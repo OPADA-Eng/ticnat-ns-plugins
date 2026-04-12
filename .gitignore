@@ -7,7 +7,6 @@
 
 # dependencies
 node_modules
-package-lock.json
 yarn.lock
 
 # IDEs and editors
@@ -42,5 +41,6 @@ Thumbs.db
 
 *.tgz
 packages/**/angular/dist
-tools/assets/App_Resources/iOS/build.xcconfig
-tools/assets/App_Resources/Android/src/main/res/values/socket.xml
+
+.nx/cache
+.nx/workspace-data

@@ -4,13 +4,6 @@
     "outDir": "../../dist/out-tsc",
     "rootDir": "."
   },
-  "exclude": [
-    "**/*.spec.ts",
-    "angular"
-  ],
-  "include": [
-    "**/*.ts",
-    "references.d.ts",
-    "../nativescript-socketmobile/typings/caputre-android.d.ts"
-  ]
+  "exclude": ["**/*.spec.ts", "**/*.test.ts", "angular"],
+  "include": ["**/*.ts", "references.d.ts"]
 }

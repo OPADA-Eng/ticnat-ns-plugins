@@ -1,13 +1,13 @@
 {
   "name": "@ticnat/nativescript-image-cache",
   "version": "1.0.7",
-  "description": "Plugin for caching images",
+  "description": "Add a plugin description",
   "main": "index",
-  "typings": "index.d.ts",
+  "types": "index.d.ts",
   "nativescript": {
     "platforms": {
-      "ios": "8.0.0",
-      "android": "8.0.0"
+      "ios": "6.0.0",
+      "android": "6.0.0"
     }
   },
   "repository": {
@@ -22,7 +22,7 @@
     "Android"
   ],
   "author": {
-    "name": "TicNat",
+    "name": "Mohamad Opada Albosh",
     "email": "m.opada.albosh@gmail.com"
   },
   "bugs": {

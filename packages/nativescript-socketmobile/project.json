@@ -1,0 +1,65 @@
+{
+  "name": "nativescript-socketmobile",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/nativescript-socketmobile",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/nativescript-socketmobile",
+        "tsConfig": "packages/nativescript-socketmobile/tsconfig.json",
+        "packageJson": "packages/nativescript-socketmobile/package.json",
+        "main": "packages/nativescript-socketmobile/index.d.ts",
+        "assets": [
+          "packages/nativescript-socketmobile/*.md",
+          "packages/nativescript-socketmobile/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/nativescript-socketmobile/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts nativescript-socketmobile"],
+        "parallel": false
+      },
+      "outputs": ["{workspaceRoot}/dist/packages/nativescript-socketmobile"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages nativescript-socketmobile"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/nativescript-socketmobile/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
