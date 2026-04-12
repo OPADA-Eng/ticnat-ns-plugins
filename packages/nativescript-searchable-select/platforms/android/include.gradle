@@ -1,7 +1,7 @@
 /* Include.gradle configuration: http://docs.nativescript.org/plugins/plugins#includegradle-specification */
 
 android {
-	
+
 }
 repositories {
     jcenter()
@@ -16,7 +16,7 @@ repositories {
 
 dependencies {
     // Describe plugin native Android dependencies like
-	// implementation "groupName:pluginName:ver" 
+	// implementation "groupName:pluginName:ver"
     // EXAMPLE: implementation "com.facebook.fresco:fresco:0.9.0+"
         // Prefer a locally-vendored AAR if present. To vendor the AAR, download
         // smartmaterialspinner-1.2.1.aar from JitPack and place it in
