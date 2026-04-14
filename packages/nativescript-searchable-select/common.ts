@@ -2,7 +2,7 @@ import { booleanConverter, Button, Color, FlexboxLayout, Frame, GridUnitType, is
 import { isNullOrUndefined } from '@nativescript/core/utils/types';
 import { GridLayout } from '@nativescript/core/ui/layouts/grid-layout';
 import { CoreTypes } from '@nativescript/core/core-types';
-import { PercentLength } from '@nativescript/core/ui/styling/style-properties';
+import { PercentLength } from '@nativescript/core';
 export class SearchableSelectCommon extends GridLayout {
   // public isSearchable: boolean = false;
   public hint: string = 'Select some item';
@@ -183,7 +183,7 @@ export class SearchableSelectCommon extends GridLayout {
               self.clearSelect();
             }
           },
-          self
+          self,
         );
       });
     else {
@@ -317,7 +317,7 @@ export class SearchableSelectCommon extends GridLayout {
           this.open();
         }
       },
-      this
+      this,
     );
     let tags = this.renderTags();
     let filterselect = new GridLayout();

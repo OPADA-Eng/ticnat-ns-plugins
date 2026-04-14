@@ -1,6 +1,6 @@
 {
   "name": "@ticnat/nativescript-searchable-select",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Add a plugin description",
   "main": "index",
   "types": "index.d.ts",
